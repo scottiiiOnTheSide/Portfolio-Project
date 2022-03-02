@@ -1,0 +1,732 @@
+
+<!-- S I T E  U N I F I C A T I O N
+
+	03. 01. 2022
+	@1221 Now working in new folder and preparing project for upload on Github.
+	      - as the images are quite large, will exclude them from upload
+
+	@1217 Background photos need to be weworked: periodt
+		  Gallery nav bar needs to be redone so that height encompassed 
+		  all children. Currently does not, and background looks funny
+		  when scrolling over albums
+
+	@1152 
+		To Fix: Gallery
+		- Gallery nav bar and header should be static on top of page (fixed)
+		- Nav bar too big in mobile
+		- Background pictures dont resize well in mobile, currently
+		- Bottom of album list gets cut short (fixed)
+	
+	03. 01. 2022
+	@2044 Added "Gallery" section to index.html and begun reorganizing gallery.js.
+		Some minor issues to fix, overall integrated fine (for now)
+		(Will definitely have to redo the navigation for the galleries...
+		 Not very intuitive at all . . .)
+
+	02. 26. 2022
+	@1133 after spending some time researching a node tutorial, I've decided to indeed finish putting everything together, and then pivoting to take some to explore and learn Node. It seems as though it'll take some time for me to hop around in 'tutorial hell' to find / learn it. 
+
+	@0925 For now, gonna prioritize getting everything we have together and preparing for a github upload and hosting over node.js
+	Once that is done, development can continue in terms of whatever tweaks and later, upgrades, need to be done / added
+
+
+	02. 25. 2022
+	@1230 "Disabled" nav menu option once viewing corresponding page, now works!
+			fixed some issues with the nav in mobile form
+
+	02. 24. 2022
+	@1708 Begun adding function so that menu option is 'disabled' after selecting
+	      it / being one it's respective page. 
+	      Works once leaving the landing section (arrival) but not after...
+
+	02. 23. 2022
+	@1414 Added functionality to arrival menu options - that works fine
+		  but slow down transition
+	    
+	    -  Some kinks to work in regards to using nav within site sections
+	      also, header and nav spacing from edges slightly messed up?
+
+	    - arrival UIE still 'snaps' together too quickly
+	    - Images fading in and out smoothly, timing propably needs to be adjusted
+	    - Switch which menu option has 'disabled' when viewing it's respective section [DONE]
+
+	02. 22. 2022
+	@0520 Begun integrating all pages together.
+		  Cleaned up landing.js and began to organize, so that I can use export/import when site goes live, channeling control of all scripts through
+		  one main script
+
+		  Added functionality to sectionSelection() so that it operates differently
+		  when used on arrival section
+
+		  To Do
+		  - add sectionSelection() toggleHeaderHav() to arrival menu items
+		    ( arrival should be fully functional )
+		  - allow clicking on header to return to arrival section
+		    ( switching from arrival to another section should revert
+		      arrival to original form )
+
+		  *Integrate rest of sections, clean up their code
+
+<!--- P R O J E C T  N O T E S : A B O U T
+
+	02. 17. 2022
+	1549 Site Navigation now functional!
+		 After adding all other section content to index.html,
+		 will need to create function for 'default' section settings,
+		 for when users switch sections mid usage
+
+		 To Do
+		   - Add rest of section content
+		   - Mobile styling for Navigation
+		   - Transition function from landing section to section selection
+		   	 - could function selectSection be modded to fit both usages?
+
+	02. 16. 2022
+	2207 Begun putting all of the pages together. 
+		 Laid out some intentions for nav function designs
+
+		 still need to edit nav stylings for mobile
+
+	02. 15. 2022
+	@1413 Styling complete for About section.
+		  IMHO, CSS order and labeling scheme needs to be cleaned up.
+
+		  Next to do:
+		  - Combine all 3 sections + filler page for contact into 1 index.html
+
+		  - Organize CSS between all 3 sections
+
+		  - Build out rest of Nav functionality
+		  	- Set Nav to switch between light and dark for different sections
+		  		- unify header and nav css
+
+
+		  After this is complete, plans are to upload to Github and use as template
+		  to begin learning Node.js.
+
+	02. 14. 2022
+	@1440 Have worked on project a couple more times before today, but forgot to make entries
+		  Significant progress on 'About' section
+
+		  Need to:
+		  - adjust text size within div.contentWrapper for tablet sizes (768px)
+		    and then adjust positioning for sibling elements
+		  - Also need to adjust image expansion size + 'the Developer' image 
+		    needs to stay in place when expanding (it currently shifts to the right)
+
+		  1024 and below will be considered a mobile styling, atleast
+		  for the Nav bar. 
+
+	02. 08. 2022
+	@1159 Function for toggling text created.
+		  "Simply" need to work on mobile styling (ipad and phone)
+
+		  Afterwards, COMBINING EVERYTHING TO GEH THHHEER
+
+	02. 07. 2022
+	@0003 Started working on function to switch text content
+		  Need to find way to have textWrapper be same size as largest paragraph,
+		  and or hide the others, only to appear when called
+
+	02. 06. 2022
+	@2102 Edited hover animations for each side.
+		  Open and close functions created and added for content
+
+		 Need To Do
+		 - Add function for scrolling text sections
+		 - media queries, mobile styling
+
+	02. 03. 2022
+	@2041 All elements added in JS
+		  sidenote, made use of classed ;D Feeling accomplished
+
+	01. 29. 2022
+	@1024 Side note for future build - preload images before rendering gallery section
+
+	01. 28. 2022
+	@1608 Finished adding styles to all elements
+	Implement JS functions. First, get all elements.
+	Then describe algortithms for functions (design of transitions)
+	
+	01. 27. 2022
+	@2118 Put some work into the text content styling
+
+	@1645 Styling of text related content for about, 
+	then JS functionality
+	
+	01. 23. 2022
+	@1509 Begun CSS styling for elements
+
+	01. 22. 2022
+	@1301 Added basic structure for HTML, description of functions and transitions
+		 
+
+	01. 21. 2022
+	@1548 Begun some redesigns for the 'about' section . . .
+
+		  -- Need to crop photo of me at desk. Have both images sized similarly
+
+
+	Yes, it has indeed been about a month since I touched this project.
+	This is all about getting our toes back in and finishing, completing
+	a build. ( consistency will improve . . . ) 
+
+
+<!--- P R O J E C T  N O T E S :  N  A  V  I  G  A  T  I  O  N
+
+	12.14.2021
+	@1551 Added simple version of section names in nav bar.
+		  Font needs to be adjusted for phone, mobile view
+
+	@1320 Navigation transitions up to par.
+		  Need to disable it once image viewers are active, but this something
+		  to implement once entire project is pulled together.
+
+		  For "Demonstrations" button, that goes to gallery,
+		  set all divs within this section to have class 'remove',
+		  so that the section is reset, only the main menu appearing
+
+	12.13.2021
+	@1500 Made some additions concerning the mobile version of nav
+		  issue with background color of nav transitioning nav menu page
+		  need to find new implementation ....
+
+	@1357 Currently in dev, remember to disable navigation while within galleries
+
+	12.10.2021
+	@2050 Transition added for buttons upon menu toggle
+
+		  To Do:
+		  - Media query (will possibly adjust size of elements for tablet view)
+		    redefine span.corner
+		    style changes for span.menu-active
+		    (will have to use keyframes to style changes)
+
+		  - would like to add an effect of a line running through the text upon click
+
+	12.09.2021
+	@2148 Menu now functional. Need to add animation for buttons after
+		  menu div appears. Will have them slide to the left from the
+		  corners. Also implement this effect in reverse
+
+	12.08.2021
+	@2203 Put some work into menu . . .
+		  As of now, would like to see the 
+		  - corners expand (scale and margin)(middle one rotates) as
+		  	the menu activates (display, opacity)
+		  	  * use JS for menu activation, class control
+
+
+
+	12.02.2021
+	@1938 Begun work on Navigation Menu
+		  Hover function works to denote current active sections
+
+		  To Do:
+		  - Would like a spaghettification affect
+		    with the words 
+		  - modal overlay with the menu options
+		  - Nav to be sticky in place
+
+		  ?! Can add function to transition between
+		  	 pages AFTER 'About Me' is complete
+
+		 To Do:
+		 - ABOUT ME PAGE !
+
+
+
+<!--- P R O J E C T  N O T E S :  G  A  L  L  E  R  Y
+
+	11.29.2021
+	@2054 No work towards project tonight:
+		  Outlining next goals:
+		  - Navigation function 
+		  - i GUESS an "about me" page
+
+		  	the "about me" & gallery +(landing) will be the only two parts for now
+		  	will work on and add contact later...
+
+		  - reLearn Git to upload project there
+		  - then, eventually, the contact section (forms ARENT that bad...)
+
+		  * would also like to fit in learning about and setting up das server
+
+	11.28.2021
+	@2110 P r e t t y M u c h finished with mobile styling.
+		  will need to give project another check for anything else missed,
+		  seeming 90% complete at this point
+
+		  Will need to run project on mobile screen sizes
+		  to ensure mobile styling is adequate
+
+	11.27.2021
+	@2125 Worked on mobile styling for mainMenu (complete)
+		  and section#album
+		  - need to implement style that works for when
+		  	all images in thumbnails are horizontally long
+
+	@1940 All images that aren't RAW are now accessible 
+		  Also added some new ones
+
+	11.23.2021
+	@2037 Made UI changes to the imageViewers....
+		 Would like to make sure all photos are accessible before 
+		 going on to media query
+
+	@1430 Changed hover animations for albums UI controls.
+			Would still like to change controls for photoViewer as well
+
+			TBH, might redesign both imageViewers (._. )
+
+	11.22.2021
+	@2341 fixed some styling to the UI controls for viewing albums and viewALL
+		  Dont like how they currently look tho
+		  May add additional element, 50% in width, with open border.
+		  Might make the hover affect look cooler, i dunno.
+		  Possibly utilize css after psuedo class
+
+		  Mobile styling should be worked on soon after.
+
+	11.20.2021
+	@2224 CSS styling for main Menu added 
+		  (wasn't able to implement 100% as originally designed, but satisfied)
+		  Styling adjusted for album selection
+		  (may adjust further)
+
+		  FIX
+		    - many of the images/folders are either
+		      not named correctly
+		      or
+		      not a jpg
+
+		  To Do
+		    - continue CSS styling
+		    - mobile styling . . . D:
+
+	@1436 Added thumbnails of first few images from albums to div.entries.
+		  Currently feeling iffy about the styling tho . . .
+
+	@1247 Now everything actually works smootly :D
+
+	@1210 viewAll buttons now work as intended :D
+
+	11.16.2021
+	@2103 viewAll back and next buttons work, however class changes/animations
+		  dont seem to be.
+		  Also need to add if statement to cycleFoward and backwards,
+		  for when viewAll is up, to change the update the current span 
+
+	@2242 Finished adding the code for albumNext.
+		  All nav works as intended :D
+
+	@2211 (Almost) completely implemennted viewAll :D !!!
+		  Just need to add more code to albumNav_Next, √
+		  so that when all images are being viewed, it transitions properly
+		    - clicking it should also advance the currentGalleries.all as well
+		    - Will have it revert back to div.entries, instead of leaving allImages up
+
+		 AFTER - NEXT
+		   - viewAll controls
+		   - complete intend styling, based off of initial designs
+		     ( unsure whether to implement preview of first images....)
+	
+	11.15.2021
+	@2221 Moved Modal prompt to better position
+		MEXT: added some css for it already,
+			 finish implementation for viewAll images
+
+	11.14.2021
+	@0031 Consider alternate styling for viewAlbum, with removed header,
+		  alternate widths already in css
+
+	@0011 Technically, it's the 15th.
+		  Fixed all the UI issues :D
+
+		  viewAll needs to have section with every image loaded,
+		  selecting an image prompts viewAll gallery with current
+		  image loaded
+
+	@1626 Main Menu for galleries is now operational, 
+		  but many UI issues to fix
+		  - order of menu options and galleries within the JS dataset is not aligned √
+		  - viewAll button? Have gallery name switch to say 'view all' on hover, 
+		  	is also button to view all √
+		  - return button should bring us back to mainMenu √
+		  - next should cycle to next album √
+
+		  ALSO
+		  - rePosition the prompt button within gallery √
+		  - viewAll functionality √
+		    (for viewAll counter, can simply set innerHTML of counter to index)
+
+	@1554 fancyGallery functions assigned 
+		  Also made adjustments to code, so that gallery traversal works as intended
+
+	11.13.2021
+	@1843 all functions for counter created. 
+		  NEXT: 
+		  - simply need to assign the object functions to other functions √
+		    within renderGallery and the gallery controls.
+		  - rePosition the prompt button within gallery
+		  - viewAll functionality
+		    (for viewAll counter, can simply set innerHTML of counter to index)
+
+	@1632 Adjusting the timing for the gallery control functions have helped _s o m e w h a t_
+		  The images being used are still in large file sizes, however...
+
+	11.12.2021
+
+	@1607 Added transition for cycling through images. 
+		  - need to add class for viewAll_img as well
+		  - the transition gets a little finicky when used often, try adjusting
+		  timing in css and JS to fix
+
+	@1529 Created modal, added functions for 'return to gallery' and closing it.
+		  Modal prompt needs to be moved somewhere much more stylish (._. )
+		  Add viewAll functionality to modal once it gets created
+
+	11.11.2021
+	@2052 Solution found :P Was honestly a stupid problem - just added the
+	control functions, but didn't aaaign them T- T.
+			N E X T: make the image count tracker work :D √
+					 add animation for image transition (timing should line up with image tracker) √
+					 return button pls √
+					 viewAll functionality... (have the images load row by row)
+
+	@2045 working on second half of render function,
+		  can't assign functions for viewAlbum ui within a forEach loop.
+		  have to find different way of dynamically reassigning them
+
+	@1706 About 2 SOLID hours of work done.
+		- created functions for operation gallery buttons
+		- 1/2 of renderGallery function created
+
+	@1507 for some reason, must use arrow function when using .addEventListener
+
+	11.09.2021
+	@1210 Fixed extendAblums so that file names are written correctly
+		NEXT: create functionality for viewAlbum
+
+	@1146 Gonna have to rename photo galleries (._. )
+
+	@1135 Realizing now that the image names created aren't complex enough.
+		  Also need to design viewAlbum and viewAll functionality first.
+
+		  But so far,
+		  have added CSS toggling classes √
+		  function to add/remove main sections within this part of project √
+
+	@0953 Today's goals:
+		  - Add css toggling classes for larger HTML sections and divs
+		  - Add 'return to gallery' buttons for viewers 
+		  - Begin writing functionality within JS (mainMenu to album with
+		    corresponding data);
+
+	11.08.2021
+	@2053 All HTML Elements now have JS Counterparts.
+	NEXT : add 'return to gallery' button in nav section in galleries for now
+		 : begin writing functions for ... everything
+			- creating and writing to album entries,
+			- removing / changing current element (need to create transition classes)
+			  for those elements T- T
+			- code for updating the counters within the galleru naviations
+
+	@2027
+	album.appendChild() is needed to add album entries 
+	current 'albumEntry' template is a template lol. Will probably use it with
+	object.create() within other functions
+
+	@1353 Basic styling complete for all elements.
+	As per previous entry today, styles will need to be consolidated, 
+	and the overall designed compared to the original intended
+	NEXT: create exit button for each gallery type (add prompt page later)
+		 creating the JS element counter parts
+
+	@1306 Will have to consolidate styling rules, have elements with similarities
+	share styling
+
+	@1129 Finished styling for viewAlbum 
+
+
+	11.07.2021
+	@1414 Working on remainder of HTML elements
+	would like to complete basic styling for all elements today
+	and begin create JS counterparts
+
+	11.06.2021
+	@1154
+	Added more elements + styling to the page
+	To Do (eventually)
+	- spacing between elements and font sizes DEFINITELY need to be adjusted
+	  for mobile
+
+	11.05.2021
+	@1022
+	Added some initial styling and elements to the page
+	I really ought to start working on this EARLIER during the day D:
+
+	Next steps would be to design & set up the layout for
+	- albums,
+	- viewAlbum,
+	- viewAll
+
+	11.04.2021
+	@0017
+	Technically started this since....around 9?
+	But successfully wrote code to create organized data sets of the gallery.
+	Objects with albums, those albums having their own images, and a collection of all
+	the images within an object
+
+	11.02.2021
+	@0125 Spent a v e r y long time working on designing an organization
+	of data for the galleries.
+	Did organize the folders, however.
+
+	11.01.2021
+	@1952 Thought I would be able to implement my ideas for the full gallery
+	part of the site with just basic JS. I am not :/
+	Have to reconsider how much of this site I intend to build out with just 
+	Front End. 
+	Have to come up with ideas for implementation
+
+	!? Maybe have each gallery in individual folder, (extra gallery for those without)
+	then, array with "x.jpg" for however many amount of images in said gallery.
+	Probably an object with function that writes out each img file name based on a property value of length, amount of images
+
+	Another function that could then make array of all the images in each category,
+	extracting them all from each object in said category
+
+	use practice20 for help with design of function to go through nested arrays
+
+	will have to reorganize images in folders...
+
+--->
+
+<!---
+	P R O J E C T  N O T E S : L  A  N  D  I  N  G 
+	11.01.2021
+	@1903 spending additional time on this stressed me D:
+
+	@1841 'fixed' an effecting timing issue with the UIE by decreasing
+	the amount of time it takes to spin around. Dunno how I feel about it...
+	But it looks more cohesive
+
+	@1807 Removed 'mouseover' function from script,
+	simply added the classes it was handling by default to the UIE parts.
+	Solves the first part of the issue. 
+
+	10.31.2021
+	@1558 CAROUSEL STYLING FOR MOBILE COMPLETE !!!
+	Landing section still has some kinks to work out 
+	  - the UIE compresses weirdly on click (will probably have to
+	  remove event listener for mobile)
+	  - UIE shape is funny when clicked again after first click (mobile)
+
+	Project 90% complete :D !
+
+	@1602 
+	Yeah we need to change event listeners at for mobile....
+
+	@1339 images now adjust properly for different widths :D
+	Gotta remember to have 'else's for your 'ifs'
+	also, decorator functions only work if original function takes arg
+	remember to be open when reading docs and tuts in looking for a solution
+	sometimes they'll tell you the ideal solution were thinking of doesnt work
+
+	10.30.2021
+	@2308 Spent too much time trying to fix dis shit
+	Make if(mediaQuery1024) a function, have it run on page load
+	and every time the carousel switches the images.
+	should fix our issue. 
+
+	@2156 Begun adding mobile styling for carousel, however images are
+	not adjusted well within element size limits. Will most likely need
+	to make images background images instead, so that they can be adjusted
+
+	could potentially use object-position property to make adjustments...
+
+	@1955 Believe I have now edited all text related, UIE and Logo elements
+	to acceptable styling for mobile widths and smaller desktops
+
+	10.29.2021
+	@2219 Continued working on further styling adjustments
+	for text elements, logo and UIE - yet may actually need
+	to use local host in order to see this on mobile for
+	actual viable styling
+
+	Will work on vertical styling for carousel next...
+
+	10.28.2021
+	@2102
+	Media Query / Mobile Styling TaskList ....
+	√ Made styling adjustments for section#menu, logo and UIE
+	  ( will need to further verify design on a mobile device)
+	- Vertical styling for carousel
+	  - need to make new transition classes for movement
+	     - change animation values for those corresponding elements
+	     	within the media query. Define the keyframes outside of
+	     	the query
+
+	10.25.2021
+	@11:12pm
+	last thing, MEDIA QUERIES !
+	afterwards, this part of the project should honestly be complete
+
+	  √ added 3d(ish) glitch affect to menu text
+
+	√ Adjusted the animation times for UIE, title text and carousel
+
+	Planning for adding Media Queries:
+	* loadUp_ and LoadDown_ classes need to have query
+	  for mobile. The images will be vertical, thus will need to slide
+	  that way
+	* menu items vertical instead of horizontal 
+
+
+	10.24.2021 
+	L A S T  S T E P S 
+	√ adjust animation speeds ( UIE animates faster than elements change )
+	√ hover affect for menu options (the whole div will be the button)
+	- media queries
+
+	@10:49
+	- UIE is functional: switches title and carousel to logo and menu
+
+	@10:05pm
+	spent most of the evening trying to find way to stop 
+	carousel from running, as it will contine to make changes 
+	to the DOM.
+	Was unable to.
+
+	N E X T 
+	- Make UIE functional:
+		*when clicked, carousel *stops* and disappears,
+		 menu appears
+
+		*should also work in reverse
+
+	- hover affect for menu options (the whole div will be the button)
+	- media queries
+
+	@3:05pm
+	- section.Menu created
+		* all inner elements styled
+
+	@2:12pm
+	- created function to switch title text with logo
+		*will adjust animation times after menu
+
+	@ 12:20
+	- Cleaned up JS and adjusted animation times for header and UIE
+
+
+	10.23.2021
+	- Added fonts to css
+	- Added Icon and header text to html
+	- Converted Icon graphic from Adobe Xd file to SVG
+	( had to spend some time thinking about the best implementation of this)
+	N E X T
+	- on page load, animations for header text and UIE (could be done in css)
+		- header text, UIE, then carousel
+	- create new section.Menu with links to other portfolio sections and descriptions
+		- functionality for UIE to change section from Carousel to Menu
+			- on switch to menu, cease carousel's js
+			- on switch, header text switches place with logo
+
+
+	10.22.21 @ 11:58pm
+	- Resized and cropped images
+	- wrote script for and implemented carousel
+	E V E N T U A L L Y
+	- find way to cache images, so that they load faster initially
+	  ( or maybe make them even smaller in size T- T)
+	- Reverse animation for imgWrappers - once they move in a direction,
+	they move in reverse from that direction, instead of restarting
+	N E X T
+	- add header text
+	- initial site load sequence 
+	( header fades in, images, and then UIE)
+	- UIE function to change 'section' to menu section
+
+
+	10.21.21 @ 8:20pm
+	- Tonights intention, add the images to the html,
+	- perhaps make arrays within script
+
+	@ 10:42pm 
+	- added initial images
+	- changed images name within folders
+	- fixed css and added JS for imgWrapper to match original, intended design
+	- added array for images
+	N E E D  T O
+	  - resize images to be smaller,
+	  - crop 2nd and 3rd images to match design
+	  - write out script for carouselling
+
+	10.20.21 
+	@9:46pm
+	- divs are regaining opacity too quickly for my liking
+
+	@ 9:36pm
+	-created css classes & animation keyframes for div.imgWrapper 
+	-added initial classes to html
+
+
+	@ 8:21pm
+	/* 
+		img wrappers load with class that has animation by default.
+		set a timer for a few seconds, then check whether wrappers have class.
+		if true, replace class with another - which has outgoing animation.
+		another delay. if img is first in set, remove - add second img. then
+		reset imgWrapper to have original class. 
+
+		this repeats, cycling through all the images 
+	*/
+
+	10.19.2021 @ 7:47pm
+	Added base styling for showcase, the sections and the image wrapper
+	!? Need to design JS + CSS sequence for the animation
+
+	10.18.2021 @ 6:44pm
+	Added initial HTML markup for images 
+	Stated intention for the design and current implementation idea
+	added images to project folder for usage
+
+
+	10.18.2021 @ 1;32am
+	came up with an acceptable solution
+
+	@ 12:47am
+	Gonna have to reevaluate design with the UIE....
+
+	10.16.2021 
+	@7:22 
+	PERSEVERING THROUGH THE DAY AND TASK the UIelement now smoothly animates
+	as intented.
+	N e x t T a s k: on click, 'compress' corners into box, while wrapper
+	continues to rotate(?)
+
+	@ 11:43am
+	Upon hovering over wrapper, each span element within in it gets a
+	css styling which causes them to move inward.
+	Once no longer hovering over the wrapper, this styling is gone
+	and the elements revert to original positions.
+
+	10.14.2021 @ 7:08pm
+	Would like to implement additional animation for UI element where the corners
+	slightly close in on eachother when the wrapper is hovered
+
+	10.10.2021 @ 8:52pm 
+	Solution implemented:
+	have angle elements be inline block and sized relatively to
+	wrapper element - solving the sizing, posisiton and reference issue.
+	To progress 2moro...
+
+	10.10.2021
+	Design intentions for the UI button aren't currently going as seemlessly as thought.
+	- wrapper element isn't rendering with any width, and thus not properly orienting in
+	the center
+		- also leads to the issue of not having one central element to corresspond to the
+		others, as wrapper is technically, spacially 'empty'
+-->

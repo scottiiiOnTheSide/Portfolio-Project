@@ -1,0 +1,519 @@
+section#arrival {
+	position: relative;
+	width: 100vw;
+	height: 100vh;
+	background-color: black;
+	overflow: hidden;
+}
+
+
+div#menu {
+	display: none;
+	position: absolute;
+	width: 95%;
+	/*height: 50%;*/
+	margin: 0;
+	margin-left: 10px;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+
+	div#menu div.option {
+		display: inline-block;
+		position: relative;
+		float: left;
+		width: 33%;
+		height: 99.8%;
+		margin: 0;
+	}
+
+	div#menu div.option h1 {
+		font-family: 'Avenir';
+		font-weight: 500;    
+		font-size: 1.5em;
+		color: white;
+		letter-spacing: 20px;
+    	text-align: center;
+    	margin: 0;
+    	margin-bottom: 20px;
+	}
+
+		/*
+			Glitch effect, courtesy of Kevin Powell
+		*/
+
+		div#menu div.option:hover > h1.glitch {
+			text-shadow: 0.05em 0 0 rgba(255, 0, 0, .75),
+						 -0.025em -.05em 0 rgba(0, 255, 0, .75),
+						 0.025em .05em 0 rgba(0, 0, 255, .75);
+			animation: glitch 750ms infinite;
+		}
+
+		div#menu div.option:hover > h3.glitch {
+			text-shadow: 0.05em 0 0 rgba(255, 0, 0, .75),
+						 -0.025em -.05em 0 rgba(0, 255, 0, .75),
+						 0.025em .05em 0 rgba(0, 0, 255, .75);
+			animation: glitch 750ms infinite;
+		}
+
+
+		@keyframes glitch {
+			0% {text-shadow: 0.05em 0 0 rgba(255, 0, 0, .75),
+						 -0.025em -.05em 0 rgba(0, 255, 0, .75),
+						 0.025em .05em 0 rgba(0, 0, 255, .75)}
+
+			24% {text-shadow: 0.05em 0 0 rgba(255, 0, 0, .75),
+						 -0.025em -.05em 0 rgba(0, 255, 0, .75),
+						 0.025em .05em 0 rgba(0, 0, 255, .75)}
+
+			25% {text-shadow: -0.05em -0.025em 0 rgba(255, 0, 0, .75),
+						 0.025em .025em 0 rgba(0, 255, 0, .75),
+						 -0.05em -.05em 0 rgba(0, 0, 255, .75)}
+
+			75% {text-shadow: 0.05em 0.05em 0 rgba(255, 0, 0, .75),
+						 0.05em .0em 0 rgba(0, 255, 0, .75),
+						 0.025em -.05em 0 rgba(0, 0, 255, .75)}
+
+			76% {text-shadow: 0.05em 0.05em 0 rgba(255, 0, 0, .75),
+						 0.05em .0em 0 rgba(0, 255, 0, .75),
+						 0.025em -.05em 0 rgba(0, 0, 255, .75)}
+
+			99% {text-shadow: -0.025em 0 0 rgba(255, 0, 0, .75),
+						 -0.025em -0.025em 0 rgba(0, 255, 0, .75),
+						 -0.025em -0.05em 0 rgba(0, 0, 255, .75)}
+			100% {text-shadow: -0.025em 0 0 rgba(255, 0, 0, .75),
+						 -0.025em -0.025em 0 rgba(0, 255, 0, .75),
+						 -0.025em -0.05em 0 rgba(0, 0, 255, .75)}
+		}
+
+
+
+	div#menu div.option h3 {
+		font-family: "Open Sans";
+		font-weight: 300;
+		font-size: 16px;
+		letter-spacing: 6px;
+		line-height: 32px;
+		text-align: center;
+		color: var(--text-gray);
+		margin: 0 auto;
+		width: 90%;
+	}
+
+
+
+
+
+
+
+
+
+@keyframes load {
+	from {opacity: 0;}
+	to {opacity: 1;}
+}
+
+@keyframes switchOut {
+	0% {opacity: 1;}
+	100% {opacity: 0;}
+}
+
+@keyframes switchIn {
+	0% { opacity: 0;}
+	100% {opacity: 1}
+}
+
+.switchOut {
+	animation-name: switchOut;
+	animation-duration: 1s;	
+	animation-timing-function: ease-in;
+	animation-fill-mode: forwards;
+}
+
+.switchIn {
+	animation-name: switchIn;
+	animation-duration: 1s;
+	animation-timing-function: ease-in;
+	animation-fill-mode: forwards;
+}
+
+div#title {
+	position: absolute;
+    top: 10%;
+    left: 50%;
+    transform: translateX(-50%);
+    animation-name: load;
+    animation-duration: 2s;
+	animation-timing-function: ease-in;
+}
+
+	div#title h1 {
+		font-family: 'Avenir';
+		font-weight: 500;    
+		font-size: 3em;
+		color: white;
+		letter-spacing: 20px;
+    	text-align: center;
+    	margin: 0;
+    	margin-bottom: 10px;
+	}		
+
+	div#title h3 {
+		font-family: "Open Sans";
+		font-weight: 300;
+		letter-spacing: 1.25em;
+		text-align: center;
+		color: var(--text-gray);
+		margin: 0;
+	}
+
+	div#title span {
+		display: none;
+		margin-left: 30px;
+		position:  relative;
+	}
+
+
+div#showcaseWrapper {
+	display: block;
+	position: absolute;
+	width: 96%;
+	height: 50%;
+	margin: 0;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	white-space: nowrap;
+	/*for dev'ing purposes*/
+	/*border: 1px solid var(--main-color-green);*/
+}
+
+	div.showcaseSlides {
+		display: inline-block;
+		position: relative;
+		float: left;
+		width: calc(25% - 2px); /*can make this regular 25% after removing border*/
+		height: 99.8%;
+		margin: 0;
+		/*margin-left: -2px; /*fixes issue of having all divs on single line
+		/*for dev'ing purposes*/
+		/*border: 1px solid white;*/
+	}
+
+		div.imgWrapper {
+			display: block;
+			position: absolute;
+			width: 92%;
+			height:  40%;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+			opacity: 1;
+			/*for dev'ing purposes*/
+			background-color: lightgray;
+		}
+
+/*		div.imgWrapper:nth-of-type(1) { top: 45%;}
+		div.imgWrapper:nth-of-type(2) { top: 45%;}
+		div.imgWrapper:nth-of-type(3) { top: 55%; }
+		div.imgWrapper:nth-of-type(4) { top: 55%; }
+*/
+			@keyframes loadUp_In { 
+				from{ top: 60%; opacity: 0; } 
+				to{ top: 45%; opacity: 1;} 
+			}
+			@keyframes loadRight_In {
+				from{ left: 40%; opacity: 0; }
+				to{ left: 60%; opacity: 1; }
+			}
+
+
+			div.loadUp_In {
+				animation-name: loadUp_In; 
+				animation-duration: 1.5s;
+				animation-timing-function: ease-out;
+				transition: opacity 2s ease-out;
+			}
+			
+
+			@keyframes loadUp_Out {
+				from{top: 45%; opacity: 1;}
+				to{top: 30%; opacity: 0;}
+			}
+			@keyframes loadRight_Out {
+				from{ left: 60%; opacity: 1; }
+				to{ left: 80%; opacity: 0 }
+			}
+
+
+			div.loadUp_Out {
+				animation-name: loadUp_Out; 
+				animation-duration: 1.5s;
+				animation-timing-function: ease-out;
+				opacity: 0;
+			}
+
+
+			@keyframes loadDown_In {
+				from{ top: 40%; opacity: 0; }
+				to{ top: 55%; opacity: 1; } 
+			}
+			@keyframes loadLeft_In {
+				from{ left: 60%; opacity: 0; }
+				to{ left: 40%;  opacity: 1;}
+			}
+
+
+			div.loadDown_In {
+				animation-name: loadDown_In; 
+				animation-duration: 1.5s;
+				animation-timing-function: ease-out;
+			}
+
+			@keyframes loadDown_Out {
+				from{ top: 55%; opacity: 1; }
+				to{top: 70%; opacity: 0;}
+			}
+			@keyframes loadLeft_Out {
+				from{ left: 40%; opacity: 1; }
+				to{ left: 20%; opacity: 0; }
+			}
+
+			div.loadDown_Out {
+				animation-name: loadDown_Out;
+				animation-duration: 1.5s;
+				animation-timing-function: ease-out;
+				opacity: 0;
+			}
+
+
+
+		div.imgWrapper img {
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+		}
+
+
+div#UIEwrapper {
+	display: block;
+	position:  absolute;
+	width: 120px;
+	height: 120px;
+	top: 85%;
+	padding:  0;
+	right:  50%;
+	left:  50%;
+	transition: all 1s ease-out;
+	transition: transform 2s ease-out;
+	animation-name: load;
+    animation-duration: 1s;
+	animation-timing-function: ease-in;
+}
+
+div.nonActive {
+	transform: translate(-50%, -50%) rotate(45deg); /* rotated clock wise*/
+}
+
+div.active {
+	transform: translate(-50%, -50%) rotate(225deg);
+	/*transform: translate(-50%, -50%);*/
+}
+
+
+	div#UIEwrapper:hover > span.crnr {
+		border-color: #3BDACA;
+	}
+
+	div#UIEwrapper:hover > span.secondCorner_hovered 
+	{ right: 10px; top: 9px; }
+
+	div#UIEwrapper:hover > span.thirdCorner_hovered 
+	{ left: 10px; bottom: 10px; }
+
+	div#UIEwrapper:hover > span.fourthCorner_hovered 
+	{ right: 10px; bottom: 10px;  }
+	/*	
+		It may actually matter that these style instructions
+		be placed directly under the div#wrapper, instead of
+		being next to the span.corner styling
+	*/
+
+
+
+span.crnr {
+	display: inline-block;
+	position: absolute;
+	margin: 0;
+	width:  30%;
+	height:  30%;
+	border: 4px solid white;
+	transition: border-color 0.4s linear, 
+				top 0.4s ease-out,
+				right 0.4s ease-out,
+				left 0.4s ease-out,
+				bottom 0.4s ease-out,
+				transform 2s ease-out;
+}
+
+
+span.crnr:first-child {
+	border: 0;
+	display: none;
+} /*first from left*/
+
+
+span.crnr:nth-child(2) { 
+	right: 0; 
+	border-top: 0; 
+	transform: scale(0.98);
+}	span#crnr2-active { border-color: #3BDACA; right: 8px; top: 25px;}
+
+span.crnr:nth-child(3) {
+	bottom: 0;
+	border-left: 0;
+}	span#crnr3-active { border-color: #3BDACA; left: 29px; bottom: 10px;}
+
+span.crnr:last-child {
+	right: 0;
+	bottom: 0;
+	border-right: 0;
+}	span#crnr4-active { border-color: #3BDACA; right: 10px; bottom: 10px;}
+
+
+
+
+@media only screen and (max-width: 1439px) {
+	div#title span#logo {
+		/*transform: scale(1.25);*/
+		bottom: 60px;
+	}
+
+	div#menu div.option {
+		display:  block;
+		width: 50%;
+		float: none;
+		margin: 75px auto;
+	}
+
+	div#menu div.option h1 {
+		font-size: 1.75em;
+		margin-bottom: 10px;
+	}
+
+	div#menu div.option h3 {
+		font-size: 1em;
+		line-height: 28px;
+	}
+
+	div#UIEwrapper {
+		top: 90%;
+		width: 99px;
+		height: 99px;
+}
+
+@media only screen and (max-width: 1024px) {
+	div#title {
+		top:  7%;
+	}
+
+	div#title span#logo {
+		margin-top: 30px;
+	}
+
+	div#showcaseWrapper {
+		top: 52%;
+		height: 65%;
+/*		background: lightseagreen;*/
+	}
+
+	div#showcaseWrapper div.showcaseSlides {
+		float: right;
+		width: 100%;
+		height: 25%;	
+
+	}
+
+	div#showcaseWrapper div.showcaseSlides div.imgWrapper {
+		width: 75%;
+		height: 85%;
+	}
+
+	div.loadUp_In {
+		animation-name: loadRight_In;
+	}
+	div.loadUp_Out {
+		animation-name: loadRight_Out;
+	}
+	div.loadDown_In {
+		animation-name: loadLeft_In;
+	}
+	div.loadDown_Out {
+		animation-name: loadLeft_Out;
+	}
+	
+}
+
+@media only screen and (max-width: 768px) {
+/*	div#title span#logo {
+		transform: scale(2.5);
+	}*/
+
+	div#title h1 {
+		letter-spacing: 16px;
+	}
+
+	div#menu div.option h3 {
+		font-size: 1em;
+		line-height: 30px;
+		width: 75%;
+	}
+
+	div#menu div.option {
+		display:  block;
+		width: 100%;
+		float: none;
+		margin: 100px auto;
+	}
+}
+
+@media only screen and (max-width: 480px) {
+
+	div#title h1 {
+		letter-spacing: 10px;
+		font-size: 1.5rem;
+	}
+
+	div#title h3 {
+		font-size: 1rem;
+		letter-spacing: 12px;
+	}
+
+	div#title span#logo {
+		transform: scale(0.75);
+	}
+
+	div#UIEwrapper {
+		width: 64px;
+		height: 64px;
+	}
+
+	div#menu div.option {
+		display:  block;
+		width: 100%;
+		float: none;
+		margin: 40px auto;
+	}
+
+	div#menu div.option h1 {
+		letter-spacing: 10px;
+		font-size: 1.25rem;
+		margin-bottom: 10px;
+	}
+
+	div#menu div.option h3 {
+		font-size: 0.85rem;
+		line-height: 24px;
+	}
+}

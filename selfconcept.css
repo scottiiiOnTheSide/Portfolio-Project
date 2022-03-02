@@ -1,0 +1,463 @@
+
+
+section#selfConcept {
+	width: 100%;
+    height: 100vh;
+    position: relative;
+    overflow: hidden; /*** can probably remove later ***/
+}
+
+section#selfConcept div#mainContentWrapper {
+	width: 85%;
+	position: relative;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+
+section#selfConcept p#splash {
+	font-family: "Open Sans";
+	font-weight: 300;
+	font-size: 0.75em;
+	letter-spacing: 5px;
+	text-align: center;
+
+	width: 50%;
+	max-width: 450px;
+	position: absolute;
+	top: -175px;
+	left: 50%;
+	transform: translateX(-50%);
+	transition: all ease 0.5s;
+}
+
+section#selfConcept div.leftside {
+	width: 30%;
+	display: inline-block;
+	position: absolute;
+	left: 0;
+	top: 50%;
+	transform: translateY(-50%);
+	transition: all 0.5s ease;
+}
+
+	section#selfConcept div.leftside:hover > img {
+		width: 110%;
+	}
+	section#selfConcept div.leftside:hover > div.title {
+		transform: scale(1.1) translateY(-50%);
+		animation: glitch 1s infinite;
+	}	
+
+	section#selfConcept div.leftside div.title {
+		width: 100%;
+		display: block;
+		position: absolute;
+		top: 50%;
+		transform: translateY(-50%);
+		z-index: 5;
+
+		margin-left: 20px;
+		font-family: "Avenir";
+		font-weight: 300;
+		letter-spacing: 20px;
+		font-size: 2.15em;
+
+		transition: all 0.5s ease;
+	}
+
+	section#selfConcept div.leftside img {
+		width: 100%;
+		object-fit: cover;
+		opacity: 0.75;
+		transition: all 0.5s ease;
+	}
+
+
+section#selfConcept div.rightside {
+
+	width: 30%;
+	display: inline-block;
+	position: absolute;
+	top: 50%;
+	right: -40px;
+	transform: translateY(-50%);
+	float: right;
+	transform: translateY(-50%);
+	transition: all 0.5s ease;
+}
+	section#selfConcept div.rightside:hover > img {
+		width: 110%;
+	}
+	section#selfConcept div.rightside:hover > div.title {
+		transform: scale(1.10) translateY(-50%);
+		animation: glitch 1s infinite;
+	}	
+
+	section#selfConcept div.rightside div.title {
+		text-align: right;
+		display: block;
+		position: absolute;
+		top: 50%;
+		right: 0;
+		transform: translateY(-50%);
+		z-index: 5;
+
+		margin-left: -20px;
+    	font-family: "Avenir";
+    	font-weight: 300;
+    	letter-spacing: 20px;
+    	font-size: 2.15em;
+
+    	transition: all 0.5s ease;
+	}
+
+	section#selfConcept div.rightside img {
+		width: 100%;
+		object-fit: cover;
+		opacity: 0.75;
+		transition: all 0.5s ease;
+	}
+
+
+section#selfConcept div.active {
+	width: 50%;
+}
+
+	section#selfConcept div.active:hover > img {
+		width: 100%;
+	}
+
+	section#selfConcept div.active:hover > div.title {
+		transform: translateY(-50%);
+		animation: none;
+	}
+
+
+section#selfConcept div.nonActive {
+	opacity: 0;
+}
+
+
+
+
+
+section#selfConcept div.contentWrapper {
+	display: block;
+	position: absolute;
+	width: 50%;
+	top: 50%;
+	transform: translateY(-50%);
+	transition: all ease 0.5s;
+}
+	
+	section#selfConcept div.contentWrapper div#textWrapper {
+		height: 350px;
+		overflow: hidden;
+	}
+
+		section#selfConcept div.contentWrapper div#textWrapper p {
+			font-family: "Open Sans";
+    		font-weight: 300;
+    		letter-spacing: 2px;
+    		font-size: 0.9em;
+    		line-height: 24px;
+    		position: relative;
+    		margin-bottom: 30px;
+    		transition: all 0.5s ease;
+    		opacity: 0;
+		}
+
+			section#selfConcept div.contentWrapper div#textWrapper p:first-child {
+				opacity: 1;
+			}
+
+		section#selfConcept div.contentWrapper div#textWrapper span.splash {
+			position: absolute;
+			left: 50%;
+			transform: translateX(-50%);
+
+			font-family: "Avenir";
+    		font-weight: 300;
+    		letter-spacing: 5px;
+    		font-size: 1em;
+    		text-align: center;
+    		color: var(--main-color-green);
+    		width: fit-content;
+		}
+
+	section#selfConcept div.contentWrapper button.exit {
+		width: 4em;
+		height: 4em;
+		position: relative;
+    	left: 50%;
+    	transform: translateX(-50%);
+    	bottom: -80px;
+    	transition: all ease 0.5s;
+
+    	border: none;
+    	background-color: transparent;
+    	z-index: 15;
+	}
+
+			section#selfConcept div.contentWrapper button.exit:before {
+				content: '';
+    			height: 100%;
+    			border-left: 2px solid black;
+    			position: absolute;
+    			transform: rotate(45deg);
+    			top: 0;
+    			transition: all ease 0.5s;
+			}	
+
+				section#selfConcept div.contentWrapper button.exit:hover::before {
+					transform: scale(0.75) rotate(45deg);
+				}
+
+			section#selfConcept div.contentWrapper button.exit:after {
+				content: '';
+    			height: 100%;
+    			border-left: 2px solid black;
+    			position: absolute;
+    			transform: rotate(-45deg);
+    			top: 0;
+    			transition: all ease 0.5s;
+			}
+
+				section#selfConcept div.contentWrapper button.exit:hover::after {
+					transform: scale(0.75) rotate(-45deg);
+				}
+
+
+	section#selfConcept div#thePhotographer {
+		display: none;
+		right: -40px;
+		opacity: 0;
+	}
+
+		section#selfConcept div#thePhotographer div#textWrapper span{
+			bottom: 0px;
+		}
+
+		section#selfConcept div#theWebDev div#textWrapper span {
+			bottom: 0px;
+		}
+
+	section#selfConcept div#theWebDev {
+		display: none;
+		left: 20px;
+		opacity: 0;
+	}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media only screen and (max-width: 1024px) {
+
+	section#selfConcept div#mainContentWrapper {
+		width: 100%;
+		height: 55%;
+	}
+
+	section#selfConcept p#splash {
+		top: 50%;
+		transform: translate(-50%, -50%);
+	}
+
+	section#selfConcept div.leftside {
+		display: block;
+		left: 0;
+		top: auto;
+		transform: none;
+	}
+
+		section#selfConcept div.active div.ph { /*the title*/
+			top: 10%;
+			margin-left: 60px;
+		}
+
+		section#selfConcept div.active div.dv { /*the title*/
+			top: 95%;
+			margin-right: 60px;
+		}
+
+	section#selfConcept div.rightside {
+		display: block;
+		top: unset;
+		right: 0%;
+		bottom: 0%;
+		float: none;
+		transform: none;
+	}
+
+		section#selfConcept div#dv.active {
+			bottom: -20%;
+		}
+
+	section#selfConcept div.active > img, 
+	section#selfConcept div.active:hover > img {
+		width: 180%;
+		max-width: 787px;
+		opacity: 0.3;
+	}
+
+
+	section#selfConcept div.contentWrapper {
+		left: 50%;
+		transform: translate(-50%, -50%);
+		width: 85%;
+	}
+
+		section#selfConcept div#thePhotographer {
+			right: unset;
+			top: 70%;
+		}
+
+		section#selfConcept div#theWebDev {
+			left: inherit;
+		}
+
+		section#selfConcept div.contentWrapper div#textWrapper {
+			height: 400px;
+		}
+
+		section#selfConcept div.contentWrapper div#textWrapper p {
+			font-size: 0.95em;
+			line-height: 25px;
+		}
+
+		section#selfConcept div#thePhotographer div#textWrapper span.splash,
+		section#selfConcept div#theWebDev div#textWrapper span.splash  {
+			font-size: 1em;
+			bottom: 15%;
+		}
+
+			section#selfConcept div.contentWrapper button.exit {
+				bottom: 0px;
+			}
+}
+
+@media only screen and (max-width: 768px) {
+
+
+		section#selfConcept div.contentWrapper button.exit{
+		    transform: translateX(-50%) scale(.75);
+		}
+
+
+		section#selfConcept div.active > img {
+			width: 180%;
+		}
+
+		section#selfConcept div.active:last-child img {
+			transform: translateX(-40%);
+		}
+
+	
+}
+
+
+
+@media only screen and (max-width: 425px) {
+
+	header h1 {
+		font-size: 1.7em;
+	}
+
+	section#selfConcept div#mainContentWrapper {
+		width: 100%;
+		height: 70%;
+		top: 51%;
+	}
+
+	section#selfConcept div.rightside,
+	section#selfConcept div.leftside {
+		width: 45%;
+	}
+
+	section#selfConcept div.leftside div.title,
+	section#selfConcept div.rightside div.title {
+		font-size: 1.7em;
+		letter-spacing: 12px;
+	}
+
+		section#selfConcept div.active div.ph {
+			margin-left: 30px;
+		}
+
+		section#selfConcept div.active div.dv {
+			top: 70%;
+			margin-right: 20px;
+		}
+
+
+	section#selfConcept p#splash {
+		width: 90%;
+		font-size: 0.65em;
+		max-width: unset;
+
+	}
+
+	section#selfConcept div.contentWrapper {
+		height: auto;
+	}
+
+	section#selfConcept div#thePhotographer {
+		top: 60%;
+	}
+
+	section#selfConcept div#theWebDev {
+		top: 56%;
+	}
+
+	section#selfConcept div.contentWrapper div#textWrapper p {
+		font-size: 0.75em;
+		line-height: 21px;
+	}
+
+	section#selfConcept div#thePhotographer div#textWrapper span.splash,
+	section#selfConcept div#theWebDev div#textWrapper span.splash {
+		font-size: 0.6em;
+		width: 110%;
+	}
+
+		section#selfConcept div#thePhotographer div#textWrapper span.splash {
+			bottom: 40px;
+		}
+
+		section#selfConcept div#theWebDev div#textWrapper span.splash {
+			top: -10px;
+			bottom: inherit;
+		}
+
+		section#selfConcept div#thePhotographer button.exit {
+			bottom: -20px;
+		}
+
+		section#selfConcept div#theWebDev button.exit {
+			top: -480px;
+		}
+
+}
+
+
+
+
+
+
