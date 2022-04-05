@@ -1,5 +1,11 @@
 
-<!-- S I T E  U N I F I C A T I O N
+<--- G E T  G U U D  W I T  G I T
+	04. 04. 2022
+	@2346 Practicing pushing / pull updates across different accounts 
+	- from Laptop
+
+
+<--- S I T E  U N I F I C A T I O N
 
 	03. 01. 2022
 	@1249 Uploaded to git! Great, now I get to practice 'git-in' again :D
