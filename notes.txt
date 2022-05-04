@@ -1,4 +1,15 @@
 
+05. 04. 2022
+@1529 Worked on landing section - finally fixed the carousel!!!
+	 - need to adjust media query function for the images within it
+	 - set runTheCarousel.set and .repeat within index,
+	   .cease whenever user leaves arrival
+
+	Have alot of other things to fix on landing, will document
+	necessary fixes later...
+
+
+
 <--- G E T  G U U D  W I T  G I T
 	04. 04. 2022
 	@2346 Practicing pushing / pull updates across different accounts 

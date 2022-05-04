@@ -28,10 +28,24 @@ let activeStates = ['',
 let images = Array.from(document.querySelectorAll('img')).slice(0, 4);
 
 //Elements in array written with loop instead of by hand
-let headerImages = [];
-for (let i = 1; i < 13; i++) {
-	headerImages.push('img/header/' +i+ '.jpg');
-}
+let headerImages = [
+	"001.jpg",
+	"002.jpg",
+	"003.jpg",
+	"004.jpg",
+	"005.jpg",
+	"006.jpg",
+	"007.jpg",
+	"008.jpg",
+	"009.jpg",
+	"010.jpg",
+	"011.jpg",
+	"012.jpg"
+];
+// for (let i = 1; i < 13; i++) {
+// 	headerImages.push('img/header/' +i+ '.jpg');
+// }
+headerImages = headerImages.map(img => 'img/header/' +img);
 
 //sets some default styling for elements and allows toggling
 function toggleDefaults(tog) {
@@ -76,7 +90,8 @@ function mediaQuery1024() {
 (mediaQuery1024() == 480 || mediaQuery1024() == 1024) ? toggleDefaults(false) : toggleDefaults(true);
 (mediaQuery1024() == 480 || mediaQuery1024() == 1024) ? toggleMobile(true) : toggleMobile(false);
 
-
+/* 5.4.2022
+	need to adjust mediaQuery where these sizes change, around 768 */
 function carouselQueried(func) { //will adjust styles of carousel based on device width
 	let x = func();
 	// console.log(x);
@@ -146,40 +161,86 @@ function removeOutro () {
 		imgWrappers[3].classList.remove('loadDown_Out');
 }
 
-function headerCarousel(toggle) {
-		let imgcnt = 4;
-		let run;
+// function headerCarousel(toggle) {
+// 	let imgcnt = 4;
+// 	return runCarousel(imgcnt);
+// }
 
-		function runCarousel() {
-			if(toggle === true) {
-				if (imgWrappers[0].classList.contains('loadUp_In')) {
-					toggleDefaults(false);
-					toggleMobile(false);
-					removeIntro();
-					addOutro();
-				};
+	function runCarousel() {
+		// let imgcnt = 4; //initial set
+		if (imgWrappers[0].classList.contains('loadUp_In')) { /*Their default state*/
+			toggleDefaults(false);
+			toggleMobile(false);
+			removeIntro();
+			addOutro();
+		};
 
-				setTimeout(() => { //change images to next set
-					// removeOutro();
-					for (let i = 0; i < images.length; i++) {
-						images[i].src = headerImages[imgcnt];
-						carouselQueried(mediaQuery1024);
-						imgcnt++;
-						if(imgcnt == 12) imgcnt = 0;
-					}
-				}, 1700)//0.2s after .load... animation sequence is complete
+		setTimeout(() => { //change images to next set during transition
+			let imgcnt;
 
-				setTimeout(() => {
-					removeOutro();
-					addIntro(); 
-					(mediaQuery1024() == 480 || mediaQuery1024() == 1024) ? toggleMobile(true) : toggleMobile(false);
-					(mediaQuery1024() == 480 || mediaQuery1024() == 1024) ? toggleDefaults(false) : toggleDefaults(true);
-				}, 2500); //bring them back in
-			} 
-		    setTimeout(runCarousel, 7000);
-		}
-		return runCarousel();
-} 
+			if (images[0].src.includes('009')) {
+				imgcnt = 0;
+				for (let i = 0; i < images.length; i++) {
+					images[i].src = headerImages[imgcnt];
+					carouselQueried(mediaQuery1024);
+					imgcnt++;
+					console.log(imgcnt);
+				}
+			} else if (images[0].src.includes('001')) {
+				imgcnt = 4;
+				for (let i = 0; i < images.length; i++) {
+					images[i].src = headerImages[imgcnt];
+					carouselQueried(mediaQuery1024);
+					imgcnt++;
+					console.log(imgcnt);
+				}
+			} else if (images[0].src.includes('005')) {
+				imgcnt = 8;
+				for (let i = 0; i < images.length; i++) {
+					images[i].src = headerImages[imgcnt];
+					carouselQueried(mediaQuery1024);
+					imgcnt++;
+					console.log(imgcnt);
+				}
+			}
+		}, 1700)//0.2s after .load... animation sequence is complete
+
+		setTimeout(() => {
+			removeOutro();
+			addIntro(); 
+			(mediaQuery1024() == 480 || mediaQuery1024() == 1024) ? toggleMobile(true) : toggleMobile(false);
+			(mediaQuery1024() == 480 || mediaQuery1024() == 1024) ? toggleDefaults(false) : toggleDefaults(true);
+		}, 2500); //bring them back in
+	}
+
+let runTheCarousel = {
+	set: function() {
+		runCarousel();
+	},
+
+	repeat: function() {
+		this.timeoutID = setInterval(function() {
+			runCarousel();
+		}.bind(this), 5000);
+	},
+
+	cease: function() {
+		clearTimeout(this.timeoutID);
+	}
+}
+
+// setInterval(runCarousel, 6000);
+
+// setTimeout(() => {
+// 	runCarousel();
+
+// 	setTimeout(()=> {
+// 		let carouselInterval = setInterval(()=> {
+// 			runCarousel();
+// 		}, 7000);
+// 	}, 3500)
+
+// }, 3500); 
 
 // f u n c t i o n  t o  s w i t c h  t i t l e 
 function switchTitle() {
@@ -252,10 +313,9 @@ function carouselToMenu() {
 }
 
 // 02. 22. 2022 C O M M E N T  O U T  T O  S T O P  C A R O U S E L
-setTimeout(() => {
-	headerCarousel(true);
-}, 3500); 
-
+// let runTheCarousel = setTimeout(() => {
+// 	headerCarousel(true);
+// }, 3500); 
 
 
 /*

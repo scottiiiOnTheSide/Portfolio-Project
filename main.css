@@ -37,7 +37,10 @@ body {
 	H E A D E R
 */
 header {
-	display: block;
+	display: none; 
+	opacity: 0;
+	/* At site launch, is not present*/
+
 	position: absolute;
 	top: 0;
 	width: 100%;
@@ -108,7 +111,10 @@ header {
 	N A V I G A T I O N
 */
 nav#main {
-	display: block;
+	display: none; 
+	opacity: 0;
+	/* At site launch, is not present*/
+	
 	/*position: absolute;*/
 	position: fixed;
 	top: 50%;
