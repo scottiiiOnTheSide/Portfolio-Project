@@ -4,6 +4,7 @@
 	 - need to adjust media query function for the images within it
 	 - set runTheCarousel.set and .repeat within index,
 	   .cease whenever user leaves arrival
+	    - .repeat takes a while to start, factor that in
 
 	Have alot of other things to fix on landing, will document
 	necessary fixes later...
