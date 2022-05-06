@@ -1,3 +1,21 @@
+05. 05. 2022
+	
+@2243 Adjusted some styling in arrivals section, fixing issues in rendering 
+		across different viewport sizes. UIE, title.
+		Also, finally fixed the issue with the media queries which adjusted
+		the photos within their wrapper T-T
+		Turns out the solution was simply implemented incorrectly (minor error)
+
+		Animation of the UIE is still sticky however.
+
+		Next Section of things to work on: Navigation. 
+		For some reason, the hover function i originally designed for mouseover
+		on the menu button isn't working. May need redesign
+
+@2040 Wait until running portfolio off node to adjust font size styles for arrival
+	*implement block (pop up model) for when viewport dimensions fall outside 
+	acceptable parameters (like a phone being in landscape mode)
+
 
 05. 04. 2022
 @1529 Worked on landing section - finally fixed the carousel!!!

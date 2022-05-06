@@ -119,11 +119,11 @@ function carouselQueried(func) { //will adjust styles of carousel based on devic
 			if(images[2].src.includes(headerImages[2])) {
 				images[2].style.objectPosition = "center -200px";
 			} 
-			else { images[1].style = null; }	
+			else { images[2].style = null; }	
 			if(images[3].src.includes(headerImages[3])) {
 				images[3].style.objectPosition = "center -300px";
 			} 
-			else { images[1].style = null; }
+			else { images[3].style = null; }
 		};
 	}
 carouselQueried(mediaQuery1024);
@@ -228,19 +228,7 @@ let runTheCarousel = {
 		clearTimeout(this.timeoutID);
 	}
 }
-
-// setInterval(runCarousel, 6000);
-
-// setTimeout(() => {
-// 	runCarousel();
-
-// 	setTimeout(()=> {
-// 		let carouselInterval = setInterval(()=> {
-// 			runCarousel();
-// 		}, 7000);
-// 	}, 3500)
-
-// }, 3500); 
+ 
 
 // f u n c t i o n  t o  s w i t c h  t i t l e 
 function switchTitle() {
@@ -248,7 +236,7 @@ function switchTitle() {
 			titleLogo.classList.remove('switchIn');
 			titleLogo.classList.add('switchOut');
 			setTimeout(() => {
-				titleLogo.style.display = "none";
+				titleLogo.style.display = "none"; 
 
 				setTimeout(() => {
 					titleH1.style.display = "block";
@@ -273,7 +261,9 @@ function switchTitle() {
 				titleLogo.classList.add('switchIn');
 			}, 1300);
 		}  
-}
+} /* 05.05.2022
+	It's probably due to some sort of overload,
+	yet after two runs of this function, it ceases . . . entirely?
 
 /*
 	f u n c t i o n  t o  s w i t c h  
@@ -307,6 +297,7 @@ function carouselToMenu() {
 
 			setTimeout(() => {
 				homeMenu.style.display = "block";
+				homeMenu.classList.remove('switchOut');
 				homeMenu.classList.add('switchIn');
 			}, 1300)
 		}
@@ -333,18 +324,36 @@ function carouselToMenu() {
 // C l i c k  A n i m a t i o n 
 UIElement.addEventListener('click', function() {
 		let states = activeStates.slice(4);
-		for (let i = 0; i < states.length; i++) {
-			corners[1+i].classList.remove(activeStates[1+i]);
-		};
-		UIElement.classList.remove('nonActive');
-		UIElement.classList.add('active');
 
-		setTimeout(() => {
+		if(this.classList.contains('nonActive')) {
 			for (let i = 0; i < states.length; i++) {
-				corners[1+i].setAttribute('id', states[i]);
+				corners[1+i].classList.remove(activeStates[1+i]);
 			};
-		}, 100);
-		carouselToMenu();
+			UIElement.classList.remove('nonActive');
+			UIElement.classList.add('active');
+
+			setTimeout(() => {	
+				for (let i = 0; i < states.length; i++) {
+					corners[1+i].setAttribute('id', states[i]);
+				};
+			}, 100);
+			carouselToMenu();
+		} else if (this.classList.contains('active')) {
+			for (let i = 0; i < states.length; i++) {
+				corners[1+i].classList.add(activeStates[1+i]);
+			};
+			UIElement.classList.remove('active');
+			UIElement.classList.add('nonActive');
+			
+			setTimeout(() => {	
+				for (let i = 0; i < states.length; i++) {
+					corners[1+i].removeAttribute('id', states[i]);
+				};
+			}, 100);
+			carouselToMenu();
+		}
+		
+		
 });
 
 

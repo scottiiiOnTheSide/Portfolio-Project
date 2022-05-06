@@ -194,7 +194,7 @@ nav#main span.corner {
 
 
 nav#main span.corner span.indicator {
-	display: none;
+	display: block;
     position: relative;
     width: 1.5em;
     border: 1px solid var(--main-color-green);

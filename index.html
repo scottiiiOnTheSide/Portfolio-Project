@@ -428,7 +428,13 @@
 <script type="text/javascript" src="selfConcept.js"></script>
 <script type="text/javascript" src="gallery.js"></script>
 <script type="text/javascript">
-	// toggleHeaderNav();
+	setTimeout(() => {
+		runTheCarousel.set();
+	}, 3500)
+
+	setTimeout(() => {
+		runTheCarousel.repeat();
+	}, 5000)
 
 	menuOptions.forEach((element, index) => {
 
