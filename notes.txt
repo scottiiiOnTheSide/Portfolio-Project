@@ -1,3 +1,20 @@
+05. 09. 2022
+@1137 Fixed
+	  - Work on Arrival & SelfConcept resizings
+	  - begin planning gallery reWork
+
+@1100 Fixing issue with images in SelfConcept section rotating wildly
+
+@1000 Attempts to get LAN server running on WSL failed (._. ) - with the
+	  intentions of being able to view the site on my mobile devices of course.
+
+	  Was able to install and get up and running Node and the Server on Windows
+	  itself successfully!
+
+	  And the site is viewable over mobile!!!
+
+	  . . . there's quite a bit of work to do
+
 05. 05. 2022
 	
 @2243 Adjusted some styling in arrivals section, fixing issues in rendering 

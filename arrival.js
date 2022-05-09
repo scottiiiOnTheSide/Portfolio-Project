@@ -325,12 +325,12 @@ function carouselToMenu() {
 UIElement.addEventListener('click', function() {
 		let states = activeStates.slice(4);
 
-		if(this.classList.contains('nonActive')) {
+		if(this.classList.contains('UIE_nonActive')) {
 			for (let i = 0; i < states.length; i++) {
 				corners[1+i].classList.remove(activeStates[1+i]);
 			};
-			UIElement.classList.remove('nonActive');
-			UIElement.classList.add('active');
+			UIElement.classList.remove('UIE_nonActive');
+			UIElement.classList.add('UIE_active');
 
 			setTimeout(() => {	
 				for (let i = 0; i < states.length; i++) {
@@ -338,12 +338,12 @@ UIElement.addEventListener('click', function() {
 				};
 			}, 100);
 			carouselToMenu();
-		} else if (this.classList.contains('active')) {
+		} else if (this.classList.contains('UIE_active')) {
 			for (let i = 0; i < states.length; i++) {
 				corners[1+i].classList.add(activeStates[1+i]);
 			};
-			UIElement.classList.remove('active');
-			UIElement.classList.add('nonActive');
+			UIElement.classList.remove('UIE_active');
+			UIElement.classList.add('UIE_nonActive');
 			
 			setTimeout(() => {	
 				for (let i = 0; i < states.length; i++) {

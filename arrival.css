@@ -326,12 +326,12 @@ div#UIEwrapper {
 	}
 }
 
-div.nonActive {
+div.UIE_nonActive {
 	transition: transform 2s ease-out !important;
 	transform: translate(-50%, -50%) rotate(45deg); /* rotated clock wise*/
 }
 
-div.active {
+div.UIE_active {
 	transition: transform 2s ease-out !important;
 	transform: translate(-50%, -50%) rotate(225deg) !important;
 	/*transform: translate(-50%, -50%);*/
