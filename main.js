@@ -89,6 +89,10 @@ function toggleMenu(exclude, contrast, partial) {
 				break;
 			}
 
+			if (getComputedStyle(navToggle).backgroundColor) {
+				navToggle.style.backgroundColor = "";
+			}
+
 			if (partial == false ) {
 				setTimeout(() => {
 					navPage.style.opacity = "0";
@@ -129,7 +133,7 @@ function toggleMenu(exclude, contrast, partial) {
 					navPage.style.opacity = "0";
 					console.log(getComputedStyle(navPage).display);
 
-					if(contrast == true) {
+					if(contrast === true) {
 						if(window.innerWidth < 1024) {
 							navToggle.style.backgroundColor = "black";
 						}

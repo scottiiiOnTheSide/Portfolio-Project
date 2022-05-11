@@ -376,10 +376,6 @@ section#selfConcept div.contentWrapper {
 
 @media only screen and (max-width: 425px) {
 
-	header h1 {
-		font-size: 1.7em;
-	}
-
 	section#selfConcept div#mainContentWrapper {
 		width: 100%;
 		height: 70%;

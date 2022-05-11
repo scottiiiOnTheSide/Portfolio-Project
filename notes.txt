@@ -1,3 +1,14 @@
+05. 11. 2022
+@1609 Fixed sizing for arrival section elements and nav elements, mobile
+	  Fixed issue with nav background being remaining black after leaving
+	  gallery section. 
+
+	  Still need to re do text for about section 
+	  - also haven't written content for 'the developer' 
+
+	  Set all images on site to load before displaying site 
+	  - would need to assign all images to elements in an array using async 	or await, then proceed to load site after it's completion.
+
 05. 09. 2022
 @1137 Fixed
 	  - Work on Arrival & SelfConcept resizings
