@@ -414,7 +414,7 @@ span.crnr:last-child {
 	}
 
 	div#menu div.option h1 {
-		font-size: 1.75em;
+		font-size: 1.5em;
 		margin-bottom: 10px;
 	}
 
@@ -425,8 +425,8 @@ span.crnr:last-child {
 
 	div#UIEwrapper {
 		top: 90%;
-		width: 99px;
-		height: 99px;
+		width: 95px;
+		height: 95px;
 	}
 	span#crnr2-active { border-color: #3BDACA; right: 7px; top: 22px; }
 	span#crnr3-active { border-color: #3BDACA; left: 25px; bottom: 8px;}

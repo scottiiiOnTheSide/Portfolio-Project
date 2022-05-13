@@ -439,8 +439,13 @@
 	menuOptions.forEach((element, index) => {
 
 		element.addEventListener('click', ()=> {
-			let choice = index + 1;
-			selectSection(choice);
+			let choice;
+			setTimeout(() => {
+				choice = index + 1;
+				selectSection(choice);
+				return choice;
+			}, 500)
+			
 
 			setTimeout(() => {
 				toggleHeaderNav();
@@ -448,7 +453,7 @@
 					console.log("true");
 					invertHeaderNav(true)
 				}		
-			}, 1500)
+			}, 2500)
 		})
 	})
 </script>

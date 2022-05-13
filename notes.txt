@@ -1,3 +1,15 @@
+05. 13. 2022 Friday the 13th :D
+@1822 Adjusted text within selfConcept section, much more legible now. 
+	  Adjusted font styling of arrival section menu as well.
+	  Fixed various styling issues within gallery section, thumbnail
+	  images issue and nav. 
+	    - need to fix issue with header and main nav not having background
+	      color within this section.
+
+	  To Do, 
+	  - Cache all images before launching gallery.
+	  - TRANSMISSIONS SECTION (ugh)
+
 05. 11. 2022
 @1609 Fixed sizing for arrival section elements and nav elements, mobile
 	  Fixed issue with nav background being remaining black after leaving

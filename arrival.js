@@ -338,6 +338,8 @@ UIElement.addEventListener('click', function() {
 				};
 			}, 100);
 			carouselToMenu();
+			runTheCarousel.cease();
+
 		} else if (this.classList.contains('UIE_active')) {
 			for (let i = 0; i < states.length; i++) {
 				corners[1+i].classList.add(activeStates[1+i]);
@@ -351,6 +353,7 @@ UIElement.addEventListener('click', function() {
 				};
 			}, 100);
 			carouselToMenu();
+			runTheCarousel.repeat();
 		}
 		
 		

@@ -89,8 +89,9 @@ function toggleMenu(exclude, contrast, partial) {
 				break;
 			}
 
-			if (getComputedStyle(navToggle).backgroundColor) {
+			if (!getComputedStyle(navToggle).backgroundColor == "rgba(0, 0, 0, 0)") {
 				navToggle.style.backgroundColor = "";
+				siteHeader.style.backgroundColor = "";
 			}
 
 			if (partial == false ) {
@@ -110,6 +111,7 @@ function toggleMenu(exclude, contrast, partial) {
 					if(contrast == true) {
 						if(window.innerWidth < 1024) {
 							navToggle.style.backgroundColor = "black";
+
 						}
 					}
 				}, 900);
@@ -136,6 +138,7 @@ function toggleMenu(exclude, contrast, partial) {
 					if(contrast === true) {
 						if(window.innerWidth < 1024) {
 							navToggle.style.backgroundColor = "black";
+							siteHeader.style.backgroundColor = "black";
 						}
 					}
 				}, 1100);

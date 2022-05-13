@@ -521,7 +521,7 @@ function renderGallery(oneOfFour) { // gallery[x]
 
 	//specifically editting the style of the first .entry
 	let albumEntries = document.querySelectorAll("section#gallery section#albums div.entry");
-	albumEntries[0].style.marginTop = "4em";
+	albumEntries[0].style.marginTop = "11em";
 
 
 	currentGalleries.all.forEach((element, index) => {

@@ -313,6 +313,7 @@ div#navPage ul li button {
 		font-size: 1em;
 		text-align: center;
 		margin-bottom: -20px;
+		letter-spacing: 8px;
 	}
 
 	div#navPage ul li button:hover {
