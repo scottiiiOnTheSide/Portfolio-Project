@@ -32,16 +32,15 @@ let modal = document.getElementById('modal'),
 	modalViewAll = document.querySelector('div#modal span#viewAll'),
 	modalClose = document.querySelector('div#modal span#close');
 
-const albumBase = {
-	name: "",
-	imgcnt: "",
-	images: [],
-}
-
 function extendAlbums(baseAlbum) {
 	let albums = [];
 	let allImages = [];
 	let gallery = baseAlbum.name;
+	let albumBase = {
+		name: "",
+		imgcnt: "",
+		images: [],
+	}
 
 	for (let [key, value] of Object.entries(baseAlbum)) {
 
@@ -473,6 +472,7 @@ function renderGallery(oneOfFour) { // gallery[x]
 			img.src = album.images[i];
 			thumbnails.push(img);
 		}
+		
 		entry.thumbnailImgs = thumbnails;
 
 		entries.push(entry.create());

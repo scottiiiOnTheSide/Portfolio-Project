@@ -80,7 +80,7 @@ section#gallery div#mainMenu div span {
 
 section#gallery section#albums {
 	display: none;
-	margin: 120px auto 0;
+	margin: 60px auto 0;
 	padding-bottom: 1em;
 	overflow-y: auto;
 }
@@ -218,8 +218,8 @@ section#gallery section#albums div.entry:first-of-type {
 		font-weight: 300;    
 		font-size: 1em;
 		letter-spacing: 10px;
-		color: var(--text-gray);
-		margin: 0 auto -15px; 
+		color: white;
+		margin: 0 auto 0; 
 		z-index: 4;
 	}
 
@@ -231,7 +231,7 @@ section#gallery section#albums div.entry:first-of-type {
 		letter-spacing: 10px;
 		color: white;
 
-		margin: 40px auto;
+		margin: 30px auto;
 		border-bottom: 2px solid white;
 		padding-bottom: 15px;
 		z-index: 4;
@@ -243,7 +243,7 @@ section#gallery section#albums div.entry:first-of-type {
 		top: -25px;
 		left: 50%;
   		right: 0;
-		width: 75%;
+		width: 100%;
 		transform: translateX(-50%);
 		display: flex;
 		flex-direction: row;
@@ -812,6 +812,7 @@ section#gallery > section.return {
 	section#gallery section#albums div.entry h1 {
 		width: 80%;
 		font-size: 1.25em;
+		margin-top: 40px;
 	}
 
 	section#gallery section#albums div.entry h3 {
