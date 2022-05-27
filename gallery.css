@@ -490,6 +490,8 @@ div#modal {
 	    left: 50%;
 	    transform: translateX(-50%);
 	    margin-bottom: 30px;
+	    fill: white;
+	    width: 98px;
 	}
 
 	div#modal p{

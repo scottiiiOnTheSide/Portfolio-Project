@@ -1,3 +1,7 @@
+05. 27. 2022
+@1711 Added new logo code to index.html
+	  Fixed issue with nav button being maladjusted on mobile.
+
 05. 15. 2022
 @2130 At which point in the UI experience / sequence should the images be set to preload?
 	  Perhaps at site launch: Replace UIE with 'Loading Site Assets...' until images loaded
