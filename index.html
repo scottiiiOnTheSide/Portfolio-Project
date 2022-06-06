@@ -175,6 +175,7 @@
 		</div>
 	</div>
 
+	<span id="loadingText">Loading Assets . . .</span>
 	<div id="UIEwrapper" class="UIE_nonActive">
 		<span class="crnr "></span>
 		<span class="crnr secondCorner_hovered"></span>
@@ -374,48 +375,100 @@
 <script type="text/javascript" src="arrival.js"></script>
 <script type="text/javascript" src="selfConcept.js"></script>
 <script type="text/javascript" src="gallery.js"></script>
+
+<!-- Will eventually move this script to seperate file -->
 <script type="text/javascript">
-	setTimeout(() => {
-		runTheCarousel.set();
-	}, 3500)
 
-	setTimeout(() => {
-		runTheCarousel.repeat();
-	}, 5000)
+let UIElement = document.getElementById('UIEwrapper'),
+	corners = document.getElementsByClassName('crnr'),
+	loadingText = document.getElementById('loadingText'),
+	allImagesLoaded, //declare it on load, but don't fill it
+	allImagesCache = [...gallery[0].allImages, ...gallery[1].allImages, ...gallery[2].allImages, ...gallery[3].allImages];
 
-	menuOptions.forEach((element, index) => {
+const preloadImages = (src) => new Promise((resolve,reject) => {
+	const img = new Image();
+	img.onload = () => {
+		resolve(img);
+	} 
+	img.onerror = reject;
+	img.src = src;
+})
 
-		element.addEventListener('click', ()=> {
-			let choice;
-			setTimeout(() => {
-				choice = index + 1;
-				selectSection(choice);
-				return choice;
-			}, 500)
+const preloadImages_all = async (sources) => {
+	return Promise.all(sources.map(preloadImages))
+	// .then((element) => {return element});
+}
+
+ document.addEventListener("DOMContentLoaded", ()=> {
+//  // let cacheImages = () => {
+	// if(!allImagesLoaded) {
+		if(!sessionStorage.allImagesLoaded) {
+
+		//'disable' UIE
+		setTimeout(() => {
+			loadingText.style.opacity = 1;
+
+			preloadImages_all(allImagesCache).then(images => {
+				allImagesLoaded = images;
+				console.log(allImagesLoaded);
+				sessionStorage.setItem('allImagesLoaded', allImagesLoaded);
+
+				loadingText.style.opacity = 0;
+				setTimeout(() => {
+					loadingText.style.display = 'block';	
+				}, 750)
+			
+				setTimeout(() => {
+					UIElement.style.display = 'block';
+					UIElement.classList.add('UIELoad');
+				}, 1250)
+			})
+		}, 500)
+
+	} else {
+		loadingText.style.display = 'none';
+		UIElement.style.display = 'block';
+		UIElement.classList.add('UIELoad');
+	}
+// }
+})
+
+//Setting arrival carousel to run
+//this set of functions needs more added, such as ceasing carousel
+//on section leave
+setTimeout(() => {
+	runTheCarousel.set();
+}, 3500)
+
+// setTimeout(() => {
+// 	runTheCarousel.repeat();
+// }, 5000)
+
+
+//For arrival section menu options
+menuOptions.forEach((element, index) => {
+
+	element.addEventListener('click', ()=> {
+		let choice;
+		setTimeout(() => {
+			choice = index + 1;
+			selectSection(choice);
+			return choice;
+		}, 500)
 			
 
-			setTimeout(() => {
-				toggleHeaderNav();
-				if (choice === 2) {
-					console.log("true");
-					invertHeaderNav(true)
-				}		
-			}, 2500)
-		})
+		setTimeout(() => {
+			toggleHeaderNav();
+			if (choice === 2) {
+				console.log("true");
+				invertHeaderNav(true)
+			}		
+		}, 2500)
 	})
-
+})
 	
 	
 </script>
 
 </body>
-
-</head>
-
-
-
-
-
-
-
-
+</html>

@@ -113,7 +113,6 @@ collabs = extendAlbums(collabs);
 let lifeAndEvents = {
 	"3. 24. 2019 Prince in the Park" : 6,
 	"4. 2019 Boston Photo Journal" : 11,
-	"6. 1. 2019 Cars and P**sy" : 6,
 	"6. 5. 2019 Noel's Prom Shoot" : 6,
 	"12. 7. 2019 MusicVideoBTS" : 7,
 	"5. 5. 2021 Cinco de Mayo @ Naked Taco" : 15,

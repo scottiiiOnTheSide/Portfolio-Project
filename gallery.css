@@ -205,7 +205,7 @@ section#gallery section#albums div.entry {
 	cursor: pointer;
 	transition: all 0.3s ease-out;
 	position: relative;
-	width: 50%;
+	width: 65%;
 }
 
 section#gallery section#albums div.entry:first-of-type {
@@ -261,7 +261,7 @@ section#gallery section#albums div.entry:first-of-type {
 		display: block;
 		float: left;
 		flex: 0 0 auto;
-		max-height: 175px;
+		max-height: 130px;
 	}
 
 

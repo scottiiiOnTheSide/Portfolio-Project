@@ -302,7 +302,7 @@ div#showcaseWrapper {
 
 
 div#UIEwrapper {
-	display: block;
+	display: none;
 	position:  absolute;
 	width: 120px;
 	height: 120px;
@@ -312,13 +312,17 @@ div#UIEwrapper {
 	left:  50%;
 	transition: all 1s ease-out;
 	transition: transform 2s ease-out;
-	animation-name: UIELoad;
+	/*animation-name: UIELoad;*/
     animation-duration: 1s;
 	animation-timing-function: ease-in-out;
 	animation-fill-mode: forwards;
 	animation-delay: 1.5s;
 	opacity: 0;
 }
+
+	.UIELoad {
+		animation-name: UIELoad;
+	}
 
 @keyframes UIELoad {
 	from{
@@ -362,6 +366,19 @@ div.UIE_active {
 	*/
 
 
+span#loadingText {
+	color: white;
+	font-family: 'Open Sans';
+	font-weight: 300;
+	font-size: 1em;
+	letter-spacing: 6px;
+	text-align: center;
+	position: absolute;
+	top: 90%;
+	width: 100%;
+	transition: all 0.5s ease-out;
+	opacity: 0;
+}
 
 span.crnr {
 	display: inline-block;
@@ -375,7 +392,8 @@ span.crnr {
 				right 0.4s ease-out,
 				left 0.4s ease-out,
 				bottom 0.4s ease-out,
-				transform 2s ease-out;
+				transform 2s ease-out,
+				opacity 0.5s ease-out;
 }
 
 
