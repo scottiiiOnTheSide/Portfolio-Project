@@ -1,7 +1,31 @@
 06. 06. 2022
+@2121 Issue fixed. Site now remembers user's last section upon page refresh.
+	  Next thing to work on, gallery redesign.
+	  Thumbnails images for each gallery load upon selecting gallery,
+	  wait until they load, then albums appear domino style.
+	  would include running function to get first 3 images
+	  out of all albums.
+
+	  or, load each album's images then load button to select album
+
+	  add support for vertical images by allowing page relayout on rotate 
+	  (different viewport)
+
+@2014 Giving me errors that I don't understand can be possible. Declared elements
+that were fine are suddenly not, despite not being touched at all...
+
+@1748 Soooo with the preload being utilized, it seems that the site has trouble
+	  loading on mobile (._. ) I can't even refresh
+
+	  May have to implement the loading images before entering each specific 
+	  gallery now...
+
+	  Might as well do the redesign now as well T- T
+
 @1152 Display the close button for nav in desktop mode as well...
 @1144 As of now, it works exactly as it should 
 	(though whether the images are actually saved in session storage is another issue, as it's near 1GB of images...)
+
 @1105 IT WORKS !!! 
 	  For now, will launch the preloader for all images when the site first loads.
 	  Will eventually for it for each album or gallery.

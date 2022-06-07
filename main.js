@@ -9,6 +9,7 @@
 // Navigation Menu, Section Traversal 
 let navToggle = document.querySelector('nav#main'),
 	navPage = document.getElementById('navPage'),
+	// navMenuItems = document.getElementsByClassName('navPageItems'),
 	navMenuItems = document.querySelectorAll('div#navPage ul li'),
 	navToggle_Corners = document.querySelectorAll('nav#main span.corner'),
 	siteHeader = document.getElementsByTagName("header")[0];

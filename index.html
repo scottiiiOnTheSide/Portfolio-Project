@@ -16,6 +16,8 @@
 
 <body>
 
+<script type="text/javascript">
+</script>
 
 	<header>
 		<h1>beam me up!</h1>
@@ -41,20 +43,20 @@
 
 	<div id="navPage">
 		<ul>
-			<li>
+			<li class='navPageItems'>
 				<button>(close)</button>
 			</li>
-			<li>
+			<li class='navPageItems'>
 				<button>Self Concept
 					<span aria-hidden="true">ABOUT</span>
 				</button>
 			</li>
-			<li>
+			<li class='navPageItems'>
 				<button>Demonstrations
 					<span aria-hidden="true">GALLERY</span>
 				</button>
 			</li>
-			<li>
+			<li class='navPageItems'>
 				<button>Transmissions
 					<span aria-hidden="true">CONTACT</span>
 				</button>
@@ -66,8 +68,8 @@
 	E N D-->
 
 
-
-<section id="arrival" class="active" style="opacity: 1;">
+<section id="arrival">
+<!-- <section id="arrival" class="active" style="opacity: 1;">
 		
 	<!-- 02. 22. 2022
 		Landing section of site restricts access from free use of
@@ -157,6 +159,8 @@
 	</div>
 
 	<div id="menu">
+		<div class="option" style="display: none;"></div>
+
 		<div class="option">
 			<h1 class="glitch">Self Concept</h1>
 			<h3 class="glitch">Rhetoric concerning whom this domain belongs to, 
@@ -175,13 +179,13 @@
 		</div>
 	</div>
 
-	<span id="loadingText">Loading Assets . . .</span>
+	<!-- <span id="loadingText">Loading Assets . . .</span> -->
 	<div id="UIEwrapper" class="UIE_nonActive">
 		<span class="crnr "></span>
 		<span class="crnr secondCorner_hovered"></span>
 		<span class="crnr thirdCorner_hovered"></span>
 		<span class="crnr fourthCorner_hovered"></span>
-	</div>
+	</div> -->
 </section>
 
 <section id="selfConcept">
@@ -255,7 +259,7 @@
 			<div><span>Arch. & Travel</span></div>
 		</div>
 
-		<section id="albums" style="display: none;">
+		<div id="albums" style="display: none;">
 
 			<nav>
 				<span>Return</span>
@@ -376,8 +380,50 @@
 <script type="text/javascript" src="selfConcept.js"></script>
 <script type="text/javascript" src="gallery.js"></script>
 
+
 <!-- Will eventually move this script to seperate file -->
 <script type="text/javascript">
+
+//R U N  T H i S  F i R S T	
+	let setSection = (elem) => {
+
+ 		if(!elem) {
+ 			return sessionStorage.currentSection;
+ 		}
+ 		else {
+ 			sessionStorage.setItem('currentSection', elem);
+ 		}
+ 	}
+
+ 		let check = setSection();
+
+ 		if(check == 1) {
+ 			console.log("1");
+ 			sections[setSection()].classList.add('active');
+ 			sections[setSection()].style.opacity = 1;
+ 			toggleHeaderNav();
+ 		}
+ 		else if (check == 2) {
+ 			console.log("2");
+ 			sections[setSection()].classList.add('active');
+ 			sections[setSection()].style.opacity = 1;
+ 			toggleHeaderNav();
+ 			invertHeaderNav(true);
+ 		}
+ 		else if (check == 3) {
+ 			console.log("3");
+ 			sections[setSection()].classList.add('active');
+ 			sections[setSection()].style.opacity = 1;
+ 			toggleHeaderNav();
+ 		}
+ 		else if (check == 0) {
+ 			sections[0].classList.add('active');
+ 			sections[0].style.opacity = 1;
+ 		}
+ 		else {
+ 			sections[0].classList.add('active');
+ 			sections[0].style.opacity = 1;
+ 		}
 
 let UIElement = document.getElementById('UIEwrapper'),
 	corners = document.getElementsByClassName('crnr'),
@@ -396,49 +442,36 @@ const preloadImages = (src) => new Promise((resolve,reject) => {
 
 const preloadImages_all = async (sources) => {
 	return Promise.all(sources.map(preloadImages))
-	// .then((element) => {return element});
 }
 
+//import snippet of code to reuse 
+// preloadImages_all(allImagesCache).then(images => {
+// 				allImagesLoaded = images;
+// 				console.log(allImagesLoaded);
+
+
+// let setSection = (index) => {
+//  		if(!index) {
+//  			return sessionStorage.currentSection;
+//  		}
+//  		else {
+//  			sessionStorage.setItem('currentSection', index);
+//  		}
+//  	}
+
+
  document.addEventListener("DOMContentLoaded", ()=> {
-//  // let cacheImages = () => {
-	// if(!allImagesLoaded) {
-		if(!sessionStorage.allImagesLoaded) {
 
-		//'disable' UIE
-		setTimeout(() => {
-			loadingText.style.opacity = 1;
-
-			preloadImages_all(allImagesCache).then(images => {
-				allImagesLoaded = images;
-				console.log(allImagesLoaded);
-				sessionStorage.setItem('allImagesLoaded', allImagesLoaded);
-
-				loadingText.style.opacity = 0;
-				setTimeout(() => {
-					loadingText.style.display = 'block';	
-				}, 750)
-			
-				setTimeout(() => {
-					UIElement.style.display = 'block';
-					UIElement.classList.add('UIELoad');
-				}, 1250)
-			})
-		}, 500)
-
-	} else {
-		loadingText.style.display = 'none';
-		UIElement.style.display = 'block';
-		UIElement.classList.add('UIELoad');
-	}
-// }
-})
+ 	UIElement.style.display = 'block';
+ 	UIElement.classList.add('UIELoad');
+});
 
 //Setting arrival carousel to run
 //this set of functions needs more added, such as ceasing carousel
 //on section leave
-setTimeout(() => {
-	runTheCarousel.set();
-}, 3500)
+// setTimeout(() => {
+// 	runTheCarousel.set();
+// }, 3500)
 
 // setTimeout(() => {
 // 	runTheCarousel.repeat();
@@ -448,25 +481,35 @@ setTimeout(() => {
 //For arrival section menu options
 menuOptions.forEach((element, index) => {
 
+	index = parseInt(index);
+
 	element.addEventListener('click', ()=> {
-		let choice;
+		console.log(index);
+		setSection(index);
+		runTheCarousel.cease();
 		setTimeout(() => {
-			choice = index + 1;
-			selectSection(choice);
-			return choice;
+			selectSection(index);
 		}, 500)
 			
 
 		setTimeout(() => {
 			toggleHeaderNav();
-			if (choice === 2) {
+			if (index === 2) {
 				console.log("true");
 				invertHeaderNav(true)
-			}		
+			}
 		}, 2500)
 	})
 })
-	
+
+navMenuItems.forEach((element, index) => {
+
+	element.addEventListener('click', () => {
+		setSection(index);
+	})
+})
+
+
 	
 </script>
 

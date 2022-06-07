@@ -2,13 +2,13 @@
 let header = document.querySelector("header");
 let mainMenu = document.querySelector("section#gallery div#mainMenu");
 let mainMenuOptions = document.querySelectorAll("div#mainMenu div"); /* NodeList */
-let albums = document.querySelector("section#gallery section#albums");
-let albumNav = document.querySelectorAll("section#gallery section#albums nav span"),
+let albums = document.querySelector("section#gallery div#albums");
+let albumNav = document.querySelectorAll("section#gallery div#albums nav span"),
 	albumReturn = albumNav[0],
 	albumCurrent = albumNav[1],
 	albumNext = albumNav[3];
 let viewAlbum = document.querySelector("section#gallery div#viewAlbum"),
-	viewAlbum_UI = document.querySelectorAll("section#gallery div#viewAlbum nav span"),
+	viewAlbum_UI = document.querySelectorAll("div#viewAlbum nav span"),
 	viewAlbum_Previous = viewAlbum_UI[0],
 	viewAlbum_Next = viewAlbum_UI[1],
 	viewAlbum_Counter = document.getElementById("counterWrapper"),
@@ -17,17 +17,17 @@ let viewAlbum = document.querySelector("section#gallery div#viewAlbum"),
 	viewAlbum_CounterCurrent = document.querySelector("section#gallery div#viewAlbum div#counterWrapper span.current"),
 	viewAlbum_CurrentIdentifier = document.querySelector("section#gallery div#viewAlbum div#counterWrapper span.current span#identifier"),
 	viewAlbum_img = document.querySelector("section#gallery div#viewAlbum img"),
-	allImages = document.querySelector("section#albums div#allImages");
+	allImages = document.querySelector("div#albums div#allImages");
 	//use allImages.firstElementChild to get inside wrapper
 let viewAll = document.querySelector("section#gallery div#viewAll"),
-	viewAll_UI = document.querySelectorAll("section#gallery div#viewAll nav span"),
+	viewAll_UI = document.querySelectorAll("div#viewAll nav span"),
 	viewAll_Previous = viewAll_UI[0],
 	viewAll_Next = viewAll_UI[1],
 	viewAll_Current = viewAll_UI[2],
 	viewAll_Total = viewAll_UI[4],
 	viewAll_img = document.querySelector("section#gallery div#viewAll img");
 let modal = document.getElementById('modal'),
-	modalPrompt = document.querySelector('section#gallery span#info'),
+	modalPrompt = document.querySelector('span#info'),
 	modalReturn = document.querySelector('div#modal span#return'),
 	modalViewAll = document.querySelector('div#modal span#viewAll'),
 	modalClose = document.querySelector('div#modal span#close');
@@ -157,9 +157,11 @@ let albumEntry = {
 let createAlbum = albumEntry.create;
 createAblum = createAlbum.bind(albumEntry);
 
+
 modalPrompt.addEventListener('click', ()=> {
 	displayToggle(modal);
 })
+
 
 modalReturn.addEventListener('click', ()=> {
 	if (viewAlbum.classList.contains('return')) {
@@ -172,7 +174,7 @@ modalReturn.addEventListener('click', ()=> {
 	if (viewAll.classList.contains('return')) {
 		displayToggle(viewAll);
 		displayToggle(allImages);
-		let albumEntries = document.querySelectorAll("section#gallery section#albums div.entry");
+		let albumEntries = document.querySelectorAll("section#gallery div#albums div.entry");
 		albumEntries.forEach((element) => displayToggle(element));
 
 		setTimeout(() => {
@@ -203,7 +205,7 @@ modalViewAll.addEventListener('click', ()=> {
 		}, 550)
 	}
 	else if(viewAlbum.classList.contains('return')) {
-		let albumEntries = document.querySelectorAll("section#gallery section#albums div.entry");
+		let albumEntries = document.querySelectorAll("section#gallery div#albums div.entry");
 		albumEntries.forEach((element) => displayToggle(element));
 		displayToggle(viewAlbum);
 		displayToggle(modalPrompt);
@@ -223,7 +225,7 @@ albumReturn.addEventListener('click', ()=> {
 	}
 	displayToggle(albums);
 	allImages.firstElementChild.innerHTML = null;
-	albumDivs = document.querySelectorAll("section#gallery section#albums div.entry");
+	albumDivs = document.querySelectorAll("section#gallery div#albums div.entry");
 	albumDivs.forEach((element)=> { element.remove() });
 	setTimeout(()=> {
 		displayToggle(mainMenu);
@@ -240,7 +242,7 @@ albumNext.addEventListener('click', ()=> {
 		displayToggle(allImages);
 	}
 	allImages.firstElementChild.innerHTML = null;
-	albumDivs = document.querySelectorAll("section#gallery section#albums div.entry");
+	albumDivs = document.querySelectorAll("section#gallery div#albums div.entry");
 	albumDivs.forEach((element)=> { 
 		element.style.opacity = 0;
 		albumCurrent.style.opacity = 0;
@@ -269,7 +271,7 @@ albumNext.addEventListener('click', ()=> {
 })
 
 albumCurrent.addEventListener('click', ()=> {
-	let albumEntries = document.querySelectorAll("section#gallery section#albums div.entry");
+	let albumEntries = document.querySelectorAll("section#gallery div#albums div.entry");
 
 	if (allImages.classList.contains('return')) {
 		displayToggle(allImages);
@@ -477,9 +479,9 @@ function renderGallery(oneOfFour) { // gallery[x]
 		entries.push(entry.create());
 
 		setTimeout(() => {
-			let imagesInThumbail = document.querySelectorAll("section#albums div.entry div.thumbnails img");
-			let thumbail = document.querySelectorAll("section#albums div.entry div.thumbnails img");
-			let currententries = document.querySelectorAll("section#albums div.entry");
+			let imagesInThumbail = document.querySelectorAll("div#albums div.entry div.thumbnails img");
+			let thumbail = document.querySelectorAll("div#albums div.entry div.thumbnails img");
+			let currententries = document.querySelectorAll("div#albums div.entry");
 			let supposedWidth = imagesInThumbail[0].offsetWidth + imagesInThumbail[1].offsetWidth + imagesInThumbail[0].offsetWidth;
 			if (supposedWidth > 450) {
 				thumbnail.forEach((element) => {
@@ -519,7 +521,7 @@ function renderGallery(oneOfFour) { // gallery[x]
 	});
 
 	//specifically editting the style of the first .entry
-	let albumEntries = document.querySelectorAll("section#gallery section#albums div.entry");
+	let albumEntries = document.querySelectorAll("section#gallery div#albums div.entry");
 	albumEntries[0].style.marginTop = "11em";
 
 
