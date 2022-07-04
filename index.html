@@ -69,8 +69,6 @@
 
 
 <section id="arrival">
-<!-- <section id="arrival" class="active" style="opacity: 1;">
-		
 	<!-- 02. 22. 2022
 		Landing section of site restricts access from free use of
 		navigation. (Should I?) Pressing header logo returns to landing.
@@ -252,7 +250,9 @@
 </section>
 
 <section id="gallery">
-	<div id="mainMenu" style="display: block;">
+
+	<div id="mainMenu" style="display: block;"> <!-- during dev -->
+	<!-- <div id="mainMenu" style="display: block;"> -->
 			<div><span>Model Work</span></div>
 			<div><span>Life & Events</spam></div>
 			<div><span>Cars. Tech. Toys</span></div>
@@ -264,11 +264,9 @@
 			<nav>
 				<span>Return</span>
 				<span id="currentGalleryName"></span>
-				<span id="inner">View All:</span>
+				<span id="inner">View All</span>
 				<span>Next</span>
 			</nav>
-
-			<div class="entry"></div>
 
 			<div id="allImages" style="display: none">
 				<!-- use a flexbox layout for the images -->
@@ -276,39 +274,50 @@
 				</div>
 			</div>
 
-		</section>
-
-		<div id="viewAlbum" style="display: none;">
-
-			<nav>
-				<span>Prev.</span>
-				<span>Next</span>
-				<div id="counterWrapper">
-				</div>
-			</nav>
-
-			<div id="imgWrapper">
-				<img src="" style="display: block;">
-			</div>	
+			<div id="entryWrapper">
+			</div>		
 		</div>
 
-		<div id="viewAll" style="display: none;">
-			<nav>
-				<span>Prev.</span>
-				<span>Next</span>
-				<div id="counterWrapper">
-					<span id='current'>3</span>
-					<span id='line'></span>
-					<span id="total">85</span>
-				</div>
-			</nav>
+		<!-- new viewer goes here. Only need to make one -->
+		<div id="imageview">
+			<ul id="imageSlidesWrapper">
+				<!-- <li class="imageSlide" style='display: block'>
+					<img src="">
+				</li>
+				<li class="imageSlide" style='display: none'>
+					<img src="">
+				</li>
+				<li class="imageSlide" style='display: none'>
+					<img src="">
+				</li> -->
+			</ul>
 
-			<div id="imgWrapper">
-				<img src="" style="display: block;"> 
-			</div>	
+			<div id="controlsMenu">
+				<ul id="controlsWrapper">
+					<li id="imagecount">
+						<span>1</span> <!-- current image number --> 
+						<span>10</span> <!-- full amount of images in gallery -->
+					</li>
+					<li>
+						<button>Scale Up</button> <!-- previous -->
+					</li>
+					<li>
+						<button>Exit Viewer</button> <!-- exit -->
+					</li>
+				</ul>
+			</div>
+
+			<button id="controlsToggle">MENU</button>
+
+			<div id="scrollerWrapper">
+				<div id="scrollLine"></div>
+				<div id="scrollIndexWrapper">
+					<span id="scrollIndex"></span>
+					<span id="tooltip"></span>
+				</div>
+			</div>
+
 		</div>
-		
-		<span id="info" style="display: none;">?!</span>
 </section>
 
 <section id="transmissions" >
@@ -384,6 +393,10 @@
 <!-- Will eventually move this script to seperate file -->
 <script type="text/javascript">
 
+// toggleHeaderNav();
+// const nav = document.querySelector('nav#main');
+nav.attributes.active = true;
+
 //R U N  T H i S  F i R S T	
 	let setSection = (elem) => {
 
@@ -402,6 +415,7 @@
  			sections[setSection()].classList.add('active');
  			sections[setSection()].style.opacity = 1;
  			toggleHeaderNav();
+ 			invertHeaderNav(false);
  		}
  		else if (check == 2) {
  			console.log("2");
@@ -415,6 +429,7 @@
  			sections[setSection()].classList.add('active');
  			sections[setSection()].style.opacity = 1;
  			toggleHeaderNav();
+ 			invertHeaderNav(false);
  		}
  		else if (check == 0) {
  			sections[0].classList.add('active');
@@ -425,24 +440,24 @@
  			sections[0].style.opacity = 1;
  		}
 
-let UIElement = document.getElementById('UIEwrapper'),
-	corners = document.getElementsByClassName('crnr'),
-	loadingText = document.getElementById('loadingText'),
-	allImagesLoaded, //declare it on load, but don't fill it
-	allImagesCache = [...gallery[0].allImages, ...gallery[1].allImages, ...gallery[2].allImages, ...gallery[3].allImages];
+// let UIElement = document.getElementById('UIEwrapper'),
+// 	corners = document.getElementsByClassName('crnr'),
+// 	loadingText = document.getElementById('loadingText'),
+// 	allImagesLoaded, //declare it on load, but don't fill it
+// 	allImagesCache = [...gallery[0].allImages, ...gallery[1].allImages, ...gallery[2].allImages, ...gallery[3].allImages];
 
-const preloadImages = (src) => new Promise((resolve,reject) => {
-	const img = new Image();
-	img.onload = () => {
-		resolve(img);
-	} 
-	img.onerror = reject;
-	img.src = src;
-})
+// const preloadImages = (src) => new Promise((resolve,reject) => {
+// 	const img = new Image();
+// 	img.onload = () => {
+// 		resolve(img);
+// 	} 
+// 	img.onerror = reject;
+// 	img.src = src;
+// })
 
-const preloadImages_all = async (sources) => {
-	return Promise.all(sources.map(preloadImages))
-}
+// const preloadImages_all = async (sources) => {
+// 	return Promise.all(sources.map(preloadImages))
+// }
 
 //import snippet of code to reuse 
 // preloadImages_all(allImagesCache).then(images => {
@@ -461,7 +476,6 @@ const preloadImages_all = async (sources) => {
 
 
  document.addEventListener("DOMContentLoaded", ()=> {
-
  	UIElement.style.display = 'block';
  	UIElement.classList.add('UIELoad');
 });
