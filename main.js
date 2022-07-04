@@ -29,12 +29,16 @@ function invertHeaderNav(toggle) {
 		navToggle_Corners.forEach((element) => {
 			element.style.borderColor = "white";
 		});
+		setTimeout(() => {
+			navToggle.style.backgroundColor = "black";
+		}, 1000)
 		console.log("inverted");
 	} else {
 		siteHeader_h1.style.color = "black";
 		navToggle_Corners.forEach((element) => {
 			element.style.borderColor = "black";
 		});
+		navToggle.style.backgroundColor = "transparent";
 		console.log("reverted");
 	}
 }
