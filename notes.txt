@@ -1,3 +1,8 @@
+07. 04. 2022
+@1812 For reasons unknown to me, code fom the galleryRework branch seems to have made it
+	  over into the main branch. I know now the extent of the breach (lol)
+	  Or, maybe not? I dunno, working on the merge rn
+
 06. 06. 2022
 @2121 Issue fixed. Site now remembers user's last section upon page refresh.
 	  Next thing to work on, gallery redesign.
