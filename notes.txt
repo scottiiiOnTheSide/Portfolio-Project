@@ -1,4 +1,24 @@
+07. 05. 2022
+@1116 Preload needs to happen upon gallery selection, right from the start.
+	  Scale up causes the scroll to reset?
+	  And, in portrait mode for tablets images in imageView should be smaller -
+	  imageView also isn't changing styles when in landscape orientation either
+
+	  aaand for initial gallery choice, black boxes covering background images need to
+	  be bigger xD
+
+	  iPad has text color for active links (in nav menu)
+	  navMenuOptions is also too low on iPad 
+
+@1046 Issue with the navbar fixed :D 
+
 07. 04. 2022
+@1900 The merge seems to have gone well, for the most part. However, now having issues 
+	with nav elements reappearing after opening menu
+
+	current object is to have nav corners dissappear in both mobile and desktop.
+	corners currently dont return in opacity after menu being opened and closed again
+
 @1812 For reasons unknown to me, code fom the galleryRework branch seems to have made it
 	  over into the main branch. I know now the extent of the breach (lol)
 	  Or, maybe not? I dunno, working on the merge rn

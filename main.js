@@ -95,7 +95,7 @@ function toggleMenu(exclude, contrast, partial) {
 			}
 
 			if (!getComputedStyle(navToggle).backgroundColor == "rgba(0, 0, 0, 0)") {
-				navToggle.style.backgroundColor = "";
+				navToggle.style.backgroundColor = "transparent";
 				siteHeader.style.backgroundColor = "";
 			}
 
@@ -104,9 +104,9 @@ function toggleMenu(exclude, contrast, partial) {
 					navPage.style.opacity = "0";
 					navToggle_Corners.forEach((element) => {
 						element.classList.remove('menu-active');
-						if(window.innerWidth < 1024) {
+						// if(window.innerWidth < 1024) {
 							element.style.opacity = "1";
-						}
+						// }
 					});
 				}, 400);
 				setTimeout(() => {
@@ -178,12 +178,13 @@ function toggleMenu(exclude, contrast, partial) {
 
 		else {
 			navToggle.classList.add('menu-active');
+			navToggle.style.backgroundColor = 'transparent';
 			navPage.style.display = "block";
 			navToggle_Corners.forEach((element) => {
 				element.classList.add('menu-active');
-				if(window.innerWidth < 1024) {
+				// if(window.innerWidth < 1024) {
 					element.style.opacity = "0";
-				}
+				// }
 			});
 			setTimeout(() => {
 				navPage.style.opacity = 1;
@@ -318,9 +319,14 @@ navMenuItems.forEach((element, index) => {
 		if (button.classList.contains("active")){
 			return;
 		}
+
+		//control for close button in nav menu
 		else if (index === 0) {
 			if(sections[2].classList.contains('active')) {
 				toggleMenu(0, true, false);
+				setTimeout(()=> {
+					navToggle.style.backgroundColor = 'black';	
+				}, 1000)
 			} else {
 				toggleMenu(0, false, false);
 			}

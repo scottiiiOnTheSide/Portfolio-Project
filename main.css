@@ -307,7 +307,7 @@ div#navPage ul li button {
 		}
 
 	div#navPage ul li:first-child {
-		display: none;
+		/*display: none;*/
 	}
 
 	div#navPage ul li:first-child button {
@@ -394,7 +394,7 @@ div#navPage ul li button {
 		transition-timing-function: ease;
   		transition-duration: 1s;
   		/*opacity: 1;*/
-  		display: block;
+  		/*display: block;*/
 	}
 
 	div#navPage ul li {
