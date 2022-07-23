@@ -1,3 +1,182 @@
+07. 06. 2022
+Some user feedback from Lily
+- Being prompted to click the UIE could be made more obvious. Wait longer for it to appear
+or add some text around it.
+	- Menu selection after UIE, it isn't as apparent that the options are in fact options.
+	  perhaps make the menu selections smaller, condensed. Seem more button like
+  - make titles for albums more button like as well
+
+07. 05. 2022
+
+@1106 preloader implementation currently not working as intended :/
+	  gots to further assess situation
+
+@1031 implemented preload function into render, however it may not even make a difference
+	as the the rest of the script doesnt take images from the new array created by the
+	preload function.
+
+@1116 Preload needs to happen upon gallery selection, right from the start.
+	  Scale up causes the scroll to reset?
+	  And, in portrait mode for tablets images in imageView should be smaller -
+	  imageView also isn't changing styles when in landscape orientation either
+	  (has to do with max-height query)
+
+	  aaand for initial gallery choice, black boxes covering background images need to
+	  be bigger xD
+
+	  iPad has text color for active links (in nav menu)
+	  navMenuOptions is also too low on iPad 
+
+@1046 Issue with the navbar fixed :D 
+
+07. 04. 2022
+@1900 The merge seems to have gone well, for the most part. However, now having issues 
+	with nav elements reappearing after opening menu
+
+	current object is to have nav corners dissappear in both mobile and desktop.
+	corners currently dont return in opacity after menu being opened and closed again
+
+@1812 For reasons unknown to me, code fom the galleryRework branch seems to have made it
+	  over into the main branch. I know now the extent of the breach (lol)
+	  Or, maybe not? I dunno, working on the merge rn
+
+06. 06. 2022
+@2121 Issue fixed. Site now remembers user's last section upon page refresh.
+	  Next thing to work on, gallery redesign.
+	  Thumbnails images for each gallery load upon selecting gallery,
+	  wait until they load, then albums appear domino style.
+	  would include running function to get first 3 images
+	  out of all albums.
+
+	  or, load each album's images then load button to select album
+
+	  add support for vertical images by allowing page relayout on rotate 
+	  (different viewport)
+
+@2014 Giving me errors that I don't understand can be possible. Declared elements
+that were fine are suddenly not, despite not being touched at all...
+
+@1748 Soooo with the preload being utilized, it seems that the site has trouble
+	  loading on mobile (._. ) I can't even refresh
+
+	  May have to implement the loading images before entering each specific 
+	  gallery now...
+
+	  Might as well do the redesign now as well T- T
+
+@1152 Display the close button for nav in desktop mode as well...
+@1144 As of now, it works exactly as it should 
+	(though whether the images are actually saved in session storage is another issue, as it's near 1GB of images...)
+
+@1105 IT WORKS !!! 
+	  For now, will launch the preloader for all images when the site first loads.
+	  Will eventually for it for each album or gallery.
+
+06. 05. 2022
+@1442 it works :D Now time to implement....
+
+@1428 Currently working on functionality that waits until all images loaded, to then load the UIE. Have to make sure all images are actually loaded and, checked, and that the UIE loads after, not before. 
+in the middle of working through it...
+
+needs to await 
+	let pic = testLoadImage(img);
+within the for loop
+
+05. 29. 2022
+@1422 Fixed thumbnail sizing in gallery
+@1402 Added jpgs for Boston Photo Album, removed another album I no longer
+	  care to host on the portfolio
+
+05. 28. 2022
+@0942 Wrote function to preload all images.
+	  Need to convert images from Boston Photo Journal and
+	  Cars and Pussy from ARW to JPEGs. Was abit lazy concerning that...
+
+05. 27. 2022
+@1711 Added new logo code to index.html
+	  Fixed issue with nav button being maladjusted on mobile.
+
+05. 15. 2022
+@2130 At which point in the UI experience / sequence should the images be set to preload?
+	  Perhaps at site launch: Replace UIE with 'Loading Site Assets...' until images loaded
+
+	  Can use gallery[x].allImages as array to get all image files
+	  use 'var x = new Image()', then assign img.src with path from array 
+	  loadedImages will simply exist as cache for images
+
+	  
+	  Also, styling in gallery may still need to be adjusted for larger displays
+
+05. 13. 2022 Friday the 13th :D
+@1822 Adjusted text within selfConcept section, much more legible now. 
+	  Adjusted font styling of arrival section menu as well.
+	  Fixed various styling issues within gallery section, thumbnail
+	  images issue and nav. 
+	    - need to fix issue with header and main nav not having background
+	      color within this section.
+
+	  To Do, 
+	  - Cache all images before launching gallery.
+	  - TRANSMISSIONS SECTION (ugh)
+
+05. 11. 2022
+@1609 Fixed sizing for arrival section elements and nav elements, mobile
+	  Fixed issue with nav background being remaining black after leaving
+	  gallery section. 
+
+	  Still need to re do text for about section 
+	  - also haven't written content for 'the developer' 
+
+	  Set all images on site to load before displaying site 
+	  - would need to assign all images to elements in an array using async 	or await, then proceed to load site after it's completion.
+
+05. 09. 2022
+@1137 Fixed
+	  - Work on Arrival & SelfConcept resizings
+	  - begin planning gallery reWork
+
+@1100 Fixing issue with images in SelfConcept section rotating wildly
+
+@1000 Attempts to get LAN server running on WSL failed (._. ) - with the
+	  intentions of being able to view the site on my mobile devices of course.
+
+	  Was able to install and get up and running Node and the Server on Windows
+	  itself successfully!
+
+	  And the site is viewable over mobile!!!
+
+	  . . . there's quite a bit of work to do
+
+05. 05. 2022
+	
+@2243 Adjusted some styling in arrivals section, fixing issues in rendering 
+		across different viewport sizes. UIE, title.
+		Also, finally fixed the issue with the media queries which adjusted
+		the photos within their wrapper T-T
+		Turns out the solution was simply implemented incorrectly (minor error)
+
+		Animation of the UIE is still sticky however.
+
+		Next Section of things to work on: Navigation. 
+		For some reason, the hover function i originally designed for mouseover
+		on the menu button isn't working. May need redesign
+
+@2040 Wait until running portfolio off node to adjust font size styles for arrival
+	*implement block (pop up model) for when viewport dimensions fall outside 
+	acceptable parameters (like a phone being in landscape mode)
+
+
+05. 04. 2022
+@1529 Worked on landing section - finally fixed the carousel!!!
+	 - need to adjust media query function for the images within it
+	 - set runTheCarousel.set and .repeat within index,
+	   .cease whenever user leaves arrival
+	    - .repeat takes a while to start, factor that in
+
+	Have alot of other things to fix on landing, will document
+	necessary fixes later...
+
+
 
 <--- G E T  G U U D  W I T  G I T
 	04. 04. 2022

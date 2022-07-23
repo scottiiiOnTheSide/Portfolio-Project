@@ -28,10 +28,24 @@ let activeStates = ['',
 let images = Array.from(document.querySelectorAll('img')).slice(0, 4);
 
 //Elements in array written with loop instead of by hand
-let headerImages = [];
-for (let i = 1; i < 13; i++) {
-	headerImages.push('img/header/' +i+ '.jpg');
-}
+let headerImages = [
+	"001.jpg",
+	"002.jpg",
+	"003.jpg",
+	"004.jpg",
+	"005.jpg",
+	"006.jpg",
+	"007.jpg",
+	"008.jpg",
+	"009.jpg",
+	"010.jpg",
+	"011.jpg",
+	"012.jpg"
+];
+// for (let i = 1; i < 13; i++) {
+// 	headerImages.push('img/header/' +i+ '.jpg');
+// }
+headerImages = headerImages.map(img => 'img/header/' +img);
 
 //sets some default styling for elements and allows toggling
 function toggleDefaults(tog) {
@@ -76,7 +90,8 @@ function mediaQuery1024() {
 (mediaQuery1024() == 480 || mediaQuery1024() == 1024) ? toggleDefaults(false) : toggleDefaults(true);
 (mediaQuery1024() == 480 || mediaQuery1024() == 1024) ? toggleMobile(true) : toggleMobile(false);
 
-
+/* 5.4.2022
+	need to adjust mediaQuery where these sizes change, around 768 */
 function carouselQueried(func) { //will adjust styles of carousel based on device width
 	let x = func();
 	// console.log(x);
@@ -104,11 +119,11 @@ function carouselQueried(func) { //will adjust styles of carousel based on devic
 			if(images[2].src.includes(headerImages[2])) {
 				images[2].style.objectPosition = "center -200px";
 			} 
-			else { images[1].style = null; }	
+			else { images[2].style = null; }	
 			if(images[3].src.includes(headerImages[3])) {
 				images[3].style.objectPosition = "center -300px";
 			} 
-			else { images[1].style = null; }
+			else { images[3].style = null; }
 		};
 	}
 carouselQueried(mediaQuery1024);
@@ -146,40 +161,74 @@ function removeOutro () {
 		imgWrappers[3].classList.remove('loadDown_Out');
 }
 
-function headerCarousel(toggle) {
-		let imgcnt = 4;
-		let run;
+// function headerCarousel(toggle) {
+// 	let imgcnt = 4;
+// 	return runCarousel(imgcnt);
+// }
 
-		function runCarousel() {
-			if(toggle === true) {
-				if (imgWrappers[0].classList.contains('loadUp_In')) {
-					toggleDefaults(false);
-					toggleMobile(false);
-					removeIntro();
-					addOutro();
-				};
+	function runCarousel() {
+		// let imgcnt = 4; //initial set
+		if (imgWrappers[0].classList.contains('loadUp_In')) { /*Their default state*/
+			toggleDefaults(false);
+			toggleMobile(false);
+			removeIntro();
+			addOutro();
+		};
 
-				setTimeout(() => { //change images to next set
-					// removeOutro();
-					for (let i = 0; i < images.length; i++) {
-						images[i].src = headerImages[imgcnt];
-						carouselQueried(mediaQuery1024);
-						imgcnt++;
-						if(imgcnt == 12) imgcnt = 0;
-					}
-				}, 1700)//0.2s after .load... animation sequence is complete
+		setTimeout(() => { //change images to next set during transition
+			let imgcnt;
 
-				setTimeout(() => {
-					removeOutro();
-					addIntro(); 
-					(mediaQuery1024() == 480 || mediaQuery1024() == 1024) ? toggleMobile(true) : toggleMobile(false);
-					(mediaQuery1024() == 480 || mediaQuery1024() == 1024) ? toggleDefaults(false) : toggleDefaults(true);
-				}, 2500); //bring them back in
-			} 
-		    setTimeout(runCarousel, 7000);
-		}
-		return runCarousel();
-} 
+			if (images[0].src.includes('009')) {
+				imgcnt = 0;
+				for (let i = 0; i < images.length; i++) {
+					images[i].src = headerImages[imgcnt];
+					carouselQueried(mediaQuery1024);
+					imgcnt++;
+					console.log(imgcnt);
+				}
+			} else if (images[0].src.includes('001')) {
+				imgcnt = 4;
+				for (let i = 0; i < images.length; i++) {
+					images[i].src = headerImages[imgcnt];
+					carouselQueried(mediaQuery1024);
+					imgcnt++;
+					console.log(imgcnt);
+				}
+			} else if (images[0].src.includes('005')) {
+				imgcnt = 8;
+				for (let i = 0; i < images.length; i++) {
+					images[i].src = headerImages[imgcnt];
+					carouselQueried(mediaQuery1024);
+					imgcnt++;
+					console.log(imgcnt);
+				}
+			}
+		}, 1700)//0.2s after .load... animation sequence is complete
+
+		setTimeout(() => {
+			removeOutro();
+			addIntro(); 
+			(mediaQuery1024() == 480 || mediaQuery1024() == 1024) ? toggleMobile(true) : toggleMobile(false);
+			(mediaQuery1024() == 480 || mediaQuery1024() == 1024) ? toggleDefaults(false) : toggleDefaults(true);
+		}, 2500); //bring them back in
+	}
+
+let runTheCarousel = {
+	set: function() {
+		runCarousel();
+	},
+
+	repeat: function() {
+		this.timeoutID = setInterval(function() {
+			runCarousel();
+		}.bind(this), 5000);
+	},
+
+	cease: function() {
+		clearTimeout(this.timeoutID);
+	}
+}
+ 
 
 // f u n c t i o n  t o  s w i t c h  t i t l e 
 function switchTitle() {
@@ -187,7 +236,7 @@ function switchTitle() {
 			titleLogo.classList.remove('switchIn');
 			titleLogo.classList.add('switchOut');
 			setTimeout(() => {
-				titleLogo.style.display = "none";
+				titleLogo.style.display = "none"; 
 
 				setTimeout(() => {
 					titleH1.style.display = "block";
@@ -212,7 +261,9 @@ function switchTitle() {
 				titleLogo.classList.add('switchIn');
 			}, 1300);
 		}  
-}
+} /* 05.05.2022
+	It's probably due to some sort of overload,
+	yet after two runs of this function, it ceases . . . entirely?
 
 /*
 	f u n c t i o n  t o  s w i t c h  
@@ -246,16 +297,16 @@ function carouselToMenu() {
 
 			setTimeout(() => {
 				homeMenu.style.display = "block";
+				homeMenu.classList.remove('switchOut');
 				homeMenu.classList.add('switchIn');
 			}, 1300)
 		}
 }
 
 // 02. 22. 2022 C O M M E N T  O U T  T O  S T O P  C A R O U S E L
-setTimeout(() => {
-	headerCarousel(true);
-}, 3500); 
-
+// let runTheCarousel = setTimeout(() => {
+// 	headerCarousel(true);
+// }, 3500); 
 
 
 /*
@@ -273,18 +324,39 @@ setTimeout(() => {
 // C l i c k  A n i m a t i o n 
 UIElement.addEventListener('click', function() {
 		let states = activeStates.slice(4);
-		for (let i = 0; i < states.length; i++) {
-			corners[1+i].classList.remove(activeStates[1+i]);
-		};
-		UIElement.classList.remove('nonActive');
-		UIElement.classList.add('active');
 
-		setTimeout(() => {
+		if(this.classList.contains('UIE_nonActive')) {
 			for (let i = 0; i < states.length; i++) {
-				corners[1+i].setAttribute('id', states[i]);
+				corners[1+i].classList.remove(activeStates[1+i]);
 			};
-		}, 100);
-		carouselToMenu();
+			UIElement.classList.remove('UIE_nonActive');
+			UIElement.classList.add('UIE_active');
+
+			setTimeout(() => {	
+				for (let i = 0; i < states.length; i++) {
+					corners[1+i].setAttribute('id', states[i]);
+				};
+			}, 100);
+			carouselToMenu();
+			runTheCarousel.cease();
+
+		} else if (this.classList.contains('UIE_active')) {
+			for (let i = 0; i < states.length; i++) {
+				corners[1+i].classList.add(activeStates[1+i]);
+			};
+			UIElement.classList.remove('UIE_active');
+			UIElement.classList.add('UIE_nonActive');
+			
+			setTimeout(() => {	
+				for (let i = 0; i < states.length; i++) {
+					corners[1+i].removeAttribute('id', states[i]);
+				};
+			}, 100);
+			carouselToMenu();
+			runTheCarousel.repeat();
+		}
+		
+		
 });
 
 

@@ -13,7 +13,7 @@ div#menu {
 	width: 95%;
 	/*height: 50%;*/
 	margin: 0;
-	margin-left: 10px;
+	/*margin-left: 10px;*/
 	top: 50%;
 	left: 50%;
 	transform: translate(-50%, -50%);
@@ -151,7 +151,7 @@ div#title {
 	div#title h1 {
 		font-family: 'Avenir';
 		font-weight: 500;    
-		font-size: 3em;
+		font-size: 2em;
 		color: white;
 		letter-spacing: 20px;
     	text-align: center;
@@ -162,7 +162,7 @@ div#title {
 	div#title h3 {
 		font-family: "Open Sans";
 		font-weight: 300;
-		letter-spacing: 1.25em;
+		letter-spacing: 1em;
 		text-align: center;
 		color: var(--text-gray);
 		margin: 0;
@@ -170,8 +170,13 @@ div#title {
 
 	div#title span {
 		display: none;
-		margin-left: 30px;
+		/*margin-left: 30px;*/
 		position:  relative;
+	}
+
+	div#title span svg {
+		width: 98px;
+		fill: white;
 	}
 
 
@@ -297,7 +302,7 @@ div#showcaseWrapper {
 
 
 div#UIEwrapper {
-	display: block;
+	display: none;
 	position:  absolute;
 	width: 120px;
 	height: 120px;
@@ -307,17 +312,37 @@ div#UIEwrapper {
 	left:  50%;
 	transition: all 1s ease-out;
 	transition: transform 2s ease-out;
-	animation-name: load;
+	/*animation-name: UIELoad;*/
     animation-duration: 1s;
-	animation-timing-function: ease-in;
+	animation-timing-function: ease-in-out;
+	animation-fill-mode: forwards;
+	animation-delay: 1.5s;
+	opacity: 0;
 }
 
-div.nonActive {
+	.UIELoad {
+		animation-name: UIELoad;
+	}
+
+@keyframes UIELoad {
+	from{
+		opacity: 0;
+		transform: scale(0.8) translate(-50%, -50%) rotate(45deg);
+	}
+	to {
+		opacity: 1;
+		transform: scale(1.0) translate(-50%, -50%) rotate(45deg);
+	}
+}
+
+div.UIE_nonActive {
+	transition: transform 2s ease-out !important;
 	transform: translate(-50%, -50%) rotate(45deg); /* rotated clock wise*/
 }
 
-div.active {
-	transform: translate(-50%, -50%) rotate(225deg);
+div.UIE_active {
+	transition: transform 2s ease-out !important;
+	transform: translate(-50%, -50%) rotate(225deg) !important;
 	/*transform: translate(-50%, -50%);*/
 }
 
@@ -341,6 +366,19 @@ div.active {
 	*/
 
 
+span#loadingText {
+	color: white;
+	font-family: 'Open Sans';
+	font-weight: 300;
+	font-size: 1em;
+	letter-spacing: 6px;
+	text-align: center;
+	position: absolute;
+	top: 90%;
+	width: 100%;
+	transition: all 0.5s ease-out;
+	opacity: 0;
+}
 
 span.crnr {
 	display: inline-block;
@@ -348,13 +386,14 @@ span.crnr {
 	margin: 0;
 	width:  30%;
 	height:  30%;
-	border: 4px solid white;
+	border: 3px solid white;
 	transition: border-color 0.4s linear, 
 				top 0.4s ease-out,
 				right 0.4s ease-out,
 				left 0.4s ease-out,
 				bottom 0.4s ease-out,
-				transform 2s ease-out;
+				transform 2s ease-out,
+				opacity 0.5s ease-out;
 }
 
 
@@ -398,7 +437,7 @@ span.crnr:last-child {
 	}
 
 	div#menu div.option h1 {
-		font-size: 1.75em;
+		font-size: 1.5em;
 		margin-bottom: 10px;
 	}
 
@@ -409,8 +448,13 @@ span.crnr:last-child {
 
 	div#UIEwrapper {
 		top: 90%;
-		width: 99px;
-		height: 99px;
+		width: 95px;
+		height: 95px;
+	}
+	span#crnr2-active { border-color: #3BDACA; right: 7px; top: 22px; }
+	span#crnr3-active { border-color: #3BDACA; left: 25px; bottom: 8px;}
+	span#crnr4-active { border-color: #3BDACA; right: 8px; bottom: 8px;}
+
 }
 
 @media only screen and (max-width: 1024px) {
@@ -452,41 +496,21 @@ span.crnr:last-child {
 	div.loadDown_Out {
 		animation-name: loadLeft_Out;
 	}
-	
-}
-
-@media only screen and (max-width: 768px) {
-/*	div#title span#logo {
-		transform: scale(2.5);
-	}*/
-
-	div#title h1 {
-		letter-spacing: 16px;
-	}
-
-	div#menu div.option h3 {
-		font-size: 1em;
-		line-height: 30px;
-		width: 75%;
-	}
 
 	div#menu div.option {
-		display:  block;
-		width: 100%;
-		float: none;
-		margin: 100px auto;
+		width: 89%;
 	}
 }
 
 @media only screen and (max-width: 480px) {
 
 	div#title h1 {
-		letter-spacing: 10px;
-		font-size: 1.5rem;
+		font-size: 1.5em;
+		letter-spacing: 8px;
 	}
 
 	div#title h3 {
-		font-size: 1rem;
+		font-size: 0.8em;
 		letter-spacing: 12px;
 	}
 
@@ -498,6 +522,10 @@ span.crnr:last-child {
 		width: 64px;
 		height: 64px;
 	}
+
+	span#crnr2-active { border-color: #3BDACA; right: 4px; top: 12px; }
+	span#crnr3-active { border-color: #3BDACA; left: 15px; bottom: 5px;}
+	span#crnr4-active { border-color: #3BDACA; right: 5px; bottom: 5px;}
 
 	div#menu div.option {
 		display:  block;
