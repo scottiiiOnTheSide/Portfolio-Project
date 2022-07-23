@@ -1,3 +1,22 @@
+
+
+07. 23. 2022
+@1415 Begun working on Transmissions Section
+	  HTML & CSS done for initial options
+
+	  To Do:
+	  - new JS file for section,
+	  	get all elements as consts
+	  - selecting any option prompts optionsWrapper to "close" state
+	  	- set styles to 'close' element
+	    - optionsWrapper then scales and reopens to size of whatever
+	      element appears (different classes for each element)
+	  - subElements:
+	    Instagram/Twitter box
+	    Testimonials slider
+	    Contact form
+	  - include 'back' button that returns section to initial options
+
 07. 06. 2022
 Some user feedback from Lily
 - Being prompted to click the UIE could be made more obvious. Wait longer for it to appear

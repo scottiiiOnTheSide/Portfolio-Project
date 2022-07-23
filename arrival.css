@@ -26,6 +26,7 @@ div#menu {
 		width: 33%;
 		height: 99.8%;
 		margin: 0;
+		cursor: pointer;
 	}
 
 	div#menu div.option h1 {

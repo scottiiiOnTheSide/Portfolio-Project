@@ -1,0 +1,125 @@
+
+section#transmissions {}
+
+section#transmissions div#optionsWrapper {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	width: 80%;
+	height: 60vh;
+	box-sizing: border-box;
+	padding: 20px;
+	/*background-color: blueviolet;*/
+
+	/*reduce to
+	width: 142px;
+	height: 135px;*/
+}
+
+section#transmissions div#optionsWrapper::before {
+	content: '';
+	/*width: 35%;
+	height: 35%;*/
+	width: 220px;
+	height: 220px;
+	border: 2px solid black;
+	border-right: none;
+	border-bottom: none;
+	top: 0px;
+	left: 0px;
+	position: absolute;
+}
+
+section#transmissions div#optionsWrapper::after {
+	content: '';
+	/*width: 35%;
+	height: 35%;*/
+	width: 220px;
+	height: 220px;
+	border: 2px solid black;
+	border-top: none;
+	border-left: none;
+	bottom: 0px;
+	right: 0px;
+	position: absolute;
+}
+
+section#transmissions div#optionsWrapper div.opt {
+	position: absolute;
+	padding: 30px;
+	transition: all 0.3s ease-out;
+}
+
+section#transmissions div#optionsWrapper div.opt:hover {
+	background-color: black;
+    color: white;
+}
+
+section#transmissions div#optionsWrapper div.opt h2 {
+	font-family: Avenir;
+	font-weight: 500;
+	font-size: 1.25em;
+	letter-spacing: 8px;
+	/*text-align: center;*/
+	margin-bottom: 5px;
+}
+
+section#transmissions div#optionsWrapper div.opt span {
+	font-family: Avenir;
+	font-size: 0.7em;
+	letter-spacing: 10px;
+	/*text-align: center;*/
+	color: var(--text-gray);
+	display: inline-block;
+	width: 100%;
+}
+
+	section#transmissions div#optionsWrapper div.opt:first-child {
+		top: 0;
+		left: 0;
+	}
+
+	section#transmissions div#optionsWrapper div.opt:nth-child(2) {
+		top: 50%;
+    	left: 50%;
+    	transform: translate(-50%, -50%);
+    	text-align: center;
+
+    	/*maxWidth 440px
+    	width: 110%;*/
+	}
+
+	section#transmissions div#optionsWrapper div.opt:last-child {
+		bottom: 0;
+		right: 0;
+		text-align: right;
+		z-index: 1;
+	}
+
+
+@media screen and (max-width: 440px) {
+	section#transmissions div#optionsWrapper {
+		width: 99%;
+	}
+
+	section#transmissions div#optionsWrapper div.opt:nth-child(2) {
+		width: 60%;
+		text-align: center;
+	}
+
+	section#transmissions div#optionsWrapper div.opt:last-child {
+		text-align: right;
+	}
+
+	section#transmissions div#optionsWrapper div.opt h2 {
+		font-size: 1em;
+	}
+
+	section#transmissions div#optionsWrapper div.opt span {
+		font-size: 0.7em;
+		letter-spacing: 7px;
+	}
+}
+
+
