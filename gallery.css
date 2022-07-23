@@ -246,8 +246,8 @@ section#gallery div#albums div.entry {
 	position: relative;
 	width: 90%;
 	user-select: none;
-	/*transition: all 0.5s ease-out;*/
-	/*display: none;*/
+	transition: all 0.5s ease-out;
+	display: none;
 	/*opacity: 0;*/
 }
 

@@ -290,131 +290,98 @@ albumCurrent.addEventListener('click', ()=> {
 	} //keep
 })
 
+const preloadImages = (src) => new Promise((resolve,reject) => {
+	const img = new Image();
+	img.onload = () => {
+		resolve(img);
+	} 
+	img.onerror = reject;
+	img.src = src;
+})
 
-function renderGallery(oneOfFour) { // gallery[x]
+const preloadImages_all = async (sources) => {
+	return Promise.all(sources.map(preloadImages))
+}
+
+
+async function renderGallery(oneOfFour) { // gallery[x]
 	let entries = [];
 	let galleries = oneOfFour.albums;
-	currentGalleries.all = oneOfFour.allImages;
+	// currentGalleries.all = oneOfFour.allImages;
 
+		galleries.forEach((album, index) => {
+			let entry = Object.create(albumEntry);
+			let title = album.name.match(/[\d\.]+|\D+/g);
+			let thumbnails = [];
+			entry.title = title[title.length - 1];
+			entry.date = album.name.split(/[A-Z][a-z]+/g)[0];
 
-	galleries.forEach((album, index) => {
-		let entry = Object.create(albumEntry);
-		let title = album.name.match(/[\d\.]+|\D+/g);
-		let thumbnails = [];
-		entry.title = title[title.length - 1];
-		entry.date = album.name.split(/[A-Z][a-z]+/g)[0];
+			for(let i = 0; i < 3; i++) {
+				let img = document.createElement('img');
+				img.src = album.images[i];
+				thumbnails.push(img);
+			}
+			
+			entry.thumbnailImgs = thumbnails;
 
-		for(let i = 0; i < 3; i++) {
-			let img = document.createElement('img');
-			img.src = album.images[i];
-			thumbnails.push(img);
-		}
-		
-		entry.thumbnailImgs = thumbnails;
+			entries.push(entry.create());
+		})
 
-		entries.push(entry.create());
-
-		// setTimeout(() => {
-		// 	let imagesInThumbail = document.querySelectorAll("div#entryWrapper div.entry div.thumbnails img");
-		// 	let thumbail = document.querySelectorAll("div#albums div.entry div.thumbnails img");
-		// 	let currententries = document.querySelectorAll("div#albums div.entry");
-		// 	let supposedWidth = imagesInThumbail[0].offsetWidth + imagesInThumbail[1].offsetWidth + imagesInThumbail[0].offsetWidth;
-		// 	if (supposedWidth > 450) {
-		// 		thumbnail.forEach((element) => {
-		// 			element.style.top = "-30px"
-		// 			element.style.left = "50%"
-		// 		})
-		// 		currententries.forEach((element) => {
-		// 			element.style.marginTop = "15rem";
-		// 		})
-		// 	}
-		// }, 300);
-	})
-
-	//for each album in gallery, launch imageview with it's images
-	entries.forEach((album, index) => {
+		//for each album in gallery, launch imageview with it's images
+		entries.forEach((album, index) => {
 
 		// kinda works
 		// setTimeout(() => {
 			// setTimeout(()=> {
 				entryWrapper.appendChild(album);
-				// album.style.display = 'block';
+				album.style.display = 'block';
 				// setTimeout(() => {
 					// album.style.opacity = 1;
 				// })
-			// }, 300 * index)	
+			// }, 500 * index)	
 		// }, 1000 * index)
 
-		album.addEventListener('click', ()=> {
+			album.addEventListener('click', ()=> {
 
-			currentGalleries.album = galleries[index].images;
+				currentGalleries.album = galleries[index].images;
 
-			//run preloadImages function here...
+				//run preloadImages function here...
+				//preload galleries[index].images
 
-			currentGalleries.album.map((element, index) => {
-				let slide = createImgSlide(element);
-				imageSlidesWrapper.appendChild(slide);
+				// preloadImages_all(galleries[index].images).then(images => {
+
+					// currentGalleries.album = images;	
+
+					//map actually returns a new array, may have to rewrite this?
+					currentGalleries.album.map((element, index) => {
+						let slide = createImgSlide(element);
+						imageSlidesWrapper.appendChild(slide);
+					})
+					
+					let imageSlides = Array.from(imageSlidesWrapper.children);
+					imagesControls(imageSlides);
+					imageSlides[0].style.display = "block";
+
+					displayToggle(albums);
+					displayToggle(header);
+					displayToggleNav();
+					controls_UI[0].firstElementChild.innerHTML = 1;
+					controls_UI[0].lastElementChild.innerText = currentGalleries.album.length;
+
+					//probably where I need to add code for fancyCounter
+					// fancyCounter.create(galleries[index].images.length);
+
+					setTimeout(() => {
+						imageview.style.display = 'flex';
+						imageview.attributes.active = true;
+						setTimeout(() => {
+							imageview.style.opacity = '1';
+						}, 100)
+					}, 550)
+				// })
 			})
-
-			let imageSlides = Array.from(imageSlidesWrapper.children);
-			imagesControls(imageSlides);
-			imageSlides[0].style.display = "block";
-
-			displayToggle(albums);
-			displayToggle(header);
-			displayToggleNav();
-			controls_UI[0].firstElementChild.innerHTML = 1;
-			controls_UI[0].lastElementChild.innerText = currentGalleries.album.length;
-
-			//probably where I need to add code for fancyCounter
-			// fancyCounter.create(galleries[index].images.length);
-
-			setTimeout(() => {
-				imageview.style.display = 'flex';
-				imageview.attributes.active = true;
-				setTimeout(() => {
-					imageview.style.opacity = '1';
-				}, 100)
-			}, 550);
-		})
-	});
-
-
-	currentGalleries.all.forEach((element, index) => {
-		let image = document.createElement('img');
-		image.src = element;
-		allImages.firstElementChild.appendChild(image);
-
-		image.addEventListener('click', ()=> {
-			currentGalleries.index = index;
-			currentGalleries.all.map((element, index) => {
-				let slide = createImgSlide(element);
-				imageSlidesWrapper.appendChild(slide);
-			})
-
-			let imageSlides = Array.from(imageSlidesWrapper.children);
-			imagesControls(imageSlides);
-			imageSlides[index].style.display = "block";
-
-			displayToggle(albums);
-			displayToggle(header);
-			displayToggleNav();
-			controls_UI[0].lastElementChild.innerText = currentGalleries.all.length;
-
-			initiateScroll();
-			
-			setTimeout(() => {
-				imageview.style.display = 'flex';
-				imageview.attributes.active = true;
-				controls_UI[0].firstElementChild.innerHTML = index;
-				setTimeout(() => {
-					imageview.style.opacity = '1';
-				}, 100)
-			}, 550);
-		})
-	});
-};
-
+		})	
+}
 
 //State Variables for Image Slider Function
 

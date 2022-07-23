@@ -393,9 +393,7 @@
 <!-- Will eventually move this script to seperate file -->
 <script type="text/javascript">
 
-// toggleHeaderNav();
-// const nav = document.querySelector('nav#main');
-nav.attributes.active = true;
+	nav.attributes.active = true;
 
 //R U N  T H i S  F i R S T	
 	let setSection = (elem) => {
@@ -408,77 +406,43 @@ nav.attributes.active = true;
  		}
  	}
 
- 		let check = setSection();
+ 	let check = setSection();
 
- 		if(check == 1) {
- 			console.log("1");
- 			sections[setSection()].classList.add('active');
- 			sections[setSection()].style.opacity = 1;
- 			toggleHeaderNav();
- 			invertHeaderNav(false);
- 		}
- 		else if (check == 2) {
- 			console.log("2");
- 			sections[setSection()].classList.add('active');
- 			sections[setSection()].style.opacity = 1;
- 			toggleHeaderNav();
- 			invertHeaderNav(true);
- 		}
- 		else if (check == 3) {
- 			console.log("3");
- 			sections[setSection()].classList.add('active');
- 			sections[setSection()].style.opacity = 1;
- 			toggleHeaderNav();
- 			invertHeaderNav(false);
- 		}
- 		else if (check == 0) {
- 			sections[0].classList.add('active');
- 			sections[0].style.opacity = 1;
- 		}
- 		else {
- 			sections[0].classList.add('active');
- 			sections[0].style.opacity = 1;
- 		}
-
-// let UIElement = document.getElementById('UIEwrapper'),
-// 	corners = document.getElementsByClassName('crnr'),
-// 	loadingText = document.getElementById('loadingText'),
-// 	allImagesLoaded, //declare it on load, but don't fill it
-// 	allImagesCache = [...gallery[0].allImages, ...gallery[1].allImages, ...gallery[2].allImages, ...gallery[3].allImages];
-
-// const preloadImages = (src) => new Promise((resolve,reject) => {
-// 	const img = new Image();
-// 	img.onload = () => {
-// 		resolve(img);
-// 	} 
-// 	img.onerror = reject;
-// 	img.src = src;
-// })
-
-// const preloadImages_all = async (sources) => {
-// 	return Promise.all(sources.map(preloadImages))
-// }
-
-//import snippet of code to reuse 
-// preloadImages_all(allImagesCache).then(images => {
-// 				allImagesLoaded = images;
-// 				console.log(allImagesLoaded);
+ 	if(check == 1) {
+ 		console.log("1");
+ 		sections[setSection()].classList.add('active');
+ 		sections[setSection()].style.opacity = 1;
+ 		toggleHeaderNav();
+ 		invertHeaderNav(false);
+ 	}
+ 	else if (check == 2) {
+ 		console.log("2");
+ 		sections[setSection()].classList.add('active');
+ 		sections[setSection()].style.opacity = 1;
+ 		toggleHeaderNav();
+ 		invertHeaderNav(true);
+ 	}
+ 	else if (check == 3) {
+ 		console.log("3");
+		sections[setSection()].classList.add('active');
+		sections[setSection()].style.opacity = 1;
+ 		toggleHeaderNav();
+ 		invertHeaderNav(false);
+ 	}
+ 	else if (check == 0) {
+ 		sections[0].classList.add('active');
+ 		sections[0].style.opacity = 1;
+ 	}
+ 	else {
+ 		sections[0].classList.add('active');
+ 		sections[0].style.opacity = 1;
+ 	}
 
 
-// let setSection = (index) => {
-//  		if(!index) {
-//  			return sessionStorage.currentSection;
-//  		}
-//  		else {
-//  			sessionStorage.setItem('currentSection', index);
-//  		}
-//  	}
-
-
- document.addEventListener("DOMContentLoaded", ()=> {
- 	UIElement.style.display = 'block';
- 	UIElement.classList.add('UIELoad');
-});
+	document.addEventListener("DOMContentLoaded", ()=> {
+ 		UIElement.style.display = 'block';
+ 		UIElement.classList.add('UIELoad');
+	});
 
 //Setting arrival carousel to run
 //this set of functions needs more added, such as ceasing carousel
@@ -493,38 +457,35 @@ nav.attributes.active = true;
 
 
 //For arrival section menu options
-menuOptions.forEach((element, index) => {
+	menuOptions.forEach((element, index) => {
 
-	index = parseInt(index);
+		index = parseInt(index);
 
-	element.addEventListener('click', ()=> {
-		console.log(index);
-		setSection(index);
-		runTheCarousel.cease();
-		setTimeout(() => {
-			selectSection(index);
-		}, 500)
-			
+		element.addEventListener('click', ()=> {
+			console.log(index);
+			setSection(index);
+			runTheCarousel.cease();
+			setTimeout(() => {
+				selectSection(index);
+			}, 500)
+				
 
-		setTimeout(() => {
-			toggleHeaderNav();
-			if (index === 2) {
-				console.log("true");
-				invertHeaderNav(true)
-			}
-		}, 2500)
+			setTimeout(() => {
+				toggleHeaderNav();
+				if (index === 2) {
+					console.log("true");
+					invertHeaderNav(true)
+				}
+			}, 2500)
+		})
 	})
-})
 
-navMenuItems.forEach((element, index) => {
+	navMenuItems.forEach((element, index) => {
 
-	element.addEventListener('click', () => {
-		setSection(index);
+		element.addEventListener('click', () => {
+			setSection(index);
+		})
 	})
-})
-
-
-	
 </script>
 
 </body>

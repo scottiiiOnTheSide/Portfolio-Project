@@ -1,8 +1,25 @@
+07. 06. 2022
+Some user feedback from Lily
+- Being prompted to click the UIE could be made more obvious. Wait longer for it to appear
+or add some text around it.
+	- Menu selection after UIE, it isn't as apparent that the options are in fact options.
+	  perhaps make the menu selections smaller, condensed. Seem more button like
+  - make titles for albums more button like as well
+
 07. 05. 2022
+
+@1106 preloader implementation currently not working as intended :/
+	  gots to further assess situation
+
+@1031 implemented preload function into render, however it may not even make a difference
+	as the the rest of the script doesnt take images from the new array created by the
+	preload function.
+
 @1116 Preload needs to happen upon gallery selection, right from the start.
 	  Scale up causes the scroll to reset?
 	  And, in portrait mode for tablets images in imageView should be smaller -
 	  imageView also isn't changing styles when in landscape orientation either
+	  (has to do with max-height query)
 
 	  aaand for initial gallery choice, black boxes covering background images need to
 	  be bigger xD
