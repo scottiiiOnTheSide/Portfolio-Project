@@ -18,6 +18,11 @@
 <body>
 
 <script type="text/javascript">
+	let delay = (URL) => {
+    	setTimeout(()=> { 
+    		window.open(URL, "_blank");
+    	}, 500 );
+	}
 </script>
 
 	<header>
@@ -324,6 +329,8 @@
 <section id="transmissions" >
 	
 	<div id="optionsWrapper">
+	<!-- <div id="optionsWrapper" style="display: none"> -->
+
 
 		<div class="opt">
 			<h2>Regards from <br>Previous Clients</h2>
@@ -339,6 +346,17 @@
 			<h2>Inquire and or <br>Request Services</h2>
 			<span>( Contact Form )</span>
 		</div>
+	</div>
+
+	<div id="socials">
+		<ul>
+			<li>
+				<a href="javascript:delay('https://www.instagram.com/beammeupscottiii/')">Instagram</a>
+			</li>
+			<li>
+				<a href="javascript:delay('https://twitter.com/beammeupscotti7')">Twitter</a>
+			</li>
+		</ul>
 	</div>
 
 </section>
@@ -407,6 +425,7 @@
 <script type="text/javascript" src="arrival.js"></script>
 <script type="text/javascript" src="selfConcept.js"></script>
 <script type="text/javascript" src="gallery.js"></script>
+<script type="text/javascript" src="transmissions.js"></script>
 
 
 <!-- Will eventually move this script to seperate file -->
@@ -505,6 +524,8 @@
 			setSection(index);
 		})
 	})
+
+
 </script>
 
 </body>

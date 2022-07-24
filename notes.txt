@@ -1,18 +1,23 @@
 
 
 07. 23. 2022
+@2150 Begun JS for transmission section,
+	  built out social media links section
+	  function for closing optionsWrapper 
+
+
 @1415 Begun working on Transmissions Section
 	  HTML & CSS done for initial options
 
 	  To Do:
-	  - new JS file for section,
+	  - new JS file for section √
 	  	get all elements as consts
-	  - selecting any option prompts optionsWrapper to "close" state
-	  	- set styles to 'close' element
+	  - selecting any option prompts optionsWrapper to "close" state √
+	  	- set styles to 'close' element √
 	    - optionsWrapper then scales and reopens to size of whatever
 	      element appears (different classes for each element)
 	  - subElements:
-	    Instagram/Twitter box
+	    Instagram/Twitter box √
 	    Testimonials slider
 	    Contact form
 	  - include 'back' button that returns section to initial options

@@ -10,11 +10,12 @@ section#transmissions div#optionsWrapper {
 	height: 60vh;
 	box-sizing: border-box;
 	padding: 20px;
+	transition: all 0.5s ease-out;
 	/*background-color: blueviolet;*/
 
 	/*reduce to
-	width: 142px;
-	height: 135px;*/
+	width: 222px;
+	height: 225px;*/
 }
 
 section#transmissions div#optionsWrapper::before {
@@ -98,6 +99,74 @@ section#transmissions div#optionsWrapper div.opt span {
 	}
 
 
+
+
+div#socials {
+	display: none;
+	opacity: 0;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%) scale(0.5);
+	border:  2px solid;
+	width: 50%;
+	transition: all 0.4s ease-out;
+}
+
+div#socials ul {
+	display: flex;
+	justify-content: space-evenly;
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+}
+
+div#socials ul li {
+	display: inline-block;
+	width: 50%;
+}
+
+	div#socials ul li:first-child {}
+
+	div#socials ul li:last-child {}
+
+div#socials ul li:hover {}
+
+div#socials ul li a {
+	display: inline-block;
+	width: 100%;
+	padding: 20px 0;
+	text-align: center;
+	text-decoration: none;
+
+	font-family: Avenir;
+	font-weight: 500;
+	font-size: 1.25em;
+	color: black;
+	letter-spacing: 5px;
+
+	transition: all 0.3s ease-out;
+}
+
+div#socials ul li a:active {
+	text-decoration: none;
+	color: var(--text-gray);
+}
+
+div#socials ul li a:visited {
+	text-decoration: none;
+	color: var(--text-gray);
+}
+
+div#socials ul li a:hover {
+	background-color: black;
+	color: white;
+}
+
+
+
+
+
 @media screen and (max-width: 440px) {
 	section#transmissions div#optionsWrapper {
 		width: 99%;
@@ -119,6 +188,10 @@ section#transmissions div#optionsWrapper div.opt span {
 	section#transmissions div#optionsWrapper div.opt span {
 		font-size: 0.7em;
 		letter-spacing: 7px;
+	}
+
+	div#socials {
+		width: 90%;
 	}
 }
 
