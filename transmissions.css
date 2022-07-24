@@ -167,6 +167,96 @@ div#socials ul li a:hover {
 
 
 
+div#emailScotty {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	width: 52%;
+	transition: all 0.4s ease-out;
+}
+
+div#emailScotty form {
+	margin: 0;
+	padding: 0;
+}
+
+div#emailScotty form fieldset {
+	margin: 0;
+	padding: 0;
+	border: none;
+}
+
+div#emailScotty form fieldset input {
+	display: inline-block;
+	width: 100%;
+	border: none;
+	font-family: Avenir;
+	font-size: 1em;
+	letter-spacing: 6px;
+	color: var(--text-gray);
+	padding: 5px;
+}
+
+div#emailScotty form fieldset input:focus,
+div#emailScotty form fieldset input:focus-visible {
+	outline: none;
+	border-bottom-color: var(--text-gray);
+}
+
+	div#emailScotty form fieldset input:first-child {
+		border-bottom: 2px solid black;
+	}
+
+	div#emailScotty form fieldset input:nth-child(2) {
+		border-bottom: 2px solid black;
+		margin: 30px 0 10px;
+	}
+
+	div#emailScotty form fieldset input:nth-child(3) {
+		border-bottom: 2px solid black;
+		margin: 20px 0 20px;
+	}
+
+div#emailScotty form fieldset textarea {
+	display: inline-block;
+	width: 100%;
+	border: none;
+	border-top: 2px solid black;
+	margin: 10px 0 0;
+
+	font-family: Avenir;
+	font-size: 1em;
+	color: var(--text-gray);
+	padding: 5px;
+} 
+
+div#emailScotty form fieldset textarea:focus,
+div#emailScotty form fieldset textarea:focus-visible {
+	outline: none;
+	border-color: var(--text-gray);
+}
+
+div#emailScotty button#submitForm {
+	position: relative;
+	bottom: -100px;
+	background-color: transparent;
+	border: none;
+	left: 50%;
+	transform: translateX(-50%);
+
+	font-family: Avenir;
+	font-size: 2.5em;
+	letter-spacing: 12px;
+	padding: 0;
+	/*margin-right: -20px;*/
+}
+
+div#emailScotty button#submitForm:hover {
+	/*add glitch effect*/
+}
+
+
 @media screen and (max-width: 440px) {
 	section#transmissions div#optionsWrapper {
 		width: 99%;
@@ -191,6 +281,10 @@ div#socials ul li a:hover {
 	}
 
 	div#socials {
+		width: 90%;
+	}
+
+	div#emailScotty {
 		width: 90%;
 	}
 }

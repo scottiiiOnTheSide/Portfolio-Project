@@ -1,7 +1,10 @@
 
 const optionsWrapper = document.getElementById('optionsWrapper'),
 	  options = Array.from(document.getElementsByClassName('opt')),
-	  socials = document.getElementById('socials');
+	  socials = document.getElementById('socials'),
+	  formWrapper = document.getElementById('emailScotty'),
+	  emailScotty = document.getElementById('emailScotty').firstElementChild;
+	  inputs = Array.from(emailScotty.firstElementChild.children);
 
 
 let closeWrapper = () => {
@@ -45,6 +48,20 @@ options[1].addEventListener('click', ()=> {
 	setTimeout(()=>{
 		openWrapper_socials()
 	}, 1500);
+})
+
+//when all inputs are filled, submit button appears
+emailScotty.addEventListener('change', () =>{
+	let fullName = inputs[0].value,
+		emailAddr = inputs[1].value,
+		subject = inputs[2].value,
+		content = inputs[3].value;
+
+	if(fullName !== '' && emailAddr !== '' && subject !== '' && content !== '') {
+
+	} else {
+
+	}
 })
 
 // optionsWrapper.style.transform = "translate(-50%, -50%) scale(0.3)";
