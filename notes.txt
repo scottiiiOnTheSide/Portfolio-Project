@@ -1,3 +1,24 @@
+07. 28. 2022
+@1919 Set up HTML & CSS for testimonials section
+	  Get 2 other testimonials !
+
+	  To do:
+	  - JS for slider functionality
+	  - Back to Option functionality
+	  	- can appear for both Social Media Bar and & Form
+
+
+07. 26. 2022
+@1155 Mostly completed styling and JS functionality for email form
+	
+	  To Do:
+	  - Add glitch effect to submit button
+	  - create button for returning to initial options
+
+	  - Create testimonials slider 
+	  - integrate email.js functionality (once ready to upload site)
+
+
 07. 24. 2022
 
 @1135 Begun contact form ...
