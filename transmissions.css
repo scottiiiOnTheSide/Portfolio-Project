@@ -177,6 +177,7 @@ div#testimonials ul {
 	padding: 0;
 	width: 100%;
 	height: 100%;
+	overflow-x: hidden;
 }
 
 div#testimonials ul li {
@@ -184,12 +185,19 @@ div#testimonials ul li {
 	width: 100%;
 	height: 100%;
 	box-sizing: border-box;
-	padding: 20px;
+	padding: 30px;
 	background-size: cover;
+	position: relative;
+	transition: all 0.5s ease-out;
+	left: 0px;
+	opacity: 0;
+	/*transition: left 0.5s ease-out;*/
 }
 
 	div#testimonials ul li:first-child {
 		display: block;
+		opacity: 1;
+		/*left: 0;*/
 		background-position: 75% 25%;
 	}
 

@@ -1,3 +1,14 @@
+07. 31. 2022
+@1257 contact form needs to be reduced in width...
+	  sideButtons[0] needs desktop and mobile queries
+	  sendMessage needs resizing on mobile
+
+@1228 Button for cycling through testimonials is now completed
+
+07. 30. 2022
+@2318 wrote sudo code for back to options button
+	  - finish it, then 'next slide' function for button in testimonials
+
 07. 28. 2022
 @1919 Set up HTML & CSS for testimonials section
 	  Get 2 other testimonials !

@@ -1,5 +1,6 @@
 
 const optionsWrapper = document.getElementById('optionsWrapper'),
+	  sideButtons = Array.from(document.querySelectorAll('div#optionsWrapper button')),
 	  options = Array.from(document.getElementsByClassName('opt')),
 	  socials = document.getElementById('socials'),
 	  formWrapper = document.getElementById('emailScotty'),
@@ -8,7 +9,9 @@ const optionsWrapper = document.getElementById('optionsWrapper'),
 	  submitForm = document.getElementById('submitForm'),
 	  successMessage = document.getElementById('successfulSubmit'),
 	  testimonials = document.getElementById('testimonials'),
-	  optButtons = Array.from(document.querySelectorAll('div#optionsWrapper button'));
+	  clientRegards = Array.from(document.querySelectorAll('div#testimonials ul li')),
+	  optButtons = Array.from(document.querySelectorAll('div#optionsWrapper button')),
+	  pageSections = [testimonials, socials, formWrapper];
 
 let closeWrapper = () => {
 		setTimeout(() => {
@@ -88,12 +91,15 @@ let closeWrapper = () => {
 		}, 725)
 	};
 
-
 options[1].addEventListener('click', ()=> {
 	closeWrapper();
 	setTimeout(()=>{
 		openWrapper_socials()
+		sideButtons[0].style = 'display: block; transform: scale(4); top: -100px; left: 270px';
 	}, 1500);
+	setTimeout(()=>{
+		sideButtons[0].style.opacity = 1;
+	}, 3000);
 });
 options[2].addEventListener('click', ()=> {
 	closeWrapper();
@@ -107,7 +113,77 @@ options[0].addEventListener('click', ()=> {
 		openWrapper_testimonials()
 	}, 1500);
 })
+sideButtons[0].addEventListener('click', ()=> {
+	pageSections.forEach(element => {
+		if(getComputedStyle(element).display == 'block') {
+			element.style.opacity = 0;
+			sideButtons.forEach((element) => {
+				element.style.opacity = 0;
+			})
+			setTimeout(() => {
+				element.style.display = 'none'
+				sideButtons.forEach((element) => {
+					element.style.display = 'none'
+				})
+			}, 350);
+		}
+	});
 
+	//add desktop and mobile queries
+	optionsWrapper.style = "height: 60vh; width: 80%;"
+	options.forEach(element => {
+		element.style = 'display:block; opacity: 0;'
+		setTimeout(() => {
+			element.style.opacity = 1;
+		}, 350);
+	});
+
+	if(getComputedStyle(successMessage).display == 'block') {
+		successMessage.style.display = 'none';
+	}
+	setTimeout(()=>{
+		sideButtons[0].style = null;
+		successMessage.style.display = 0;
+	}, 300);
+})
+sideButtons[1].addEventListener('click', ()=> {
+	let next;
+	let before;
+	setTimeout(() => {
+		clientRegards.forEach((element, index) => {
+			if(getComputedStyle(element).display == 'block') {
+				if(index == clientRegards.length - 1) {
+					next = 0;
+				} else {
+					next = ++index;
+				}
+				before = --index;
+				setTimeout(() => {
+					element.style.left = "-200px"
+				}, 50)
+				setTimeout(() => {
+					element.style.opacity = 0;
+				},75)
+				setTimeout(() => {
+					element.style.display = 'none';
+				}, 500)	
+			}
+		})
+	}, 200)
+	setTimeout(() => {
+		// console.log(before);
+		clientRegards[before].style = null;
+		clientRegards[before].style.left = '200px';
+		clientRegards[next].style.left = '200px';
+		clientRegards[next].style.display = 'block';
+		setTimeout(() => {
+			clientRegards[next].style.left = "0px"
+		}, 10)
+		setTimeout(() => {
+			clientRegards[next].style.opacity = 1;
+		},20)
+	}, 700)
+});
 
 
 /*
@@ -175,6 +251,12 @@ submitForm.addEventListener('click', () => {
 				successMessage.style.opacity = 1; 
 			}, 400)
 		}, 1400);
+		setTimeout(()=>{
+			sideButtons[0].style = 'display: block';
+		}, 1500);
+		setTimeout(()=>{
+			sideButtons[0].style.opacity = 1;
+		}, 2400);
 
 	}, 1000)
 })
