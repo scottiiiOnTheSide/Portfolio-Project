@@ -407,7 +407,8 @@ section#gallery div#imageview div#controlsMenu {
     display: none;
     opacity: 0;
     transition: all 0.3s ease-out;
-    z-index: 2;
+    /*z-index: 2;*/
+    z-index: 10;
 }
 
 	div.active {
@@ -594,6 +595,34 @@ section#gallery div#scrollerWrapper {
 	}
 
 
+section#gallery div#loader {
+	width: 84px;
+    height: 85px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    animation: breathe 1.75s infinite;
+    transition: all 0.3s ease-out;
+    opacity: 0;
+
+    display: none;
+
+}
+
+@keyframes breathe {
+			0% {
+				transform: translate(-50%, -50%) scale(0.5);
+			}
+			50% {
+				transform: translate(-50%, -50%) scale(0.85);
+			}
+			100% {
+				transform: translate(-50%, -50%) scale(0.5);
+			}
+}
+
+
 
 @media screen and (max-width: 501px) { /*change back to 480px*/
 
@@ -711,7 +740,7 @@ section#gallery div#scrollerWrapper {
 
 
 
-@media screen and (min-width: 769px) {
+@media screen and (min-width: 768px) {
 
 	section#gallery section#albums div.entry h1 {
 		width: 60%;
@@ -724,6 +753,12 @@ section#gallery div#scrollerWrapper {
 	section#gallery section#albums div.entry div.thumbnails img {
 		max-height: 145px;
 	}
+
+	section#gallery div#imageview ul#imageSlidesWrapper {
+		width: 89%;
+		/*margin-right: 4%;*/
+		z-index: 8;
+	}
 }
 
 @media screen and (min-width: 1024px) and (min-height: 768px) {	
@@ -733,7 +768,7 @@ section#gallery div#scrollerWrapper {
 	}
 
 	section#gallery div#imageview ul#imageSlidesWrapper {
-		width: 50%;
+		width: 49%;
 		margin-right: 4%;
 		z-index: 8;
 	}
@@ -743,6 +778,9 @@ section#gallery div#scrollerWrapper {
 		opacity: 1;
 		background-color: transparent;
 		z-index: 7;
+		width: 50%;
+		left: 20px;
+		z-index: 10;
 	}	
 
 	section#gallery div#imageview ul#controlsWrapper {	

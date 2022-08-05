@@ -1,3 +1,42 @@
+
+
+Uploaded - Pre Release Stage
+
+08.04.2022
+@2203 Conceptually, we are much closer to the preloader implementation working 100%
+	  The promise isn't returning correctly for render gallery.
+	  Would probably see the loader properly implemented launching imageview otherwise
+
+	  if I need to, can reupload all the photos at lower resolution,
+	  create lil script to parse the links correctly
+
+	  or, I can create seperate thumbmail versions instead...
+
+	  also have to find some way to make sure the albums append to the page in order...
+	  may include adding a date element to objects
+
+@1207 project successfully porting images over from Google Drive - however the load times are absolutely abhorrent
+
+08. 03. 2022
+@1644 Implemented the loader :D Now, to test implementation of hosting images in Google Drive D:
+	  *add 'click and drag to left' message for desktop view within imageview
+
+
+@1108 As of some time this morning, the site is unofficially up :D ! It's being hosted with Netlify, and they're a pretty swanky 'free' hosting solution. 
+
+Current rather simple yet long to implement obstacle is hosting these images someplace that's not github. I gotta do my due dilligence and make it somewhat difficult for people to be able to snatch my high res photos. 
+
+First, ive actually gotta add my logo to ... all of them T- T
+Then, uploading to GDrive in a new folder, specifically for them.
+It would seem I then have to individually get the link for each image, 
+and then add it to the respective gallery.
+I should figure out how to implement the preloader into this...
+And then have to design/implement a loading thing
+
+
+
+
+
 07. 31. 2022
 @1257 contact form needs to be reduced in width...
 	  sideButtons[0] needs desktop and mobile queries
