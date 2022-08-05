@@ -15,6 +15,10 @@ Uploaded - Pre Release Stage
 	  also have to find some way to make sure the albums append to the page in order...
 	  may include adding a date element to objects
 
+	  also, stop bubbling when selecting images to swipe in imageview
+
+	  find way to remove that horrid highlighting when selecting an album D:
+
 @1207 project successfully porting images over from Google Drive - however the load times are absolutely abhorrent
 
 08. 03. 2022

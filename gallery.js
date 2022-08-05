@@ -363,6 +363,10 @@ function imagesControls(imagesArray){
 
 	function touchStart(index) {
 		return function(event) {
+
+			//should prevent top of screen from being pulled down 
+			event.stopPropagation()
+
 			currentIndex = index;
 			if(window.innerWidth >= 1024) {
 				startPos = getPositionX(event);
@@ -385,6 +389,10 @@ function imagesControls(imagesArray){
 	}
 
 	function touchMove(event) {
+
+		//should prevent top of screen from being pulled down 
+		event.stopPropagation()
+
 		if(isDragging) {
 			if(window.innerWidth >= 1024) { 
 				var currentPosition = getPositionX(event);

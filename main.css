@@ -245,8 +245,8 @@ div#navPage ul {
 	padding: 0px;
 	margin: 0;
 	position: absolute;
-	top: 51.8%;
-	left: 30px;
+	top: 50%;
+	left: -30px;
 	transform: translateY(-50%);
 }
 
@@ -381,11 +381,11 @@ div#navPage ul li button {
 	nav.menu-active span.corner:nth-child(2) {}
 
 	div#navPage ul {
-		transform: none;
+		/*transform: none;
 		position: absolute;
-		top: auto;
+		/*top: auto;
 		bottom: 5%;
-		left: -30px;
+		left: -30px;*/
 	}
 
 	div#navPage ul li:first-child {

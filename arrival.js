@@ -10,9 +10,10 @@ let titleH1 = document.getElementById('title').childNodes[1],
 	titleLogo = document.getElementById('title').childNodes[5],
 	imgWrappers = Array.from(document.querySelectorAll('.imgWrapper')),
 	showcaseWrapper = document.getElementById('showcaseWrapper'),
-	homeMenu = document.getElementById('menu');
-	menuOptions = Array.from(document.querySelectorAll('.option'));
-	UIElement = document.getElementById('UIEwrapper');
+	homeMenu = document.getElementById('menu'),
+	menuOptions = Array.from(document.querySelectorAll('.option')),
+	CTAs = Array.from(document.querySelectorAll('div#menu div.option h3 span')),
+	UIElement = document.getElementById('UIEwrapper'),
 	corners = document.getElementsByClassName('crnr');
 
 let activeStates = ['', 
@@ -300,6 +301,11 @@ function carouselToMenu() {
 				homeMenu.classList.remove('switchOut');
 				homeMenu.classList.add('switchIn');
 			}, 1300)
+			setTimeout(() => {
+				CTAs.forEach(element => {
+					element.style.opacity = 1;
+				})
+			}, 2700)
 		}
 }
 

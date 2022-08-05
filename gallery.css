@@ -249,6 +249,13 @@ section#gallery div#albums div.entry {
 	transition: all 0.5s ease-out;
 	display: none;
 	/*opacity: 0;*/
+
+	-webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+     -khtml-user-select: none; /* Konqueror HTML */
+       -moz-user-select: none; /* Old versions of Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+            user-select: none;
 }
 
 section#gallery div#albums div.entry:first-of-type {

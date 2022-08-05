@@ -10,7 +10,8 @@ let one = {
 					"https://drive.google.com/uc?export=view&id=1s9eemgUEhuWrufqpmXh5LgFC09l6liLx",
 					"https://drive.google.com/uc?export=view&id=17wnjV8JxXAi4fmNM0IutJ3mOiESkfRya",
 					"https://drive.google.com/uc?export=view&id=1cJNjBuPA7X9h8Uby8STjiVCjia7b7fLR"
-				]
+				],
+				thumbnails: []
 			},
 			{
 				name: "4. 2019 Trip to NYC",
@@ -23,7 +24,8 @@ let one = {
 					"https://drive.google.com/uc?export=view&id=1f39fPCBl6EM8Vox7Fdo7vszI2ni5DOiX",
 					"https://drive.google.com/uc?export=view&id=1soUWjA3Z_BAsXC3SayMWPQiTJu3fsTAh",
 					"https://drive.google.com/uc?export=view&id=1wh6P0Nqy-N7VnWYxmiOELUxaFr3I8fKL"
-				]
+				],
+				thumbnails: []
 			},
 			{
 				name: "12. 2019 Trip to Europe",
@@ -36,7 +38,8 @@ let one = {
 					"https://drive.google.com/uc?export=view&id=1kwoahfjJssVWnWg7npufjEpV1F-hG-DD", 
 					"https://drive.google.com/uc?export=view&id=1lAnkiUPhWnyynQ6_upKgU4y_ZRIz7WxO", 
 					"https://drive.google.com/uc?export=view&id=1rEuqbV6JfzJtlEQGb1NX1g-BRwhgBy0O"
-				]
+				],
+				thumbnails: []
 			},
 		],
 		allImages: [
@@ -74,7 +77,8 @@ let	two = {
 				"https://drive.google.com/uc?export=view&id=1q9E485UbTxY8JRtsJml4a_bNHKiAt4uX",
 				"https://drive.google.com/uc?export=view&id=1zXuOY-eARbSGUktg9GHy2BZDxviytimI",
 				"https://drive.google.com/uc?export=view&id=1WrXDkH_wL45UKWgsRg-pb3FZJn17lak6"
-				]
+				],
+				thumbnails: []
 			},
 			{
 				name: "10. 2019 Local Car Meeting",
@@ -84,7 +88,8 @@ let	two = {
 					"https://drive.google.com/uc?export=view&id=1wwel0LDSUnwU9TAy02WOzjFf6wbzeVg_",
 					"https://drive.google.com/uc?export=view&id=1wwel0LDSUnwU9TAy02WOzjFf6wbzeVg_",
 					"https://drive.google.com/uc?export=view&id=1E8uU-P19P1f2gE2VyreCo811oQbNi4L3"
-				]
+				],
+				thumbnails: []
 			},
 			{
 				name: "11. 2019 Las Olas Auto Show",
@@ -98,7 +103,8 @@ let	two = {
 					"https://drive.google.com/uc?export=view&id=1nd5qPoJSUJ6IAWth-_PAyFNgs39DAuY_",
 					"https://drive.google.com/uc?export=view&id=1VoTpabbWV9gfpxIuaGtu0loVDOvpU_kI",
 					"https://drive.google.com/uc?export=view&id=1W8jNMRhWuBdEBhDpcOWVBLfjoODxL58l"
-				]
+				],
+				thumbnails: []
 			},
 			{
 				name: "Extras",
@@ -106,7 +112,8 @@ let	two = {
 					"https://drive.google.com/uc?export=view&id=1PjAtp3GfW2xL1VJZVW-N8jEk2127RAYE",
 					"https://drive.google.com/uc?export=view&id=1HW_Fe-IKUvP1_bOLnloHIjJH3JLPzCd6",
 					"https://drive.google.com/uc?export=view&id=16fYGntpT3zfUdBT-rgrEkSUpSHleTBtT"
-				]
+				],
+				thumbnails: []
 			}],
 		allImages: [
 			"https://drive.google.com/uc?export=view&id=1JZvtkRCSK28HSFKafIxtQOQVnXz1YMm7",
@@ -144,7 +151,8 @@ let	three = {
 					"https://drive.google.com/uc?export=view&id=1sfB49fhsZkZH6rQ_pvhBrS6VsC_L9W2c",
 					"https://drive.google.com/uc?export=view&id=1oVTWWaIPsshV0uQf0Zcm6ANaDLmatW5G",
 					"https://drive.google.com/uc?export=view&id=1m13XHmel1m7140s56lYJQF0mPADElHjJ"
-				]
+				],
+				thumbnails: []
 			},
 			{
 				name: "4. 21. 2019 Carmen, Dumbo Park",
@@ -158,7 +166,8 @@ let	three = {
 					"https://drive.google.com/uc?export=view&id=1cKqEEKQdXXxMqIEwi9R_mpxN4crmSqBe",
 					"https://drive.google.com/uc?export=view&id=16hRv-cIl2fdumf2agiSIAzhdsbiev5au",
 					"https://drive.google.com/uc?export=view&id=1FGNG1h9cn4CuJCoDPiLp2Y6TtpnyE3UO"
-				]
+				],
+				thumbnails: []
 			},
 			{
 				name: "7. 09. 2019 Emillyn, Las Olas",
@@ -168,7 +177,8 @@ let	three = {
 					"https://drive.google.com/uc?export=view&id=1U5fRe0wtIn9ivh7Dv3Fk6XcYzb6g_kCv",
 					"https://drive.google.com/uc?export=view&id=1bFZCcdsWacc_Nxc6klEkT7EtlhotzFof",
 					"https://drive.google.com/uc?export=view&id=1EKGftcjNazkUyUrsnTnXlOwjVSQlUqIH"
-				]
+				],
+				thumbnails: []
 			},
 			{
 				name: "9. 08. 2019 Paii, Times Square + Brooklyn Bridge",
@@ -182,7 +192,8 @@ let	three = {
 					"https://drive.google.com/uc?export=view&id=1eNza03Y8G4Zt5N8IN2yst0XmzMQhMG8f",
 					"https://drive.google.com/uc?export=view&id=1Jy_eKoO1-98A2jsuQkfElGd5je3E1DEG",
 					"https://drive.google.com/uc?export=view&id=10DorPV_wjqnRMiQmpGmXjZLcLZZmvqEs"
-				]
+				],
+				thumbnails: []
 			},
 			{
 				name: "9. 24. 2019 Emillyn, Las Olas Beach",
@@ -195,7 +206,8 @@ let	three = {
 					"https://drive.google.com/uc?export=view&id=1y0XLNpZiU5GDU5L-c6gLMtrwVfq3tGn0",
 					"https://drive.google.com/uc?export=view&id=1-4SacXMTqMWrMtr63X76fPnjMVQXVAfD",
 					"https://drive.google.com/uc?export=view&id=17BG4hqfZaRplEPDpOvWifSpGWz1LYDcN"
-				]
+				],
+				thumbnails: []
 			},
 			{
 				name: "10. 23. 2019 Emillyn, Las Olas Beach",
@@ -216,7 +228,8 @@ let	three = {
 					"https://drive.google.com/uc?export=view&id=1oP_N_EJLBEeNMPIbowemgSSfnT32f8ju",
 					"https://drive.google.com/uc?export=view&id=1iAQIniFixkCUtyTt53aKBNjl00lltxRg",
 					"https://drive.google.com/uc?export=view&id=1DCh_EgSdiEr2WVCOd5QyAiffN_AOc3uq"
-				]
+				],
+				thumbnails: []
 			},
 			{
 				name: "10. 28. 2019 Sky, Tennis Court",
@@ -224,7 +237,8 @@ let	three = {
 					"https://drive.google.com/uc?export=view&id=1yc626uGVEHXIkQzZnXRFhV1EBRpkUWzX",
 					"https://drive.google.com/uc?export=view&id=1gro7syQpjbNettYI4Hti0BhD77IXml_I",
 					"https://drive.google.com/uc?export=view&id=1bdSMFl2mzV9xiqBYzoTBD9f_Wa_8L51n"
-				]
+				],
+				thumbnails: []
 			},
 			{
 				name: "11. 02. 2019 Jacq, Tennis Court",
@@ -234,7 +248,8 @@ let	three = {
 					"https://drive.google.com/uc?export=view&id=1gPz3Bq2PV8iYABRRNeMLeHSsvdOV_oOC",
 					"https://drive.google.com/uc?export=view&id=1ke51hfYdz_UtqX0ZbSsVbIx2n1tPKnkg",
 					"https://drive.google.com/uc?export=view&id=1wORwU4uHNV0U6-FYRbEwO4bkS6Aeaf0W"
-				]
+				],
+				thumbnails: []
 			},
 			{
 				name: "11. 14. 2019 Sidney, Canal Street",
@@ -245,7 +260,8 @@ let	three = {
 					"https://drive.google.com/uc?export=view&id=1pBTtvu9ixl5CAvAYVcdDhFAVsGTvOw0W",
 					"https://drive.google.com/uc?export=view&id=18Ng9VPA7KcbDym3MIPDzgNOVZrSly-os",
 					"https://drive.google.com/uc?export=view&id=1JP0SEiZq0ic_zORPbE32JKxa9IzQi9uw"
-				]
+				],
+				thumbnails: []
 			},
 			{
 				name: "11. 15. 2019 Aby, DUMBO",
@@ -257,7 +273,8 @@ let	three = {
 					"https://drive.google.com/uc?export=view&id=1l2Bx9UxVdrQLEP6zrFP-famMgSa5vNjZ",
 					"https://drive.google.com/uc?export=view&id=1mCNefJB3QJUqZdpEUpiB_qCIhdQ9NSVo",
 					"https://drive.google.com/uc?export=view&id=1ig_mkEsHmHX1odOxs8uXZOyn-Gq8upc7"
-				]
+				],
+				thumbnails: []
 			},
 			{
 				name: "11. 16. 2019 Carmen, Canal Street",
@@ -270,7 +287,8 @@ let	three = {
 					"https://drive.google.com/uc?export=view&id=1r4WdSvaRT9VRZSYrA5i03nAAObA8g3CN",
 					"https://drive.google.com/uc?export=view&id=1B5E8j-Mi6r8iVNl01waJ4XID7FNF95sP",
 					"https://drive.google.com/uc?export=view&id=1ayKLIkNRA30ZAaVxMVCKDIQ8Kx3zu_hP"
-				]
+				],
+				thumbnails: []
 			},
 			{
 				name: "12. 01. 2019 Syd, Reed Reef Beach",
@@ -279,7 +297,8 @@ let	three = {
 					"https://drive.google.com/uc?export=view&id=1kxS4r6mnYyBBvSxJk2YIzGrSAofrL4AN",
 					"https://drive.google.com/uc?export=view&id=1sVD7Ngax64MzHAlfGaOnWHpljX2c47SY",
 					"https://drive.google.com/uc?export=view&id=1fHL_oJaDZPee2RMvTCyE_XJwd356N_9y"
-				]
+				],
+				thumbnails: []
 			},
 			{
 				name: "12. 07. 2019 MusicVideoBTS",
@@ -287,7 +306,8 @@ let	three = {
 					"https://drive.google.com/uc?export=view&id=1m18-PG3ymW-BDfKungQa5Ja4_l36QwI_",
 					"https://drive.google.com/uc?export=view&id=1kl1LFkwG9JBoZdULzysR1p3Fn09tccx_",
 					"https://drive.google.com/uc?export=view&id=1DovCbmOA6vuKPXnPnS1Pf7GmXHZWCM_C"
-				]
+				],
+				thumbnails: []
 			},
 			{
 				name: "12. 09. 2019 Annelise",
@@ -295,7 +315,8 @@ let	three = {
 					"https://drive.google.com/uc?export=view&id=191srhXrgABt4XMP5kGWNIl2wXsZioF9Y",
 					"https://drive.google.com/uc?export=view&id=1gtvM_TraddO07oNLBdPhQDPh18ToSKSN",
 					"https://drive.google.com/uc?export=view&id=1MOS-1oj1xzjoDqFKs-VZms1S8kpnaJt4"
-				]
+				],
+				thumbnails: []
 			}],
 		allImages: [
 			"https://drive.google.com/uc?export=view&id=10jMp5-5OH5QhcNtdQEedppf6UH640YzG",
@@ -409,7 +430,8 @@ let	four = {
 					"https://drive.google.com/uc?export=view&id=1Sb6hSs0mmKPZAnyTmp03cCJTodkgJ9bw",
 					"https://drive.google.com/uc?export=view&id=1bd8B0P07R7-ytbauk0BAIOk-gkiz39IF",
 					"https://drive.google.com/uc?export=view&id=1bug_yx1Vu9TpkmH19SBufowgwraHFaW-"
-				]
+				],
+				thumbnails: []
 			},
 			{
 				name: "4. 2019 Boston Photo Journal",
@@ -425,7 +447,8 @@ let	four = {
 					"https://drive.google.com/uc?export=view&id=10xVdvkEpXCAmmEVlVp9eUnfuGpNDonnV",
 					"https://drive.google.com/uc?export=view&id=1kJO-GvSXt_QwmMg4V75tX_jAKFJPSPv3",
 					"https://drive.google.com/uc?export=view&id=12z0h95tFGfnmcc4YD-ZzUdYuV8ANqGiX"
-				]
+				],
+				thumbnails: []
 			},
 			{
 				name: "6. 5. 2019 Noel's Prom Shoot",
@@ -438,7 +461,8 @@ let	four = {
 					"https://drive.google.com/uc?export=view&id=15vNtDpMb8QpI2e8pzj3wRLKCxC-mDbKi",
 					"https://drive.google.com/uc?export=view&id=1ZRkw1A210mtH-urZwY7UDXOJJDUpuiKA",
 					"https://drive.google.com/uc?export=view&id=1YSiX1uCymfzDKgp0dGTxpoMR1P_l2G8j"
-				]
+				],
+				thumbnails: []
 			},
 			{
 				name: "12. 7. 2019 MusicVideoBTS",
@@ -450,7 +474,8 @@ let	four = {
 					"https://drive.google.com/uc?export=view&id=13aScCnKOMpnNc3Agam2Lt7tizAVAXq5r",
 					"https://drive.google.com/uc?export=view&id=17OmFg05N2zw3CiWsj-AY9NFsoy0QXJyS",
 					"https://drive.google.com/uc?export=view&id=1huU34hIJXSWRSswCe9LjXlzLOZDO6qVJ"
-				]
+				],
+				thumbnails: []
 			},
 			{
 				name: "5. 5. 2021 Cinco de Mayo @ Naked Taco",
@@ -470,7 +495,8 @@ let	four = {
 					"https://drive.google.com/uc?export=view&id=1rBjHDbEzwxtXSnE6BSSh4bhqzsqBqL7j",
 					"https://drive.google.com/uc?export=view&id=1p8PXGRiSTPAbXvpwzQKyFMdUxW0SXuGG",
 					"https://drive.google.com/uc?export=view&id=1_T1VlZR9af4JeV4iTdwjcvqcLY6Psj7U"
-				]
+				],
+				thumbnails: []
 			}],
 		allImages: [
 			"https://drive.google.com/uc?export=view&id=1CpMG_NS5yUrukel9IdPW_WVufFScMIQI",
