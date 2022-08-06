@@ -166,19 +166,23 @@
 		<div class="option" style="display: none;"></div>
 
 		<div class="option">
-			<h1 class="glitch">Self Concept</h1>
-			<h3 class="glitch">Some rhetoric concerning the developer and designer of this site, how this site came to be<br><span>Enter Section</span></h3>
+			<h1 class="">Self Concept</h1>
+			<h3 class="">Some rhetoric concerning the developer and designer of this site, how this site came to be
+			</h3>
+			<span>Enter Section</span>
 		</div>
 
 		<div class="option">
-			<h1 class="glitch">Demonstrations</h1>
-			<h3 class="glitch">Exhibition of photography talented directed towards capturing
-			different expressions of life<br><span>Enter Section</span></h3>
+			<h1 class="">Demonstrations</h1>
+			<h3 class="">Exhibition of photography talented directed towards capturing
+			different expressions of life</h3>
+			<span>Enter Section</span>
 		</div>
 
 		<div class="option">
-			<h1 class="glitch">Transmission</h1>
-			<h3 class="glitch">Various modes of communication, for various different purposes<br><span>Enter Section</span></h3>
+			<h1 class="">Transmission</h1>
+			<h3 class="">Various modes of communication, for various different purposes</h3>
+			<span>Enter Section</span>
 		</div>
 	</div>
 
@@ -485,6 +489,12 @@
 		index = parseInt(index);
 
 		element.addEventListener('click', ()=> {
+
+			let children = Array.from(element.children);
+			children.forEach(element => {
+				element.classList.add('glitch')
+			})
+
 			console.log(index);
 			setSection(index);
 			runTheCarousel.cease();

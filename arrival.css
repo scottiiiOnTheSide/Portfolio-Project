@@ -101,17 +101,25 @@ div#menu {
 		font-family: "Open Sans";
 		font-weight: 300;
 		font-size: 16px;
-		letter-spacing: 6px;
+		letter-spacing: 3px;
 		line-height: 32px;
 		color: var(--text-gray);
 		margin: 0 auto;
 		width: 90%;
 	}
 
-	div#menu div.option h3 span{
+	div#menu div.option span{
+		font-family: "Open Sans";
+		font-weight: 300;
+		font-size: 0.85rem;
+		letter-spacing: 3px;
+		line-height: 32px;
+		color: var(--text-gray);
+		margin; 20px auto;
+
 		transition: all 1s ease-out;
 		font-weight: 500;
-		color: white;
+		color: var(--text-gray);
 		opacity: 0;
 	}
 
@@ -465,7 +473,7 @@ span.crnr:last-child {
 
 }
 
-@media only screen and (max-width: 1024px) {
+@media only screen and (max-width: 1023px) {
 
 	span#exclaimer {
 		top: 87%;
@@ -523,8 +531,8 @@ span.crnr:last-child {
 		margin-left: 30px;
 	}
 
-	div#menu div.option h3 {
-		
+	div#menu div.option span {
+		margin: 30px 0 0 30px;
 	}
 }
 
@@ -571,4 +579,5 @@ span.crnr:last-child {
 		line-height: 24px;
 		margin: 0 0 0 30px;
 	}
+	
 }
