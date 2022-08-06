@@ -8,6 +8,7 @@
 
 // Navigation Menu, Section Traversal 
 let navToggle = document.querySelector('nav#main'),
+	realNavToggle = document.querySelector('nav#main div.cornerWrapper'),
 	navPage = document.getElementById('navPage'),
 	// navMenuItems = document.getElementsByClassName('navPageItems'),
 	navMenuItems = document.querySelectorAll('div#navPage ul li'),
@@ -299,7 +300,7 @@ function toggleHeaderNav() {
 	F u n c t i o n  T o  B u t t o n  A s s i g n m e n t s
 
 * * */	
-navToggle.addEventListener('click', () => {
+realNavToggle.addEventListener('click', () => {
 	toggleMenu();
 
 	if(sections[2].classList.contains('active')) {

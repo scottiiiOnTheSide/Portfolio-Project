@@ -182,7 +182,7 @@
 		</div>
 	</div>
 
-	<!-- <span id="loadingText">Loading Assets . . .</span> -->
+	<span id="exclaimer">Enter Site</span>
 	<div id="UIEwrapper" class="UIE_nonActive">
 		<span class="crnr "></span>
 		<span class="crnr secondCorner_hovered"></span>
@@ -196,7 +196,7 @@
 
 			<div class="leftside" id="ph">
 				<div class="title ph">The <br>Photographer</div>
-				<img src="img/author/bybrianjr_sketchStyle.jpg">
+				<img src="https://drive.google.com/uc?export=view&id=1uAz39GoVrYri4H-Vad05XuJFFiHahH87">
 			</div>
 
 				<div class="contentWrapper" id="thePhotographer">
@@ -227,7 +227,7 @@
 
 			<div class="rightside" id="dv">
 				<div class="title dv">The <br>Developer</div>
-				<img src="img/author/inMyRoom_sketchStyle.jpg">
+				<img src="https://drive.google.com/uc?export=view&id=1u1hbP0BqE3wUxLHhB3WW7g0HhI16qdF7">
 			</div>
 
 				<div class="contentWrapper" id="theWebDev">
@@ -413,6 +413,10 @@
 <script type="text/javascript">
 
 	nav.attributes.active = true;
+
+	setTimeout(() => {
+		exclaimer.style.opacity = 1;		
+	}, 3000);
 
 //R U N  T H i S  F i R S T	
 	let setSection = (elem) => {

@@ -13,6 +13,7 @@ let titleH1 = document.getElementById('title').childNodes[1],
 	homeMenu = document.getElementById('menu'),
 	menuOptions = Array.from(document.querySelectorAll('.option')),
 	CTAs = Array.from(document.querySelectorAll('div#menu div.option h3 span')),
+	exclaimer = document.getElementById('exclaimer'),
 	UIElement = document.getElementById('UIEwrapper'),
 	corners = document.getElementsByClassName('crnr');
 
@@ -332,6 +333,12 @@ UIElement.addEventListener('click', function() {
 		let states = activeStates.slice(4);
 
 		if(this.classList.contains('UIE_nonActive')) {
+
+			exclaimer.style.opacity = 0;
+			setTimeout(() => {
+				exclaimer.style.display = 'none';
+			}, 525);
+
 			for (let i = 0; i < states.length; i++) {
 				corners[1+i].classList.remove(activeStates[1+i]);
 			};
@@ -347,6 +354,7 @@ UIElement.addEventListener('click', function() {
 			runTheCarousel.cease();
 
 		} else if (this.classList.contains('UIE_active')) {
+
 			for (let i = 0; i < states.length; i++) {
 				corners[1+i].classList.add(activeStates[1+i]);
 			};

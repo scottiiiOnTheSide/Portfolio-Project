@@ -130,7 +130,11 @@ sideButtons[0].addEventListener('click', ()=> {
 	});
 
 	//add desktop and mobile queries
-	optionsWrapper.style = "height: 60vh; width: 80%;"
+	if(window.innerWidth < 440) {
+		optionsWrapper.style = "height: 60vh; width: 99%;"
+	} else {
+		optionsWrapper.style = "height: 60vh; width: 80%;"
+	}
 	options.forEach(element => {
 		element.style = 'display:block; opacity: 0;'
 		setTimeout(() => {
@@ -146,6 +150,7 @@ sideButtons[0].addEventListener('click', ()=> {
 		successMessage.style.display = 0;
 	}, 300);
 })
+
 sideButtons[1].addEventListener('click', ()=> {
 	let next;
 	let before;
@@ -186,6 +191,8 @@ sideButtons[1].addEventListener('click', ()=> {
 });
 
 
+
+
 /*
 	Form stuff
 */
@@ -211,6 +218,18 @@ inputs.forEach((element, index) => {
 			moveToNextOnEnter(event);
 		});
 	}
+
+	element.addEventListener('focus', ()=> {
+		if(window.innerWidth < 440) {
+			optionsWrapper.style.opacity = 0;
+		}
+	})
+	element.addEventListener('focusout', ()=> {
+		if(getComputedStyle(optionsWrapper).opacity == 0) {
+			optionsWrapper.style.opacity = 1;
+		}
+	})		
+
 })
 //when all inputs are filled, submit button appears
 emailScotty.addEventListener('change', () =>{
@@ -226,7 +245,9 @@ emailScotty.addEventListener('change', () =>{
 	}
 })
 
+
 submitForm.addEventListener('click', () => {
+	submitForm.classList.add('glitch');
 	formData = {
 		name: inputs[0].value,
 		emailAddr: inputs[1].value,
@@ -241,6 +262,9 @@ submitForm.addEventListener('click', () => {
 		formWrapper.style.opacity = 0;
 		setTimeout(() => {
 			formWrapper.style.display = 'none';
+			inputs.forEach((element) => {
+				element.value = null;
+			})
 		}, 425);
 		setTimeout(() => {
 			closeWrapper();
@@ -256,6 +280,8 @@ submitForm.addEventListener('click', () => {
 		}, 1500);
 		setTimeout(()=>{
 			sideButtons[0].style.opacity = 1;
+			submitForm.style = null;
+			submitForm.classList.remove('glitch');
 		}, 2400);
 
 	}, 1000)

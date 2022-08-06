@@ -323,14 +323,16 @@ div#UIEwrapper {
 	padding:  0;
 	right:  50%;
 	left:  50%;
-	transition: all 1s ease-out;
-	transition: transform 2s ease-out;
-	/*animation-name: UIELoad;*/
-    animation-duration: 1s;
+	transition: transform 3s ease-out;
+    animation-duration: 2s;
 	animation-timing-function: ease-in-out;
 	animation-fill-mode: forwards;
 	animation-delay: 1.5s;
 	opacity: 0;
+
+	top: 92%;
+    width: 64px;
+    height: 64px;
 }
 
 	.UIELoad {
@@ -349,14 +351,13 @@ div#UIEwrapper {
 }
 
 div.UIE_nonActive {
-	transition: transform 2s ease-out !important;
+	/*transition: transform 2s ease-out !important;*/
 	transform: translate(-50%, -50%) rotate(45deg); /* rotated clock wise*/
 }
 
 div.UIE_active {
-	transition: transform 2s ease-out !important;
+	/*transition: transform 2s ease-out !important;*/
 	transform: translate(-50%, -50%) rotate(225deg) !important;
-	/*transform: translate(-50%, -50%);*/
 }
 
 
@@ -379,7 +380,7 @@ div.UIE_active {
 	*/
 
 
-span#loadingText {
+span#exclaimer {
 	color: white;
 	font-family: 'Open Sans';
 	font-weight: 300;
@@ -387,7 +388,7 @@ span#loadingText {
 	letter-spacing: 6px;
 	text-align: center;
 	position: absolute;
-	top: 90%;
+	top: 85%;
 	width: 100%;
 	transition: all 0.5s ease-out;
 	opacity: 0;
@@ -401,10 +402,10 @@ span.crnr {
 	height:  30%;
 	border: 3px solid white;
 	transition: border-color 0.4s linear, 
-				top 0.4s ease-out,
-				right 0.4s ease-out,
-				left 0.4s ease-out,
-				bottom 0.4s ease-out,
+				top 1s ease-out,
+				right 1s ease-out,
+				left 1s ease-out,
+				bottom 1s ease-out,
 				transform 2s ease-out,
 				opacity 0.5s ease-out;
 }
@@ -458,19 +459,22 @@ span.crnr:last-child {
 		font-size: 1em;
 		line-height: 28px;
 	}
-
-	div#UIEwrapper {
-		top: 90%;
-		width: 95px;
-		height: 95px;
-	}
-	span#crnr2-active { border-color: #3BDACA; right: 7px; top: 22px; }
-	span#crnr3-active { border-color: #3BDACA; left: 25px; bottom: 8px;}
-	span#crnr4-active { border-color: #3BDACA; right: 8px; bottom: 8px;}
+	span#crnr2-active { border-color: #3BDACA; right: 7px; top: 10px; }
+	span#crnr3-active { border-color: #3BDACA; left: 12px; bottom: 8px;}
+	span#crnr4-active { border-color: #3BDACA; right: 7px; bottom: 7px;}
 
 }
 
 @media only screen and (max-width: 1024px) {
+
+	span#exclaimer {
+		top: 87%;
+	}
+
+	div#UIEwrapper {
+		top: 93%;
+	}
+
 	div#title {
 		top:  7%;
 	}
