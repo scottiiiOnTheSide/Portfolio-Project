@@ -3,24 +3,6 @@ const path = require('path');
 const fs = require('fs');
 const imagesFolder = path.resolve(__dirname, './img');	
 
-/*
-read img folder,
-get folder name. create object, with key:name, value: folder name
-object will also have key: albums, value: []
-
-for each folder within main folder, (the album)
-create object with 
-  key: name, value: folder name 
-  &
-  key: images, value: []
-  &
-  key: thumbnails, value: []
-  get the name of the directory contents
-    if file is .jpg, it gets pushed into the images array
-    if file is the thumbnails folder,
-    get the files within it and add them to the thumbnails array
-*/
-
 function createGallery(mainFolder) {
 
 	let sections = []
@@ -107,6 +89,6 @@ let gallery = createGallery(imagesFolder);
 // let [one, two, three, four] = gallery;
 // console.log(gallery);
 console.log(gallery);
-
+fs.writeFileSync('./albumTwo.js', JSON.stringify(gallery), 'utf-8');
 
 

@@ -3,6 +3,26 @@
 Uploaded - Pre Release Stage
 
 08. 08. 2022
+@1201 Created a production git repo on the site, and a branch locally, for the production version of the site.
+	  I dont even wanna think about managing that rn, but when the build is ready for launch,
+	  ill merge this main with the production branch. 
+	  I can then remove the unwanted stuff from the main branch, like the images.
+	  (I dont think github will be too mad at me for storing around 3GBs worth of images on it ....
+	  pretty sure it did before, before I removed it)
+
+	  Anyhow, the readImagespathTwo file prints the gallery object to a .js file.
+
+	  To Do:
+	  - Now just need to plug everything in: have the gallery images pull from the created file, link to it
+	    in the HTML
+	  - have the other images on the site rerouted as well
+	  - add the last functions to the gallery:
+	    - the object to check whether a section or album has been opened previously,
+	    - allImages 
+	    - the next section button
+
+	  and then finally plug in email.js :D
+
 @1042 getting all the images - gotta make sure the string names are actually right now (._. )
 
 08. 07. 2922
