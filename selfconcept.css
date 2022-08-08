@@ -179,7 +179,7 @@ section#selfConcept div.contentWrapper {
 
 			font-family: "Avenir";
     		font-weight: 300;
-    		letter-spacing: 5px;
+    		letter-spacing: 4px;
     		font-size: 1em;
     		text-align: center;
     		color: var(--main-color-green);
@@ -429,7 +429,7 @@ section#selfConcept div.contentWrapper {
 
 	section#selfConcept div#thePhotographer div#textWrapper span.splash,
 	section#selfConcept div#theWebDev div#textWrapper span.splash {
-		font-size: 0.6em;
+		font-size: 0.8em;
 		width: 110%;
 	}
 

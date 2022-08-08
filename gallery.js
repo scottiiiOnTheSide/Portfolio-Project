@@ -16,14 +16,6 @@ const imageview = document.getElementById('imageview'),
 	  controls = document.getElementById('controlsMenu'),
 	  controlsToggle = document.getElementById('controlsToggle'),
 	  controls_UI = Array.from(controls.firstElementChild.children),
-	  // createImgSlide = (src) => {
-		 //  	const wrapper = document.createElement('li'),
-		 //  		  img = document.createElement('img');
-		 //  	wrapper.classList.add('imageSlide');
-		 //  	img.src = src;
-		 //  	wrapper.appendChild(img);
-		 //  	return wrapper;
-	  // },
 	  createImgSlide = (img) => {
 		  	const wrapper = document.createElement('li');
 		  	wrapper.classList.add('imageSlide');
@@ -31,37 +23,6 @@ const imageview = document.getElementById('imageview'),
 		  	return wrapper;
 	  },
 	  loader = document.querySelector('section#gallery div#loader');
-
-//A Stateful object
-let currentGalleries = {
-	album: [],
-	all: [],
-	index: 0,
-	galleryIndex: NaN,
-}
-
-// technically the class which all all album entries inherit
-let albumEntry = {
-	title: "",
-	date: "",
-	thumbnailImgs: [],
-	create: function() {
-		let entry = document.createElement('div'),
-			date = `<h3>${this.date}</h3>`,
-			title = `<h1>${this.title}</h1>`;
-		entry.classList.add('entry');
-		entry.innerHTML = `${date} \n ${title}`;
-
-		let thumbnails = document.createElement('div');
-		thumbnails.classList.add('thumbnails');
-
-		this.thumbnailImgs.forEach((img) => {
-			thumbnails.appendChild(img);
-		})
-		entry.appendChild(thumbnails);
-		return entry;
-	}
-};
 
 function displayToggle(element) {
 	/* elements take 0.5s to transition, 
@@ -217,6 +178,14 @@ albumCurrent.addEventListener('click', ()=> {
 	} //keep
 })
 
+//A Stateful object
+let currentGalleries = {
+	album: [],
+	all: [],
+	index: 0,
+	galleryIndex: NaN,
+}
+
 const preloadImages = (src) => new Promise((resolve,reject) => {
 	const img = new Image();
 	img.onload = () => {
@@ -229,23 +198,6 @@ const preloadImages = (src) => new Promise((resolve,reject) => {
 const preloadImages_all = async (sources) => {
 	return Promise.all(sources.map(preloadImages))
 }
-
-/*
-	08. 04. 2022
-	New process,
-	have class take individual albumobject and create albumentry element,
-	with onclick property to launch imageview with images
-		on imageview launch,
-		switch gallery, display loader, preload images.
-		when preload complete, launch imageview with image elements
-		in .then()
-
-	galleries forEach async func to preload the thumbnail images,
-	then pass them to class constructor,
-	append element upon completion to albumWrapper 	
-
-	add .onclick eventlistener within the galleries.forEach loop
-*/
 
 async function renderGallery(oneOfFour) { // gallery[x]
 	let entries = [];
@@ -285,6 +237,11 @@ async function renderGallery(oneOfFour) { // gallery[x]
 			})
 	})	
 }
+
+/*
+	08. 06. 2022
+	Need to create functionality for allImages
+*/
 
 //State Variables for Image Slider Function
 

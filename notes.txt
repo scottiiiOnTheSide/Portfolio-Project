@@ -2,6 +2,23 @@
 
 Uploaded - Pre Release Stage
 
+08. 08. 2022
+@1042 getting all the images - gotta make sure the string names are actually right now (._. )
+
+08. 07. 2922
+@1936 Working on script to automatically get all images and create gallery object
+		- need to add getting thumbnails + allImages
+
+08. 06. 2022
+@1219 Worked through mostly all the issues I'd written about in offline,
+	  but now there's some more stuff :D
+
+	  - Need to add back functionality for allImages
+	  - Need to write copy for 'The Photographer' section
+	  - What to do when section already preloaded, and reopening it?
+	    - loader pops up and wont go away
+	    ?! Create check for when a gallery has been opened, within the currentGalleries object
+
 08.04.2022
 @2203 Conceptually, we are much closer to the preloader implementation working 100%
 	  The promise isn't returning correctly for render gallery.
