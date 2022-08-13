@@ -4,7 +4,9 @@ const header = document.querySelector("header"),
 	  mainMenuOptions = document.querySelectorAll("div#mainMenu div"), /* NodeList */
 	  albums = document.querySelector("section#gallery div#albums"),
 	  entryWrapper = document.getElementById('entryWrapper'),
-	  nav = document.querySelector("nav#main");
+	  nav = document.querySelector("nav#main"),
+	  allImages = document.getElementById("allImages");
+	  allImages_wrapper = document.querySelector("div#allImages div#wrapper");
 
 const albumNav = document.querySelectorAll("section#gallery div#albums nav span"),
 	  albumReturn = albumNav[0],
@@ -80,47 +82,50 @@ mainMenuOptions.forEach((element, index) => {
 
 		setTimeout(()=> {
 			displayToggle(mainMenu);
+			entryWrapper.style = null;
 		}, 750);
-		
-		setTimeout(() => {
-			loader.style.display = 'block';
-		}, 800)
-
-		setTimeout(() => {
-			loader.style.opacity = 0.25;
-		}, 825);
 
 		currentGalleries.galleryIndex = index;
 		albumCurrent.innerText = galleriesTwo[index].name;
 
 		renderGallery(galleriesTwo[index])
 		.then(() => {
-				
-			loader.style.opacity = 0;
-			
-			setTimeout(() => {
-				loader.style.display = 'none';
-			}, 325);
 
 			setTimeout(()=> {
 				displayToggle(albums);
-			}, 500);
+			}, 1000);
 		})	
 	})
 })
 
 //Nav button event listeners
 albumReturn.addEventListener('click', ()=> {
-	if(allImages.classList.contains('return')) {
-		displayToggle(allImages);
+	if(allOpen == true) {
+		displayToggle(allImages)
+		setTimeout(() => {
+			allImages.style.display = 'none';
+			displayToggle(albums);
+		}, 325)
+
+		allOpen = false;
+
+		allImages.firstElementChild.innerHTML = null;
+		entryWrapper.innerHTML = null;
+		setTimeout(()=> {
+			displayToggle(mainMenu);
+		}, 550);
+	} else {
+		entryWrapper.style.opacity = 0;
+
+		setTimeout(()=> {
+			displayToggle(albums)
+			entryWrapper.innerHTML = null;
+			entryWrapper.style = null; //needs to work
+		}, 325); //keep
+		setTimeout(()=> {
+			displayToggle(mainMenu);
+		}, 850); //keep
 	}
-	displayToggle(albums);
-	allImages.firstElementChild.innerHTML = null;
-	albumDivs = document.querySelectorAll("section#gallery div#albums div.entry");
-	albumDivs.forEach((element)=> { element.remove() });
-	setTimeout(()=> {
-		displayToggle(mainMenu);
-	}, 550); //keep
 })
 
 albumNext.addEventListener('click', ()=> {
@@ -132,17 +137,11 @@ albumNext.addEventListener('click', ()=> {
 	if (allImages.classList.contains('return')) {
 		displayToggle(allImages);
 	}
+
 	allImages.firstElementChild.innerHTML = null;
-	albumDivs = document.querySelectorAll("section#gallery div#albums div.entry");
-	albumDivs.forEach((element)=> { 
-		element.style.opacity = 0;
-		albumCurrent.style.opacity = 0;
-	});
-	setTimeout(()=> {
-		albumDivs.forEach((element)=> { 
-			element.remove();
-		});
-	}, 350);
+	entryWrapper.innerHTML = null;
+
+	
 
 	setTimeout(()=> {
 		let next;
@@ -154,30 +153,68 @@ albumNext.addEventListener('click', ()=> {
 			albumCurrent.style.opacity = 1;
 		}
 		albumCurrent.style.opacity = 1;
-	}, 400)
 
-	setTimeout(()=> {
-		renderGallery(galleriesTwo[currentGalleries.galleryIndex]);
-	}, 800); //keep
+		setTimeout(()=> {
+			renderGallery(galleriesTwo[next]);
+		}, 400); 
+	}, 400)	
 })
 
-albumCurrent.addEventListener('click', ()=> {
-	let albumEntries = document.querySelectorAll("section#gallery div#albums div.entry");
+albumNav[1].addEventListener('click', async () => {
 
-	if (allImages.classList.contains('return')) {
-		displayToggle(allImages);
+	if(allOpen == false) {
+
+		entryWrapper.style.opacity = 0;
 		setTimeout(() => {
-			albumEntries.forEach((element) => displayToggle(element));
-		}, 550);
+			entryWrapper.style.display = 'none';
+			// allImages.style.display = 'block';
+		}, 100)
+		setTimeout(() => {
+			loader.style.display = 'block';
+			setTimeout(() => {
+				loader.style.opacity = 0.3;
+			}, 100)	
+		}, 200)
+
+		let theImages = await preloadImages_all(currentGalleries.all);
+
+		theImages.forEach((img, index) => {
+
+			img.addEventListener('click', ()=> {
+				openAlbum(theImages, index);
+				controls_UI[0].firstElementChild.innerHTML = index;
+			})
+
+			allImages_wrapper.appendChild(img);
+		})
+
+		setTimeout(() => {
+			loader.style.opacity = 0;
+			displayToggle(allImages)
+			setTimeout(() => {
+				loader.style.display = null;
+			}, 100)
+		}, 325)
+
+		allOpen = true;
+
+	} else {
+
+		allImages.style.opacity = 0;
+		setTimeout(() => {
+			// allImages.style.display = 'none';
+			displayToggle(allImages)
+			entryWrapper.style.display = 'block';
+		}, 325)
+		setTimeout(() => {
+			entryWrapper.style.opacity = 1;
+		}, 525)
+
+		allOpen = false;
 	}
-	else {
-		albumEntries.forEach((element) => displayToggle(element));
-		setTimeout(() => {
-			displayToggle(allImages);
-		}, 550);
-	} //keep
 })
 
+let allOpen = false;
 //A Stateful object
 let currentGalleries = {
 	album: [],
@@ -199,6 +236,86 @@ const preloadImages_all = async (sources) => {
 	return Promise.all(sources.map(preloadImages))
 }
 
+let albumentry = (albumobject, thumbnailImages) => {
+
+	let title = albumobject.name.match(/[\d\.]+|\D+/g),
+		date = albumobject.name.split(/[A-Z][a-z]+/g)[0]
+		title = title[title.length - 1];
+		
+	let entry = document.createElement('div');
+		date = `<h3>${date}</h3>`;
+		title = `<h1>${title}</h1>`;
+	entry.innerHTML = `${date} \n ${title}`;
+	entry.classList.add('entry');
+
+	let thumbnails = document.createElement('div');
+		thumbnails.classList.add('thumbnails');
+	thumbnailImages.forEach((element) => {
+		thumbnails.appendChild(element);
+	})
+	entry.appendChild(thumbnails);
+
+	entry.dataset.images = JSON.stringify(albumobject.images);
+
+	return entry;
+}
+
+let openAlbum = async (album, index) => {
+
+	//albumList, siteHeader and nav all get removed immediately on click
+	displayToggle(albums);
+	displayToggle(header);
+	displayToggleNav();
+	loader.style.display = 'block';
+
+	setTimeout(() => {
+		loader.style.opacity = 0.25;
+	}, 200)
+
+	// creates array with image elements
+	// console.log(galleries[index].images);
+	// currentGalleries.album = await preloadImages_all(galleries[index].images) //galleries[0].album[0]
+	// nothing should happen until these are finished loading
+
+	currentGalleries.album = await preloadImages_all(album);
+
+	currentGalleries.album.map((element, index) => {
+		let slide = createImgSlide(element);
+		imageSlidesWrapper.appendChild(slide);
+
+		//imagesSlidesWrapper.appendChild(element)
+		//would only need this
+	})
+					
+	let imageSlides = Array.from(imageSlidesWrapper.children);
+	imagesControls(imageSlides);
+	if(index == null) {
+		imageSlides[0].style.display = "block";
+		controls_UI[0].firstElementChild.innerHTML = 1;
+	} else {
+		imageSlides[index].style.display = "block";
+		let place = ++index;
+		controls_UI[0].firstElementChild.innerHTML = place;
+	}
+	
+	controls_UI[0].lastElementChild.innerText = currentGalleries.album.length;
+
+					//
+	setTimeout(() => {
+		//remove loader here
+		loader.style.opacity = 0;
+		setTimeout(() => {
+			loader.style.display = 'none';
+			imageview.style.display = 'flex';
+			imageview.attributes.active = true;
+			setTimeout(() => {
+				imageview.style.opacity = '1';
+				loader.style.display = null;
+			}, 100)
+		}, 325)
+	}, 1000)
+}
+
 async function renderGallery(oneOfFour) { // gallery[x]
 	let entries = [];
 	let galleries = oneOfFour.albums;
@@ -210,7 +327,8 @@ async function renderGallery(oneOfFour) { // gallery[x]
 		
 			let thumbnails = [];
 			for(let i = 0; i < 3; i++) {
-				thumbnails.push(album.images[i]);
+				album.thumbnails[i]
+				thumbnails.push(album.thumbnails[i]);
 			}
 			thumbnails = await preloadImages_all(thumbnails);
 
@@ -230,13 +348,35 @@ async function renderGallery(oneOfFour) { // gallery[x]
 
 			
 				if(entries.length == galleries.length) {
+
+					let allThumbnails = Array.from(document.getElementsByClassName('thumbnails'));
+					allThumbnails.forEach(element => {
+						element.oncontextmenu = (e) => {
+							e.preventDefault();
+							e.stopPropagation();
+							return false;
+						}
+
+						let imgs = Array.from(element.children);
+						imgs.forEach(element => {
+							element.oncontextmenu = (e) => {
+								e.preventDefault();
+								e.stopPropagation();
+								return false;
+							};
+						})
+					})
+
 					resolve()
 				} else {
 					return;
 				}
 			})
-	})	
+	})
+		
 }
+
+
 
 /*
 	08. 06. 2022

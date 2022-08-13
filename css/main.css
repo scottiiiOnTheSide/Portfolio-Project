@@ -6,13 +6,13 @@
 
 @font-face {
 	font-family: "Avenir";
-	src: url("resources/AvenirLTStd-Light.otf");
+	src: url("../resources/AvenirLTStd-Light.otf");
 	font-weight: 300;
 }
 
 @font-face {
 	font-family: "Avenir";
-	src: url("resources/AvenirLTStd-Book.otf");
+	src: url("../resources/AvenirLTStd-Book.otf");
 	font-weight: 500;
 }
 

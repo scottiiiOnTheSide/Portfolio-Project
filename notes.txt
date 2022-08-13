@@ -2,6 +2,46 @@
 
 Uploaded - Pre Release Stage
 
+08. 13. 2022
+
+@1701 Loading for allImages seems to be working.
+	Have to add it back for selecting gallery,
+	which I could swear I already freaking did?!
+
+@1623 
+	Also fix how the UIE conforms on desktop
+	scale down images in imageview on desktop
+	add span to menu within imageview thats only visible while on desktop
+	loading needed before allImages can be rendered
+
+@1130 Need to fix the next button,
+	  loading needs to be readded to the gallery selection
+	  emailJS for contact form
+
+@1126 more or less officially have seperate repo for the production site. 
+	  Process will be that we work on any changes here, and then copy 
+	  whatever files we've worked on over to the prod.
+	  git copy the prod repo to mah laptop
+	  May have the images in the local dev link to the copies within
+	  the dev version
+
+08. 12. 2022
+@2040 selecting an image from all image opens imageview properly.
+	  Edit the 'next' function for when allImages is open
+
+	  properly relinked all images
+
+@1340 Halfway done with the allImages section
+      need to images to properly open up imageview onclick
+
+      and make corrections for next when allImages is open
+
+08. 10. 2022
+@1942 Had to fix quite the bug, but the new gallery object is connected and quite fast.
+	  gotta find way to remove context menu from thumbnails and that weird highlighting...that only seems
+	  to happen for the first few albums...?
+
+
 08. 08. 2022
 @1201 Created a production git repo on the site, and a branch locally, for the production version of the site.
 	  I dont even wanna think about managing that rn, but when the build is ready for launch,
@@ -14,14 +54,16 @@ Uploaded - Pre Release Stage
 
 	  To Do:
 	  - Now just need to plug everything in: have the gallery images pull from the created file, link to it
-	    in the HTML
+	    in the HTML ✅ 08. 10. 2022
 	  - have the other images on the site rerouted as well
 	  - add the last functions to the gallery:
-	    - the object to check whether a section or album has been opened previously,
+	    - the object to check whether a section or album has been opened previously, (no need)
 	    - allImages 
-	    - the next section button
+	    - the next section button (no need)
 
 	  and then finally plug in email.js :D
+
+	  and the copy for thePhotog in selfConception
 
 @1042 getting all the images - gotta make sure the string names are actually right now (._. )
 

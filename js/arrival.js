@@ -47,7 +47,7 @@ let headerImages = [
 // for (let i = 1; i < 13; i++) {
 // 	headerImages.push('img/header/' +i+ '.jpg');
 // }
-headerImages = headerImages.map(img => 'img/header/' +img);
+headerImages = headerImages.map(img => './resources/arrival/' +img);
 
 //sets some default styling for elements and allows toggling
 function toggleDefaults(tog) {
@@ -186,7 +186,7 @@ function removeOutro () {
 					images[i].src = headerImages[imgcnt];
 					carouselQueried(mediaQuery1024);
 					imgcnt++;
-					console.log(imgcnt);
+					// console.log(imgcnt);
 				}
 			} else if (images[0].src.includes('001')) {
 				imgcnt = 4;
@@ -194,7 +194,7 @@ function removeOutro () {
 					images[i].src = headerImages[imgcnt];
 					carouselQueried(mediaQuery1024);
 					imgcnt++;
-					console.log(imgcnt);
+					// console.log(imgcnt);
 				}
 			} else if (images[0].src.includes('005')) {
 				imgcnt = 8;
@@ -202,7 +202,7 @@ function removeOutro () {
 					images[i].src = headerImages[imgcnt];
 					carouselQueried(mediaQuery1024);
 					imgcnt++;
-					console.log(imgcnt);
+					// console.log(imgcnt);
 				}
 			}
 		}, 1700)//0.2s after .load... animation sequence is complete

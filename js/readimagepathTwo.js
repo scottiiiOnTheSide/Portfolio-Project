@@ -1,7 +1,7 @@
 
 const path = require('path');
 const fs = require('fs');
-const imagesFolder = path.resolve(__dirname, './img');	
+const imagesFolder = path.resolve(__dirname, '../img');	
 
 function createGallery(mainFolder) {
 
@@ -19,6 +19,9 @@ function createGallery(mainFolder) {
 
 
 		let dir = mainFolder + '/' + gallery;
+		console.log(dir);
+
+
 		var allOfThem = fs.readdirSync(dir);
 	    allOfThem.forEach(element => {
 
@@ -33,14 +36,16 @@ function createGallery(mainFolder) {
 	            	}
 	            	else {
 	            		let first = dir + '/' + element;
-	            		let result = first.replace('/Users/Jelique/Creative/Web Dev Space/Porfolio Project/', '..');
-	            		aSection.allImages.push(result);
+	            		// let result = first.replace('/Users/Jelique/Creative/Web Dev Space/Porfolio Project/', '../');
+	            		// aSection.allImages.push(result);
+	            		aSection.allImages.push(first);
 	            	}
 	            })
 	        } else {
 	        	let first = dir + '/' + element;
-	            let result = first.replace('/Users/Jelique/Creative/Web Dev Space/Porfolio Project/', '..');
-	            aSection.allImages.push(result);
+	            // let result = first.replace('/Users/Jelique/Creative/Web Dev Space/Porfolio Project/', '../');
+	            // aSection.allImages.push(result);
+	            aSection.allImages.push(first);
 	        }
 	    })
 	        
@@ -66,11 +71,13 @@ function createGallery(mainFolder) {
   					let dir = mainFolder + '/' + gallery + '/' + albumName + '/' + element;
   					let thmbnls = fs.readdirSync(dir);
   					thmbnls.forEach(element => {
-  						let result = '../img' + '/' + gallery + '/' + albumName + '/' + 'thumbnails/' + element;
+  						let result = dir + '/' + element;
+  						// result = result.replace('/Users/Jelique/Creative/Web Dev Space/Porfolio Project/', '../');
   						albumset.thumbnails.push(result);
   					})
   				} else {
-  					let result = '../img' + '/' + gallery + '/' + albumName + '/' + element;
+  					let result = dir + '/' + element;
+  					// result = result.replace('/Users/Jelique/Creative/Web Dev Space/Porfolio Project/', '../');
   					albumset.images.push(result);
   				}
 			});
@@ -86,9 +93,11 @@ function createGallery(mainFolder) {
 
 let gallery = createGallery(imagesFolder);
 // // console.log(gallery[0].albums);
-// let [one, two, three, four] = gallery;
+let [one, two, three, four] = gallery;
+gallery = [three, four, two, one];
+
 // console.log(gallery);
 console.log(gallery);
-fs.writeFileSync('./albumTwo.js', JSON.stringify(gallery), 'utf-8');
+fs.writeFileSync('./albumBlee.js', JSON.stringify(gallery), 'utf-8');
 
 
