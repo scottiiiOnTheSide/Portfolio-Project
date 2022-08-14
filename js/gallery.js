@@ -221,6 +221,7 @@ let currentGalleries = {
 	all: [],
 	index: 0,
 	galleryIndex: NaN,
+	previouslyOpen: [],
 }
 
 const preloadImages = (src) => new Promise((resolve,reject) => {

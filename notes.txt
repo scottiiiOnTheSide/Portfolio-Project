@@ -2,11 +2,25 @@
 
 Uploaded - Pre Release Stage
 
+08. 14. 2022
+@1248 it seems like the 'final', tasks here are to:
+	- implement emailjs
+	- fix UIE and CTA sizes and animation ✅
+	- imageview image size on desktop ✅
+	  - add text on desktop ✅
+
+
 08. 13. 2022
+
+@1724 reimplemented loader when selecting gallery,
+	may only have it apply to collabWork gallery for now,
+	the others load too fast
 
 @1701 Loading for allImages seems to be working.
 	Have to add it back for selecting gallery,
 	which I could swear I already freaking did?!
+
+	prod not updated yet
 
 @1623 
 	Also fix how the UIE conforms on desktop

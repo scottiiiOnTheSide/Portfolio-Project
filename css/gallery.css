@@ -384,6 +384,7 @@ section#gallery div#imageview ul#imageSlidesWrapper {
 	margin: 0;
 	padding: 0;
 	width: 100%;
+	max-width: 545px;
 	position: relative;
 	transition: all 0.3s ease-out;
 	transform: scale(1);
@@ -458,6 +459,20 @@ section#gallery div#imageview ul#controlsWrapper {
 		position: relative;
 		margin: 5px 0;
 	}
+
+	ul#controlsWrapper li#desktopAlert {
+		display: none;
+		margin: 10px 0;
+	}
+
+	ul#controlsWrapper li#desktopAlert p{
+		font-family: 'Open Sans';
+		font-weight: 500;    
+		color: var(--text-gray);
+    letter-spacing: 5px;
+	}
+
+	
 
 		ul#controlsWrapper li#imagecount {
 			box-sizing: border-box;
@@ -814,6 +829,10 @@ section#gallery div#loader {
 		transform: translateY(-50%);
 	}
 
+	ul#controlsWrapper li#desktopAlert {
+		display: inline-block;
+	}
+
 		section#gallery div#imageview ul#controlsWrapper li:nth-child(2) {
 			display: none;
 		}
@@ -823,17 +842,6 @@ section#gallery div#loader {
 		closing the menu*/
 		display: none;
 	}	
-
-/*@media only screen and (min-width: 1024px) {
-
-	section#gallery div#imageview div#controlsMenu {
-		z-index: 1;
-		background-color: transparent;
-	}
-
-	section#gallery div#imageview button#controlsToggle:hover {
-		/*border-bottom-color: white;*/
-	}
 }*/
 	
 

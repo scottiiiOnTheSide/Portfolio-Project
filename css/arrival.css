@@ -109,17 +109,17 @@ div#menu {
 	}
 
 	div#menu div.option span{
+		display: inline-block;
 		font-family: "Open Sans";
 		font-weight: 300;
 		font-size: 0.85rem;
 		letter-spacing: 3px;
 		line-height: 32px;
-		color: var(--text-gray);
-		margin; 20px auto;
+		margin: 20px auto;
 
 		transition: all 1s ease-out;
 		font-weight: 500;
-		color: var(--text-gray);
+		color: var(--main-color-green);
 		opacity: 0;
 	}
 
@@ -429,19 +429,23 @@ span.crnr:nth-child(2) {
 	right: 0; 
 	border-top: 0; 
 	transform: scale(0.98);
-}	span#crnr2-active { border-color: #3BDACA; right: 8px; top: 25px;}
+}	/*span#crnr2-active { border-color: #3BDACA; right: 8px; top: 25px;}*/
 
 span.crnr:nth-child(3) {
 	bottom: 0;
 	border-left: 0;
-}	span#crnr3-active { border-color: #3BDACA; left: 29px; bottom: 10px;}
+}	/*span#crnr3-active { border-color: #3BDACA; left: 29px; bottom: 10px;}*/
 
 span.crnr:last-child {
 	right: 0;
 	bottom: 0;
 	border-right: 0;
-}	span#crnr4-active { border-color: #3BDACA; right: 10px; bottom: 10px;}
+}	/*span#crnr4-active { border-color: #3BDACA; right: 10px; bottom: 10px;}*/
 
+
+span#crnr2-active { border-color: #3BDACA; right: 3px; top: 8px; }
+span#crnr3-active { border-color: #3BDACA; left: 11px; bottom: 4px;}
+span#crnr4-active { border-color: #3BDACA; right: 5px; bottom: 5px;}
 
 
 
@@ -467,10 +471,16 @@ span.crnr:last-child {
 		font-size: 1em;
 		line-height: 28px;
 	}
-	span#crnr2-active { border-color: #3BDACA; right: 7px; top: 10px; }
+/*	span#crnr2-active { border-color: #3BDACA; right: 7px; top: 10px; }
 	span#crnr3-active { border-color: #3BDACA; left: 12px; bottom: 8px;}
-	span#crnr4-active { border-color: #3BDACA; right: 7px; bottom: 7px;}
+	span#crnr4-active { border-color: #3BDACA; right: 7px; bottom: 7px;}*/
 
+}
+
+@media only screen and (min-width: 1024px) {
+	span#exclaimer {
+	    top: 86%;
+	}
 }
 
 @media only screen and (max-width: 1023px) {
@@ -553,12 +563,12 @@ span.crnr:last-child {
 	}
 
 	div#UIEwrapper {
-		width: 64px;
-		height: 64px;
+		width: 56px;
+		height: 56px;
 	}
 
-	span#crnr2-active { border-color: #3BDACA; right: 4px; top: 12px; }
-	span#crnr3-active { border-color: #3BDACA; left: 15px; bottom: 5px;}
+	span#crnr2-active { border-color: #3BDACA; right: 3px; top: 8px; }
+	span#crnr3-active { border-color: #3BDACA; left: 11px; bottom: 4px;}
 	span#crnr4-active { border-color: #3BDACA; right: 5px; bottom: 5px;}
 
 	div#menu div.option {

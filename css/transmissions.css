@@ -239,13 +239,18 @@ div#testimonials ul li {
 
 	div#testimonials ul li:first-child::before {
 		content: "";
-		background-image: url('img/mainMenu/1.jpg');
+		background-image: url('../resources/gallery/1.jpg');
 		background-position: 75% 25%;
 		background-size: cover;
 	  	position: absolute;
 	  	top: 0; left: 0;
-	  	width: 100%; height: 100%;
+	  	width: 100%; 
+	  	height: 100%;
 	  	opacity: 0.3;
+	}
+
+	div#testimonials ul li:nth-child(2)::before {
+		background-image: ;
 	}
 
 div#testimonials ul li h1 {
