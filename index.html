@@ -413,11 +413,16 @@
 <script type="text/javascript" src="js/selfConcept.js"></script>
 <script type="text/javascript" src="js/albums.js"></script>
 <script type="text/javascript" src="js/gallery.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
 <script type="text/javascript" src="js/transmissions.js"></script>
 
 
 <!-- Will eventually move this script to seperate file -->
 <script type="text/javascript">
+
+	(function () {
+		emailjs.init('ndYyHqewf0kLoDuxh');
+	})();
 
 	nav.attributes.active = true;
 

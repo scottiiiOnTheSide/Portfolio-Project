@@ -3,6 +3,11 @@
 Uploaded - Pre Release Stage
 
 08. 14. 2022
+@2254 emailJS finally implemented and working!
+	few tweaks to make for ipad, but.... she ready T- T
+
+@1332 implement emailJS. Last ish thing :D
+
 @1248 it seems like the 'final', tasks here are to:
 	- implement emailjs
 	- fix UIE and CTA sizes and animation ✅

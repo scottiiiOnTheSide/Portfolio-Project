@@ -5,6 +5,7 @@ const optionsWrapper = document.getElementById('optionsWrapper'),
 	  socials = document.getElementById('socials'),
 	  formWrapper = document.getElementById('emailScotty'),
 	  emailScotty = document.getElementById('emailScotty').firstElementChild,
+	  emailScottyForm = emailScotty.firstElementChild,
 	  inputs = Array.from(emailScotty.firstElementChild.children),
 	  submitForm = document.getElementById('submitForm'),
 	  successMessage = document.getElementById('successfulSubmit'),
@@ -247,6 +248,8 @@ emailScotty.addEventListener('change', () =>{
 
 
 submitForm.addEventListener('click', () => {
+
+	event.preventDefault();
 	submitForm.classList.add('glitch');
 	formData = {
 		name: inputs[0].value,
@@ -257,32 +260,42 @@ submitForm.addEventListener('click', () => {
 	console.log(formData);
 
 
-	//run this on successful submission using email.js
-	setTimeout(() => {
-		formWrapper.style.opacity = 0;
-		setTimeout(() => {
-			formWrapper.style.display = 'none';
-			inputs.forEach((element) => {
-				element.value = null;
-			})
-		}, 425);
-		setTimeout(() => {
-			closeWrapper();
-		}, 600);
-		setTimeout(() => {
-			successMessage.style.display = 'inline-block';
-			setTimeout(()=> {
-				successMessage.style.opacity = 1; 
-			}, 400)
-		}, 1400);
-		setTimeout(()=>{
-			sideButtons[0].style = 'display: block';
-		}, 1500);
-		setTimeout(()=>{
-			sideButtons[0].style.opacity = 1;
-			submitForm.style = null;
-			submitForm.classList.remove('glitch');
-		}, 2400);
 
-	}, 1000)
+	emailjs.sendForm('emailViaMyMedia', 'ppcontactForm', emailScotty)
+		.then(() => {
+			setTimeout(() => {
+				formWrapper.style.opacity = 0;
+				setTimeout(() => {
+					formWrapper.style.display = 'none';
+					inputs.forEach((element) => {
+						element.value = null;
+					})
+				}, 425);
+				setTimeout(() => {
+					closeWrapper();
+				}, 600);
+				setTimeout(() => {
+					successMessage.style.display = 'inline-block';
+					setTimeout(()=> {
+						successMessage.style.opacity = 1; 
+					}, 400)
+				}, 1400);
+				setTimeout(()=>{
+					sideButtons[0].style = 'display: block';
+				}, 1500);
+				setTimeout(()=>{
+					sideButtons[0].style.opacity = 1;
+					submitForm.style = null;
+					submitForm.classList.remove('glitch');
+				}, 2400);
+			}, 1000)
+		})
 })
+
+window.onload = () => {
+	submitForm.addEventListener('click', (event) => {
+		
+
+		
+	})
+}
