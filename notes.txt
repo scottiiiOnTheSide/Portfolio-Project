@@ -2,6 +2,12 @@
 
 Uploaded - Pre Release Stage
 
+08. 18. 2022
+@1132 Made many tweaks to the site design, almost 'completely' release ready
+	however the imageview experience is currently having issues on iPad
+	apparently it's viewport isn't a true 1024 x 768 thus I have to switch
+	around the breakpoint rules.
+
 08. 14. 2022
 @2254 emailJS finally implemented and working!
 	few tweaks to make for ipad, but.... she ready T- T

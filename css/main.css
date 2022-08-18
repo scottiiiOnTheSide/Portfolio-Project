@@ -70,8 +70,10 @@ header {
 	header h1::after {
 	content: '';
 	position: absolute;
-	width: 30%;
-	border: 2px solid rgba(59, 218, 202, 0.5);
+	width: 125px;
+	border-top: 4px solid;
+	border-image-source: linear-gradient(90deg, rgba(60,220,200,1) 0%, rgba(65,105,225,1) 100%);
+	border-image-slice: 1;
 	padding: 0;
 	transform: translateX(-50%);
 	left: 50%;
@@ -275,6 +277,7 @@ div#navPage ul li button {
 	font-size: 1.75em;
 	text-align: right;
 	letter-spacing: 20px;
+	color: black;
 
 	border: none;
     background-color: transparent;
@@ -283,7 +286,7 @@ div#navPage ul li button {
 
 	div#navPage ul li button span {
 		letter-spacing: 40px;
-		color: rgba(54, 54, 54, .05);
+		color: rgba(54, 54, 54, .10);
 		font-size: 2.25em;
 		position: absolute;
 		left: 4%;
@@ -341,7 +344,7 @@ div#navPage ul li button {
 
 	header h1 {
 		font-size: 1.25em;
-		letter-spacing: 6px;
+		letter-spacing: 4px;
 		margin-top: 20px;
 	}
 
